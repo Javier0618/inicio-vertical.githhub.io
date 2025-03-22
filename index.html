@@ -1,0 +1,2829 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamFusion - Home Vertical</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        @keyframes colorChange {
+            0% { color: #ffffff; }
+            25% { color: #e50914; }
+            50% { color: #ffffff; }
+            75% { color: #e50914; }
+            100% { color: #ffffff; }
+        }
+        body {
+            font-family: sans-serif;
+            background-color: #0e0e0e;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .container {
+            max-width: 100%;
+            margin: 10px 10px;
+            padding: 0px 0;
+            text-align: center;
+        }
+        header {
+            background-color: #0e0e0e;
+            color: white;
+            padding: 0.2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            align-items: center;
+        }
+        h1 {
+            display: flex;
+            font-size: 1.5rem;
+            margin: 0;
+            padding: 0;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            text-align: center;
+        }
+        .search {
+            display: flex;
+            align-items: center;
+        }
+        .search input {
+            border: none;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 150px;
+        }
+        .search button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .categories {
+            display: flex;
+            overflow-x: auto;
+            padding: 0.2rem;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 56px;
+            z-index: 999;
+        }
+        .category {
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .category:hover {
+            background-color: red;
+            color: white;
+        }
+      	.category.selected {
+    		background-color: red;
+    		color: white;
+		}
+        .streaming-services {
+            display: flex;
+            justify-content: space-around;
+            padding: 0.2rem;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        .service {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+        .service img {
+            width: 60px;
+            height: 30px;
+        }
+        .content-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 1vw;
+            padding: 0.2rem;
+            background-color: #0e0e0e;
+        }
+        .content {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        .content img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s;
+            border-radius: 10px;
+            display: none; /* Ocultar la imagen mientras carga */
+        }
+        .content img.loaded {
+            display: block; /* Mostrar la imagen cuando esté cargada */
+        }
+        .poster-placeholder {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 2/3;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .poster-placeholder::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        .poster-placeholder svg {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 10px;
+            animation: spin 1.5s linear infinite;
+        }
+        .poster-placeholder-text {
+            color: #e50914;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .poster-error {
+            width: 100%;
+            aspect-ratio: 2/3;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #e50914;
+        }
+        .poster-error svg {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 10px;
+        }
+        .content-info {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px;
+            box-sizing: border-box;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            text-align: center;
+        }
+        .content-info .content-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 0;
+            color: #fff;
+        }
+        .content-info .content-rating {
+            font-size: 1rem;
+            margin: 0;
+        }
+        .content-rating-container {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            background-color: rgba(255, 185, 0);
+            color: white;
+            padding: 0.5rem;
+            font-size: 9px;
+            font-weight: bold;
+            border-radius: 100px;
+        }
+        .now-showing {
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0.2rem 0;
+            text-align: center;
+            font-weight: bold;
+            animation: colorChange 3s infinite;
+        }
+        .swiper-container {
+            width: 100%;
+            height: 30vh;
+            overflow: hidden;
+            position: relative;
+          	border-radius: 15px;
+        }
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            cursor: pointer;
+            position: relative;
+        }
+        .swiper-slide-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra el contenido verticalmente */
+            height: 100%; /* Ocupa todo el slide */
+        }
+        .swiper-slide-title {
+            font-size: clamp(14px, 2vw, 20px); /* Se ajusta según el tamaño del viewport */
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        .swiper-slide-description {
+            background-color: rgba(0, 0, 0, .25);
+            max-width: 85%;
+            font-size: clamp(12px, 1.5vw, 16px); /* Ajuste dinámico */
+            text-align: left;
+            padding: 5px;
+            border-radius: 10px;
+            line-height: 1.2; /* Reduce la separación entre líneas */
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .swiper-slide-button {
+            background-color: red;
+            color: #fff;
+            border: none;
+            padding: 5px 15px;
+            font-size: clamp(12px, 1.5vw, 16px);
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            align-self: flex-start; /* Evita que se desplace fuera */
+        }
+        .swiper-slide-button:hover {
+            background-color: #ccc;
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: none;
+        }
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 1001;
+        }
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 85%;
+            margin: 40px auto;
+            text-align: center;
+        }
+        #close-popup {
+            background-color: #e50914;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        #close-popup:hover {
+            background-color: #3e8e41;
+        }
+        body.popup-open {
+            overflow-y: hidden;
+        }      
+        #dont-show-again {
+            margin-right: 10px;
+        } 
+        .release-year {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #0526fb;
+            color: #fff;
+            padding: 2px 5px;
+            border-radius: 5px;
+            font-size: 9px;
+            font-weight: bold;
+        }
+        .content-type {
+            position: absolute;
+            top: 25px;
+            left: 10px;
+            background-color: #0526fb;
+            color: #fff;
+            padding: 2px 5px;
+            border-radius: 5px;
+            font-size: 9px;
+            font-weight: bold;
+        }
+        .remove-button {
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #e50914;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 10;
+        }
+        .remove-button:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -200px;
+            width: 200px;
+            height: 100%;
+            background-color: #333;
+            overflow-y: auto;
+            transition: left 0.3s ease;
+            z-index: 1001;
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .sidebar h2 {
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            border-bottom: 1px solid #444;
+        }
+        .genre-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .genre-list li {
+            padding: 1rem;
+            border-bottom: 1px solid #444;
+            color: white;
+            cursor: pointer;
+        }
+        .genre-list li:hover {
+            background-color: red;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 1000;
+        }
+        .overlay.active {
+            display: block;
+        }
+        #spinner {
+            display: none;
+            position: fixed;
+            top: 75%;
+            left: 45%;
+            transform: translate(-50%, -50%);
+            z-index: 1002;
+            width: 30px;
+            height: 30px;
+            border: 6px solid rgb(255 255 255);
+            border-top: 6px solid #e50914;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+  		@media (min-width: 1366px) {
+        header {
+          	position: relative;
+            background-color: #0e0e0e;
+            color: white;
+            padding: 0.2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 50px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo, .logo-1, .search {
+            width: 100%;
+        }
+        .logo {
+            flex-basis: 33.333%;
+            padding-left: 10px;
+        }
+        .logo-1 {
+            flex-basis: 33.333%;
+            display: flex;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .search {
+            flex-basis: 33.333%;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 10px;
+            transition: all 0.3s ease;
+        }
+        .search input {
+            display: none; /* Initially hide the search input */
+            border: none;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+            background-color: #333;
+            color: white;
+        }
+        .search button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        /* Mostrar solo el botón de búsqueda */
+        .search button {
+          display: block;
+        }
+        /* Cuando la búsqueda está activa */
+        .search.active input {
+          display: block;
+          width: 250px;
+          transition: all 0.3s ease;
+        }
+    
+        .logo {
+            margin-left: 0.2rem;
+        }
+        .logo img {
+            max-width: 35px;
+        }
+      	 .logo-1 {
+            margin-left: 0.2rem;
+        }
+        .logo-1 img {
+            width: 50px;
+            height: 50px;
+        }
+        h1 {
+            display: flex;
+        	font-size: 5vw;
+        	margin: 0;
+        	padding: 0;
+        	text-align: center;
+        	flex-direction: row;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+        }
+        .search input {
+            border: none;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 30vw;
+        }
+        .categories {
+            display: flex;
+            overflow-x: auto;
+            padding: 0.2rem;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+          	height: 40px;
+            top: 0px;
+            z-index: 999;
+          	justify-content: center;
+          	align-items: center;
+        }
+        .category {
+          	font-size: 1.5vw;
+            padding: 0.5rem 1rem;
+            margin: 0 0.3rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .category:hover {
+            background-color: red;
+            color: white;
+        }
+      	.category.selected {
+    		background-color: red;
+    		color: white;
+		}
+        /* Contenedor principal */
+        .container-2 {
+            display: flex; /* Hace que los hijos estén en una fila */
+                height: calc(100vh - 90px);
+        }
+
+        /* Contenedor izquierdo (principal) */
+        .container {
+            width: 40%; /* Ancho del contenido principal */
+            background-color: #0e0e0e; /* Solo para visualización */
+            height: calc(100vh - 120px);
+            border-radius: 15px;
+        }
+
+        /* Barra lateral derecha */
+        .right-sidebar {
+            width: 60%; /* Ancho de la barra lateral derecha */
+            display: flex;
+            flex-direction: column; /* Apila los elementos verticalmente */
+            padding: 0rem; /* Espaciado interno */
+            box-sizing: border-box;
+            overflow-y: auto;
+            height: 100%;
+        }
+
+        /* Estilos para streaming-services */
+        .streaming-services {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-bottom: 1px solid #0e0e0e;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            background: #171717;
+        }
+
+        .streaming-services .service img {
+            width: 5vw; /* Ajusta el tamaño de los logos */
+            height: auto;
+        }
+
+        /* Estilos para content-list */
+        .content-list {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-gap: 0.5vw;
+            padding: 0.5rem;
+            background-color: #171717;
+        }
+  		.titulo{
+          display: flex;
+          height: 20vh;
+          align-items: center;
+          justify-content: center;
+  		}
+        .swiper-container {
+            width: 100%;
+            height: calc(100vh - 120px);
+            overflow: hidden;
+            position: relative;
+          	border-radius: 15px;
+        }
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            cursor: pointer;
+            position: relative;
+        }
+        .swiper-slide-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            color: white;
+        }
+        .swiper-slide-title {
+            font-size: 3vw;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: left;
+          	max-width: 90%;
+        }
+        .swiper-slide-description {
+            background-color: rgba(0, 0, 0, .25);
+            max-width: 90%;
+            font-size: 2vw;
+            margin-bottom: 20px;
+            text-align: left;
+            padding: 5px;
+            border-radius: 10px;
+        }
+        .swiper-slide-button {  	
+            background-color: red;
+            color: #fff;
+            border: none;
+            padding: 5px 15px;
+            font-size: 2vw;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            float: left;
+        }
+        .swiper-slide-button:hover {
+            background-color: #ccc;
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: none;
+        }
+
+        .remove-button {
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #e50914;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 10;
+        }
+        .remove-button:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+            html, body {
+    		margin: 0;
+    		padding: 0;
+            height: 100%;
+    		overflow: hidden; /* Desactiva el scroll global */
+			}
+
+            .streamfusion {
+              	font-size: 4vw;
+                font-weight: bold;
+                background: linear-gradient(90deg, red 0%, red 50%, yellow 50%, yellow 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+      	}
+		@media (min-width: 600px) and (max-width: 1365px) {
+        header {
+          	position: relative;
+            background-color: #0e0e0e;
+            color: white;
+            padding: 0.2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 50px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo, .logo-1, .search {
+            width: 100%;
+        }
+        .logo {
+            flex-basis: 33.333%;
+            padding-left: 10px;
+        }
+        .logo-1 {
+            flex-basis: 33.333%;
+            display: flex;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .search {
+            flex-basis: 33.333%;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 10px;
+            transition: all 0.3s ease;
+        }
+        .search input {
+            display: none; /* Initially hide the search input */
+            border: none;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+            background-color: #333;
+            color: white;
+        }
+        .search button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        /* Mostrar solo el botón de búsqueda */
+        .search button {
+          display: block;
+        }
+        /* Cuando la búsqueda está activa */
+        .search.active input {
+          display: block;
+          width: 250px;
+          transition: all 0.3s ease;
+        }
+
+  
+        .logo {
+            margin-left: 0.2rem;
+        }
+        .logo img {
+            max-width: 35px;
+        }
+      	 .logo-1 {
+            margin-left: 0.2rem;
+        }
+        .logo-1 img {
+            width: 50px;
+            height: 50px;
+        }
+        h1 {
+            display: flex;
+        	font-size: 5vw;
+        	margin: 0;
+        	padding: 0;
+        	text-align: center;
+        	flex-direction: row;
+        }
+        .search {
+            display: flex;
+            align-items: center;
+        }
+        .search input {
+            border: none;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 30vw;
+        }
+        .categories {
+            display: flex;
+            overflow-x: auto;
+            padding: 0.2rem;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+          	height: 40px;
+            top: 0px;
+            z-index: 999;
+          	justify-content: center;
+          	align-items: center;
+        }
+        .category {
+          	font-size: 1.5vw;
+            padding: 0.5rem 1rem;
+            margin: 0 0.3rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .category:hover {
+            background-color: red;
+            color: white;
+        }
+      	.category.selected {
+    		background-color: red;
+    		color: white;
+		}
+        /* Contenedor principal */
+        .container-2 {
+            display: flex; /* Hace que los hijos estén en una fila */
+                height: calc(100vh - 90px);
+        }
+
+        /* Contenedor izquierdo (principal) */
+        .container {
+            width: 40%; /* Ancho del contenido principal */
+            background-color: #0e0e0e; /* Solo para visualización */
+            height: calc(100vh - 120px);
+            border-radius: 15px;
+        }
+
+        /* Barra lateral derecha */
+        .right-sidebar {
+            width: 60%; /* Ancho de la barra lateral derecha */
+            display: flex;
+            flex-direction: column; /* Apila los elementos verticalmente */
+            padding: 0rem; /* Espaciado interno */
+            box-sizing: border-box;
+            overflow-y: auto;
+            height: 100%;
+        }
+
+        /* Estilos para streaming-services */
+        .streaming-services {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-bottom: 1px solid #0e0e0e;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            background: #171717;
+        }
+
+        .streaming-services .service img {
+            width: 4vw; /* Ajusta el tamaño de los logos */
+            height: auto;
+        }
+
+        /* Estilos para content-list */
+        .content-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 0.5vw;
+            padding: 0.5rem;
+            background-color: #171717;
+        }
+  		.titulo{
+          display: flex;
+          height: 20vh;
+          align-items: center;
+          justify-content: center;
+  		}
+        .swiper-container {
+            width: 100%;
+            height: calc(100vh - 120px);
+            overflow: hidden;
+            position: relative;
+          	border-radius: 15px;
+        }
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            cursor: pointer;
+            position: relative;
+        }
+        .swiper-slide-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            color: white;
+        }
+        .swiper-slide-title {
+            font-size: 3vw;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: left;
+          	max-width: 90%;
+        }
+        .swiper-slide-description {
+            background-color: rgba(0, 0, 0, .25);
+            max-width: 90%;
+            font-size: 2vw;
+            margin-bottom: 20px;
+            text-align: left;
+            padding: 5px;
+            border-radius: 10px;
+        }
+        .swiper-slide-button {  	
+            background-color: red;
+            color: #fff;
+            border: none;
+            padding: 5px 15px;
+            font-size: 2vw;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            float: left;
+        }
+        .swiper-slide-button:hover {
+            background-color: #ccc;
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: none;
+        }
+
+        .remove-button {
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #e50914;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 10;
+        }
+        .remove-button:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+            html, body {
+    		margin: 0;
+    		padding: 0;
+            height: 100%;
+    		overflow: hidden; /* Desactiva el scroll global */
+			}
+
+            .streamfusion {
+              	font-size: 4vw;
+                font-weight: bold;
+                background: linear-gradient(90deg, red 0%, red 50%, yellow 50%, yellow 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+      	}
+
+      	@media (max-width: 599px){
+        .titulo {
+          display: none;
+        }
+        
+        header {
+          	position: relative;
+            background-color: #0e0e0e;
+            color: white;
+            padding: 0.2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 50px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo, .logo-1, .search {
+            width: 100%;
+        }
+        .logo {
+            flex-basis: 33.333%;
+            padding-left: 10px;
+        }
+        .logo-1 {
+            flex-basis: 33.333%;
+            display: flex;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .logo img {
+            max-width: 35px;
+        }
+        .search {
+            flex-basis: 33.333%;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 10px;
+            transition: all 0.3s ease;
+        }
+        .search input {
+            display: none; /* Initially hide the search input */
+            border: none;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+            background-color: #333;
+            color: white;
+        }
+        .search button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        /* Mostrar solo el botón de búsqueda */
+        .search button {
+          display: block;
+        }
+        /* Cuando la búsqueda está activa */
+        .search.active input {
+          display: block;
+          width: 250px;
+          transition: all 0.3s ease;
+        }
+        /* Ocultar logo-1 cuando la búsqueda está activa */
+        .search.active ~ .logo-1 {
+          display: none !important;
+        }
+
+        .streamfusion {
+            font-weight: bold;
+            background: linear-gradient(90deg, red 0%, red 50%, yellow 50%, yellow 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+      }
+
+      /* Estilos para el sistema de licencia */
+      .license-dialog {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.8);
+          z-index: 9999;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .license-content {
+          background-color: #222;
+          padding: 30px;
+          border-radius: 10px;
+          width: 80%;
+          max-width: 500px;
+          text-align: center;
+      }
+
+      .license-title {
+          color: #e50914;
+          margin-top: 0;
+      }
+
+      .license-description {
+          color: #dedede;
+          margin-bottom: 20px;
+      }
+
+      .license-input-group {
+          margin-bottom: 15px;
+      }
+
+      .license-label {
+          display: block;
+          color: #fff;
+          margin-bottom: 5px;
+      }
+
+      .license-input {
+          width: 100%;
+          padding: 10px;
+          border-radius: 5px;
+          border: none;
+          text-align: center;
+          background-color: #333;
+          color: white;
+      }
+
+      .license-button {
+          background-color: #e50914;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 5px;
+          cursor: pointer;
+          margin-top: 10px;
+      }
+
+      .license-message {
+          margin-top: 15px;
+          color: #ff6b6b;
+          display: none;
+      }
+
+      .license-status {
+          position: fixed;
+          bottom: 10px;
+          right: 10px;
+          padding: 5px 10px;
+          border-radius: 5px;
+          font-size: 12px;
+          z-index: 1000;
+      }
+
+      .license-valid {
+          background-color: #16a34a;
+          color: white;
+      }
+
+      .license-invalid {
+          background-color: #e11d48;
+          color: white;
+          animation: pulse 2s infinite;
+      }
+
+      .license-toast {
+          position: fixed;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          padding: 10px 20px;
+          border-radius: 5px;
+          color: white;
+          z-index: 10000;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+      }
+
+      .license-toast-success {
+          background-color: #16a34a;
+      }
+
+      .license-toast-error {
+          background-color: #e11d48;
+      }
+
+      @keyframes pulse {
+          0% { opacity: 1; }
+          50% { opacity: 0.7; }
+          100% { opacity: 1; }
+      }
+    </style>
+</head>
+<body>
+    <!-- Sistema de licencia -->
+    <div id="license-dialog" class="license-dialog" style="display: none;">
+        <div class="license-content">
+            <h2 class="license-title">Activar StreamFusion</h2>
+            <p class="license-description">Ingrese su clave de licencia para continuar</p>
+            <div class="license-input-group">
+                <label for="licenseKey" class="license-label">Clave de Licencia</label>
+                <input type="text" id="licenseKey" class="license-input" value="" placeholder="SF-XXXX-XXXX">
+            </div>
+            <div class="license-button-group">
+                <button id="activateButton" class="license-button">Activar</button>
+            </div>
+            <p id="license-message" class="license-message"></p>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqC8k7QO6KNqYZXNkGt-F0knO2XMq4VDjl0_sM6sbPa3FEt4_PyIs3oiThacqu1-jG7-8v7a14KGcjn8_YBEI33yLlrmcobGnt-TT9_TNMie71bwN_d9fSX6WTHSv4gtZgtN8CRyTIey5fRLOEFQmoYQ-bZImSBQXfvL6vMlJ55WORvg/s1600/StreamFusion.png" alt="StreamFusion">
+        </div>
+      	<div class="logo-1">
+            <h1 class="streamfusion">StreamFusion</h1>
+        </div>        
+        <div class="search">
+            <input type="text" id="search-input" placeholder="Buscar...">
+            <button id="search-button">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+        </div>
+    </header>
+    <div id="sidebar" class="sidebar">
+        <h2>Géneros</h2>
+        <ul class="genre-list">
+            <li data-genre="28">Acción</li>
+            <li data-genre="12">Aventura</li>
+            <li data-genre="16">Animación</li>
+            <li data-genre="35">Comedia</li>
+            <li data-genre="80">Crimen</li>
+            <li data-genre="878">Ciencia Ficción</li>
+            <li data-genre="18">Drama</li>
+            <li data-genre="10751">Familia</li>
+            <li data-genre="14">Fantasía</li>
+            <li data-genre="36">Historia</li>
+            <li data-genre="10402">Música</li>
+            <li data-genre="9648">Misterio</li>
+            <li data-genre="10749">Romance</li>
+            <li data-genre="27">Terror</li>
+            <li data-genre="53">Suspenso</li>
+            <li data-genre="10752">Bélica</li>
+        </ul>
+    </div>
+    <div id="overlay" class="overlay"></div>
+  	<div id="spinner"></div>
+    <section class="categories">
+        <div class="category selected" data-category="inicio">Inicio</div>
+        <div class="category" data-category="peliculas">Películas</div>
+        <div class="category" data-category="series">Series</div>
+        <div class="category" data-category="animes">Animes</div>
+        <div class="category" data-category="doramas">Doramas</div>
+      	<div class="category" data-category="continuar-viendo">Visto</div>       
+    </section>
+    <div class="container-2">
+  	<div class="container">
+        <div class="swiper-container">
+            <div class="swiper-wrapper" id="swiper-wrapper"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+  	</div>
+    <div class="right-sidebar">
+        <section class="streaming-services">
+            <div class="service" data-service="netflix">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Netflix_logo.svg" alt="Netflix">
+            </div>
+            <div class="service" data-service="disney">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+">
+            </div>
+            <div class="service" data-service="hbo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Max_logo.svg" alt="HBO Max">
+            </div>
+            <div class="service" data-service="prime">
+                <img src="https://cdn.worldvectorlogo.com/logos/amazon-prime-video-1.svg" alt="Prime Video">
+            </div>
+            <div class="service" data-service="paramount">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Paramount_Pictures_Corporation_logo.svg" alt="Paramount+">
+            </div>
+        </section>
+        <section id="content-list" class="content-list"></section>
+    </div>    
+  	<button id="back-to-top" title="Volver a la parte de arriba">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </button>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h2>Bienvenido a <span style="color: red;">Stream</span><span style="color: orange;">Fusion</span></h2>
+            <p>Esta es la ventana de bienvenida</p>    
+            <li><b>La cual puedes configurar a tu gusto</b></li>
+            <h3></h3>
+            <p>Para hacerle saber a tus usuarios el funcionamiento de tu app</p>
+            <p>Ahora visualiza este demo. 🎉</p>
+            <button id="close-popup">Cerrar</button>
+            <label><input type="checkbox" id="dont-show-again"> No mostrar más</label>
+        </div>
+    </div>  
+      </div>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        // Sistema de licencia
+        const licenseSystem = {
+            isActivated: true,
+            // IMPORTANTE: Aquí debes colocar la licencia que generes para este cliente
+            // Esta licencia estará incluida en el código que distribuyas
+            defaultLicense: "SF-ABC123-TV", // Reemplaza esto con una licencia real que generes
+            licenseKey: "",
+            
+            expectedH1Text: 'StreamFusion',
+            
+            expectedApiKey: '32e5e53999e380a0291d66fb304153fe',
+            
+            titleObserver: null,
+            titleCheckInterval: null,
+            apiKeyCheckInterval: null,
+
+            // Inicializar el sistema de licencia
+            init: function() {
+    console.log("Inicializando sistema de licencia...");
+    
+    // Obtener el licencia actual
+    const titleElement = document.querySelector("h1.streamfusion");
+    if (!titleElement) {
+        console.error("No se encontró el elemento h1.streamfusion");
+        this.showToast("Error crítico: No se encontró el elemento h1", true);
+        return;
+    }
+    
+    const currentH1Text = titleElement.textContent.trim();
+    console.log("Licencia actual:", currentH1Text);
+    console.log("Licencia esperado:", this.expectedH1Text);
+    
+    // Verificar si la licencia coincide con el esperado
+    const h1IsValid = currentH1Text === this.expectedH1Text;
+    
+    // Verificar que la licencia 2 coincida con la esperada
+    const currentApiKey = this.getCurrentApiKey();
+    const apiKeyIsValid = !currentApiKey || currentApiKey === this.expectedApiKey;
+    
+    // Si ambos valores son válidos, activar automáticamente sin mostrar diálogo
+    if (h1IsValid && apiKeyIsValid) {
+        console.log("Licencia y Licencia 2 válidos, activando automáticamente");
+        
+        // Comprobar si ya hay una licencia almacenada
+        const storedLicense = localStorage.getItem("streamfusion_license");
+        
+        // Usar la licencia almacenada o la predeterminada
+        this.licenseKey = storedLicense || this.defaultLicense;
+        
+        // Guardar en localStorage si no existe
+        if (!storedLicense) {
+            localStorage.setItem("streamfusion_license", this.licenseKey);
+        }
+        
+        // Marcar como activado
+        localStorage.setItem("streamfusion_activated", "true");
+        this.isActivated = true;
+        
+        // Iniciar monitoreo de licencia y licencia 2
+        this.startTitleMonitoring();
+        this.startApiKeyMonitoring();
+        
+        // Mostrar indicador de licencia
+        this.showLicenseStatus(true);
+        
+        // Inicializar la aplicación
+        initializeApp();
+    } else {
+        // Si alguno de los valores no es válido, mostrar mensaje de error y bloquear
+        if (!h1IsValid) {
+            console.log("Licencia invalida, no coincide con el esperado");
+            this.showToast("Error: Licencia inválida", true);
+            this.deactivateLicense("Esta licencia ya ha sido usada. Desactivando código.");
+        } else if (!apiKeyIsValid) {
+            console.log("La licencia 2 no coincide con la esperada");
+            this.showToast("Error: Licencia inválida", true);
+            this.deactivateLicense("Esta licencia ya ha sido usada. Desactivando código");
+        }
+    }
+    
+    // Configurar atajo de teclado para generación de licencia (solo para el desarrollador)
+    this.setupKeyboardShortcut();
+},
+            
+            // Iniciar monitoreo de licencia 2
+            startApiKeyMonitoring: function() {
+                console.log("Iniciando monitoreo de la licencia");
+                
+                // Detener intervalo existente si hay uno
+                if (this.apiKeyCheckInterval) {
+                    clearInterval(this.apiKeyCheckInterval);
+                }
+                
+                // Configurar verificación periódica de la licencia 2
+                this.apiKeyCheckInterval = setInterval(() => {
+                    // Obtener lalicencia 2 actual del código
+                    const currentApiKey = this.getCurrentApiKey();
+                    
+                    if (currentApiKey && currentApiKey !== this.expectedApiKey) {
+                        console.log("La licencia 2 ha sido modificada. Actual:", currentApiKey, "Esperada:", this.expectedApiKey);
+                        clearInterval(this.apiKeyCheckInterval);
+                        this.deactivateLicense("Esta licencia ya ha sido usada. Licencia invalidada.");
+                    }
+                }, 5000); // Verificar cada 5 segundos
+            },
+            
+            // Método auxiliar para obtener la licencia 2 actual del código
+            getCurrentApiKey: function() {
+                // Buscar la API key en el código fuente de la página
+                const scripts = document.querySelectorAll('script');
+                let currentApiKey = null;
+                
+                for (const script of scripts) {
+                    if (script.textContent.includes('const apiKey =')) {
+                        // Extraer la licencia 2 usando regex
+                        const match = script.textContent.match(/const apiKey = ['"]([^'"]+)['"]/);
+                        if (match && match[1]) {
+                            currentApiKey = match[1];
+                            break;
+                        }
+                    }
+                }
+                
+                return currentApiKey;
+            },
+            
+            // Generar una licencia
+            generateLicense: function(customerName) {
+                // Generar parte aleatoria de 6 caracteres
+                const randomPart = Math.random().toString(36).substring(2, 8).toUpperCase();
+                // Obtener primeras 3 letras del nombre del cliente
+                const namePart = customerName.substring(0, 3).toUpperCase();
+                // Formato: SF-XXXXXX-YYY
+                return `SF-${randomPart}-${namePart}`;
+            },
+            
+            // Validar una licencia
+            validateLicense: function(license) {
+                // Validación básica - comprobar formato
+                const licenseRegex = /^SF-[A-Z0-9]{6}-[A-Z]{3}$/;
+                return licenseRegex.test(license);
+            },
+            
+            // Iniciar monitoreo de licencia
+            startTitleMonitoring: function() {
+                const titleElement = document.querySelector("h1.streamfusion");
+                if (!titleElement) {
+                    console.error("No se encontró el elemento h1.streamfusion para monitorear");
+                    return;
+                }
+                
+                console.log("Iniciando monitoreo de licencia");
+                
+                // Desconectar observador existente si hay uno
+                if (this.titleObserver) {
+                    this.titleObserver.disconnect();
+                }
+                
+                // Detener intervalo existente si hay uno
+                if (this.titleCheckInterval) {
+                    clearInterval(this.titleCheckInterval);
+                }
+                
+                // Crear un nuevo MutationObserver
+                this.titleObserver = new MutationObserver((mutations) => {
+                    const currentH1Text = titleElement.textContent.trim();
+                    
+                    console.log("Licencia. Actual:", currentH1Text, "Esperado:", this.expectedH1Text);
+                    
+                    // Si el título ha cambiado, desactivar la licencia
+                    if (currentH1Text !== this.expectedH1Text) {
+                        console.log("Licencia invalida. Desactivado código.");
+                        this.deactivateLicense("Licencia invalida. Desactivado código.");
+                    }
+                });
+                
+                // Iniciar observación del elemento título
+                this.titleObserver.observe(titleElement, { 
+                    childList: true,      // Observar cambios en nodos hijos
+                    characterData: true,  // Observar cambios en datos de texto
+                    subtree: true,        // Observar todos los descendientes
+                    attributes: true      // Observar cambios de atributos
+                });
+                
+                // Verificación periódica adicional como respaldo
+                this.titleCheckInterval = setInterval(() => {
+                    const currentH1Text = titleElement.textContent.trim();
+                    
+                    if (currentH1Text !== this.expectedH1Text) {
+                        console.log("Licencia invalida por verificación periódica");
+                        clearInterval(this.titleCheckInterval);
+                        this.deactivateLicense("Licencia invalidada.");
+                    }
+                }, 5000); // Verificar cada 5 segundos
+            },
+            
+            // Modify the deactivateLicense function to temporarily block instead of permanently deactivating
+            deactivateLicense: function(reason) {
+                console.log("Desactivado", reason);
+                
+                // No eliminar la activación de localStorage para permitir recuperación
+                this.isActivated = false;
+                
+                // Detener monitoreo temporalmente pero no eliminar los observadores
+                if (this.titleObserver) {
+                    this.titleObserver.disconnect();
+                }
+                
+                if (this.titleCheckInterval) {
+                    clearInterval(this.titleCheckInterval);
+                }
+                
+                if (this.apiKeyCheckInterval) {
+                    clearInterval(this.apiKeyCheckInterval);
+                }
+                
+                // Guardar el contenido original del body si aún no se ha guardado
+                if (!this.originalBodyContent) {
+                    this.originalBodyContent = document.body.innerHTML;
+                }
+                
+                // Mostrar mensaje de error
+                document.body.innerHTML = '<div style="display: flex; justify-content: center; flex-direction: column; text-align: center; font-family: sans-serif; background-color: #0e0e0e; color: white; height: 100vh;"><h2 style="font-size: 28px; color: red;">ACCESO DENEGADO</h2><p>Esta licencia ya ha sido usada. Por favor, contacte al proveedor y obtenga una licencia válida.</p><p>Visita: <a href="https://streamfusion.top/" style="color: green;">https://streamfusion.top/</a></p></div>';
+                
+                this.showToast(reason, true);
+                
+                // Mostrar indicador de licencia inválida
+                this.showLicenseStatus(false);
+                
+                // Iniciar verificación periódica para comprobar si los valores han sido restaurados
+                this.startRecoveryCheck();
+            },
+
+            // Añadir una nueva función para verificar periódicamente si los valores han sido restaurados
+            startRecoveryCheck: function() {
+                console.log("Iniciando verificación de recuperación");
+                
+                // Detener verificación existente si hay una
+                if (this.recoveryInterval) {
+                    clearInterval(this.recoveryInterval);
+                }
+                
+                // Iniciar verificación periódica
+                this.recoveryInterval = setInterval(() => {
+                    // Verificar si el h1 ha sido restaurado
+                    const titleElement = document.querySelector("h1.streamfusion");
+                    let h1Restored = false;
+                    
+                    if (titleElement) {
+                        const currentH1Text = titleElement.textContent.trim();
+                        h1Restored = currentH1Text === this.expectedH1Text;
+                        console.log("Verificando h1:", currentH1Text, "Esperado:", this.expectedH1Text, "Restaurado:", h1Restored);
+                    }
+                    
+                    // Verificar si la licencia ha sido restaurada
+                    const currentApiKey = this.getCurrentApiKey();
+                    let apiKeyRestored = false;
+                    
+                    if (currentApiKey) {
+                        apiKeyRestored = currentApiKey === this.expectedApiKey;
+                        console.log("Verificando licencia:", currentApiKey, "Esperada:", this.expectedApiKey, "Restaurada:", apiKeyRestored);
+                    }
+                    
+                    // Si ambos valores han sido restaurados, recuperar la aplicación
+                    if (h1Restored && (apiKeyRestored || !currentApiKey)) {
+                        console.log("Valores restaurados, recuperando aplicación");
+                        this.recoverApplication();
+                    }
+                }, 3000); // Verificar cada 3 segundos
+            },
+
+            // Añadir una nueva función para recuperar la aplicación
+            recoverApplication: function() {
+                console.log("Recuperando aplicación");
+                
+                // Detener verificación de recuperación
+                if (this.recoveryInterval) {
+                    clearInterval(this.recoveryInterval);
+                    this.recoveryInterval = null;
+                }
+                
+                // Restaurar el contenido original del body
+                if (this.originalBodyContent) {
+                    document.body.innerHTML = this.originalBodyContent;
+                    this.originalBodyContent = null;
+                }
+                
+                // Reactivar la licencia
+                this.isActivated = true;
+                
+                // Si no hay una licencia almacenada, usar la predeterminada
+                if (!localStorage.getItem("streamfusion_license")) {
+                    localStorage.setItem("streamfusion_license", this.defaultLicense);
+                    this.licenseKey = this.defaultLicense;
+                } else {
+                    this.licenseKey = localStorage.getItem("streamfusion_license");
+                }
+                
+                // Asegurarse de que la activación esté marcada como verdadera
+                localStorage.setItem("streamfusion_activated", "true");
+                
+                // Reiniciar monitoreo
+                this.startTitleMonitoring();
+                this.startApiKeyMonitoring();
+                
+                // Mostrar indicador de licencia válida
+                this.showLicenseStatus(true);
+                
+                // Mostrar mensaje de recuperación
+                this.showToast("Aplicación recuperada correctamente");
+                
+                // Reinicializar la aplicación directamente sin mostrar el diálogo de activación
+                initializeApp();
+            },
+            
+            // Mostrar diálogo de activación
+            showActivationDialog: function() {
+                const dialog = document.getElementById("license-dialog");
+                const licenseInput = document.getElementById("licenseKey");
+                const activateButton = document.getElementById("activateButton");
+                const licenseMessage = document.getElementById("license-message");
+                
+                // Mostrar el diálogo
+                dialog.style.display = "flex";
+                
+                // Si hay una licencia predeterminada, mostrarla en el campo
+                if (this.defaultLicense) {
+                    licenseInput.value = this.defaultLicense;
+                }
+                
+                // Configurar evento de clic para el botón de activación
+                activateButton.onclick = () => {
+                    const license = licenseInput.value.trim();
+                    
+                    if (!license) {
+                        licenseMessage.textContent = "Por favor ingresa una licencia válida";
+                        licenseMessage.style.display = "block";
+                        return;
+                    }
+                    
+                    if (this.validateLicense(license)) {
+                        this.activateLicense(license);
+                        dialog.style.display = "none";
+                    } else {
+                        licenseMessage.textContent = "Licencia inválida. Por favor verifica e intenta nuevamente.";
+                        licenseMessage.style.display = "block";
+                    }
+                };
+            },
+            
+            // Mostrar diálogo de generación de licencia
+            showGeneratorDialog: function() {
+                // Crear elementos del diálogo
+                const dialog = document.createElement("div");
+                dialog.className = "license-dialog";
+                dialog.id = "generatorDialog";
+                
+                dialog.innerHTML = `
+                    <div class="license-content">
+                        <h2 class="license-title">Generador de Licencia</h2>
+                        <p class="license-description">Genera una clave de licencia para tu cliente</p>
+                        <div class="license-input-group">
+                            <label for="customerName" class="license-label">Nombre del Cliente</label>
+                            <input type="text" id="customerName" class="license-input" placeholder="Ingresa el nombre del cliente">
+                        </div>
+                        <div id="licenseResult" style="margin-top: 15px; display: none;">
+                            <label for="generatedLicense" class="license-label">Licencia Generada</label>
+                            <input type="text" id="generatedLicense" class="license-input" readonly>
+                            <button id="copyButton" style="background-color: #333; color: white; border: none; border-radius: 5px; padding: 5px 10px; cursor: pointer; margin-top: 10px;">Copiar</button>
+                        </div>
+                        <div style="margin-top: 20px; display: flex; justify-content: space-between;">
+                            <button id="closeButton" style="background-color: #333; color: white; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer;">Cerrar</button>
+                            <button id="generateButton" style="background-color: #e50914; color: white; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer;">Generar Licencia</button>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(dialog);
+                
+                // Configurar eventos
+                document.getElementById("generateButton").addEventListener("click", () => {
+                    const customerName = document.getElementById("customerName").value.trim();
+                    if (!customerName) {
+                        this.showToast("Por favor ingresa el nombre del cliente", true);
+                        return;
+                    }
+                    
+                    const license = this.generateLicense(customerName);
+                    document.getElementById("generatedLicense").value = license;
+                    document.getElementById("licenseResult").style.display = "block";
+                });
+                
+                document.getElementById("copyButton").addEventListener("click", () => {
+                    const licenseInput = document.getElementById("generatedLicense");
+                    licenseInput.select();
+                    document.execCommand("copy");
+                    this.showToast("Licencia copiada al portapapeles");
+                });
+                
+                document.getElementById("closeButton").addEventListener("click", () => {
+                    document.body.removeChild(dialog);
+                });
+            },
+            
+            // Activar una licencia
+            activateLicense: function(licenseKey) {
+                const titleElement = document.querySelector("h1.streamfusion");
+                if (!titleElement) {
+                    this.showToast("No se pudo encontrar el elemento de título", true);
+                    return;
+                }
+                
+                const currentH1Text = titleElement.textContent.trim();
+                
+                console.log("Activando licencia. Clave:", licenseKey, "H1 actual:", currentH1Text);
+                
+                // Verificar que la licencia coincida con el esperado
+                if (currentH1Text !== this.expectedH1Text) {
+                    console.log("El licencia no coincide con el esperado, no se puede activar la licencia");
+                    this.showToast("Licencia invalida. No se puede activar el código.", true);
+                    return;
+                }
+                
+                // Verificar que la licenci coincida con la esperada
+                const currentApiKey = this.getCurrentApiKey();
+                if (currentApiKey && currentApiKey !== this.expectedApiKey) {
+                    console.log("La licencia no coincide con la esperada, no se puede activar la licencia");
+                    this.showToast("Licencia invalida. No se puede activar el código..", true);
+                    return;
+                }
+                
+                const isLicenseValid = this.validateLicense(licenseKey);
+                
+                if (isLicenseValid) {
+                    console.log("Licencia válida, activando...");
+                    this.isActivated = true;
+                    this.licenseKey = licenseKey;
+                    
+                    // Guardar en localStorage
+                    localStorage.setItem("streamfusion_license", licenseKey);
+                    localStorage.setItem("streamfusion_activated", "true");
+                    
+                    // Iniciar monitoreo de licencia y licencia 2
+                    this.startTitleMonitoring();
+                    this.startApiKeyMonitoring();
+                    
+                    this.showToast("Licencia activada correctamente");
+                    
+                    // Mostrar indicador de licencia
+                    this.showLicenseStatus(true);
+                    
+                    // Inicializar la aplicación
+                    initializeApp();
+                } else {
+                    console.log("Licencia inválida");
+                    this.showToast("La clave de licencia es inválida", true);
+                }
+            },
+            
+            // Mostrar estado de licencia
+            showLicenseStatus: function(isValid) {
+                // Eliminar indicador existente si lo hay
+                const existingStatus = document.getElementById("licenseStatus");
+                if (existingStatus) {
+                    document.body.removeChild(existingStatus);
+                }
+                
+                // Crear nuevo indicador
+                const status = document.createElement("div");
+                status.id = "licenseStatus";
+                status.className = isValid ? "license-status license-valid" : "license-status license-invalid";
+                status.textContent = isValid ? "Licenciado" : "Sin Licencia";
+                
+                document.body.appendChild(status);
+            },
+            
+            // Mostrar mensaje toast
+            showToast: function(message, isError = false) {
+                console.log("Toast:", message, isError ? "(Error)" : "");
+                
+                // Eliminar toast existente si lo hay
+                const existingToast = document.getElementById("licenseToast");
+                if (existingToast) {
+                    document.body.removeChild(existingToast);
+                }
+                
+                // Crear nuevo toast
+                const toast = document.createElement("div");
+                toast.id = "licenseToast";
+                toast.className = `license-toast ${isError ? 'license-toast-error' : 'license-toast-success'}`;
+                toast.textContent = message;
+                toast.style.opacity = "0";
+                
+                document.body.appendChild(toast);
+                
+                // Mostrar y ocultar con animación
+                setTimeout(() => {
+                    toast.style.opacity = "1";
+                    
+                    setTimeout(() => {
+                        toast.style.opacity = "0";
+                        
+                        setTimeout(() => {
+                            if (document.body.contains(toast)) {
+                                document.body.removeChild(toast);
+                            }
+                        }, 300);
+                    }, 3000);
+                }, 10);
+            },
+            
+            // Configurar atajo de teclado para generación de licencia
+            setupKeyboardShortcut: function() {
+                let keyBuffer = "";
+                
+                window.addEventListener("keydown", (e) => {
+                    if (e.target instanceof HTMLInputElement) return;
+                    
+                    // Rastrear las últimas 10 teclas presionadas
+                    keyBuffer = (keyBuffer + e.key).slice(-10);
+                    
+                    // Comprobar si se escribió "genlicense"
+                    if (keyBuffer === "genlicense") {
+                        console.log("Atajo de teclado detectado: genlicense");
+                        this.showGeneratorDialog();
+                        keyBuffer = "";
+                    }
+                });
+            },
+            // Añadir la propiedad originalBodyContent y recoveryInterval al objeto licenseSystem
+            originalBodyContent: null,
+            recoveryInterval: null
+        };
+
+        // Función para inicializar la aplicación
+        function initializeApp() {
+            console.log("Inicializando aplicación StreamFusion...");
+            const apiKey = '32e5e53999e380a0291d66fb304153fe';
+            const apiBaseUrl = 'https://api.themoviedb.org/3';
+            const imgBaseUrl = 'https://image.tmdb.org/t/p/original';
+            const contentList = document.getElementById('content-list');
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+            const categories = document.querySelectorAll('.category');
+            const services = document.querySelectorAll('.service');
+            const swiperWrapper = document.getElementById('swiper-wrapper');
+            const continuarViendo = JSON.parse(localStorage.getItem('continuarViendo')) || [];
+
+            // Modificar las variables de estado para que sean objetos que contengan el estado de cada sección
+            let allContent = [];
+            let currentSectionContent = [];
+            let page = 1;
+            
+            // Modificar las variables de estado para que sean objetos que contengan el estado de cada sección
+            let loading = {
+                inicio: false,
+                peliculas: false,
+                series: false,
+                animes: false,
+                doramas: false,
+                'continuar-viendo': false
+            };
+            
+            let hasMore = {
+                inicio: true,
+                peliculas: true,
+                series: true,
+                animes: true,
+                doramas: false,
+                'continuar-viendo': true
+            };
+
+            // Función para guardar contenido en "Continuar Viendo"
+            function saveToContinuarViendo(item) {
+                if (!continuarViendo.some(content => content.id === item.id)) {
+                    item.lastVisited = new Date().getTime();
+                    continuarViendo.push(item);
+                    localStorage.setItem('continuarViendo', JSON.stringify(continuarViendo));
+                }
+            }
+
+            // Modificar la función loadContinuarViendo() para que sea completamente independiente
+            function loadContinuarViendo() {
+                // Reiniciar el contenido de la lista
+                contentList.innerHTML = '';
+                
+                // Obtener los elementos de "Continuar Viendo" ordenados por fecha
+                const sortedContinuarViendo = continuarViendo.sort((a, b) => b.lastVisited - a.lastVisited);
+                
+                // Desconectar el observer para evitar interferencias
+                observer.disconnect();
+                
+                // Mostrar los elementos de "Continuar Viendo"
+                sortedContinuarViendo.forEach((item) => {
+                    const itemElement = document.createElement('div');
+                    itemElement.classList.add('content');
+                    itemElement.dataset.id = item.id;
+
+                    // Crear la imagen
+                    const img = document.createElement('img');
+                    img.src = item.poster_path ? `https://image.tmdb.org/t/p/w500/${item.poster_path}` : '/placeholder.jpg';
+                    img.alt = item.title || item.name;
+                    img.loading = "lazy";
+                    img.classList.add('loaded'); // Mostrar la imagen inmediatamente
+
+                    // Añadir imagen al elemento
+                    itemElement.appendChild(img);
+
+                    // Añadir el resto de la información
+                    const infoDiv = document.createElement('div');
+                    infoDiv.classList.add('content-info');
+                    infoDiv.innerHTML = `<h3 class="content-title">${item.title || item.name}</h3>`;
+                    itemElement.appendChild(infoDiv);
+
+                    // Añadir tipo de contenido
+                    const typeDiv = document.createElement('div');
+                    typeDiv.classList.add('content-type');
+                    typeDiv.textContent = item.release_date ? 'Película' : item.first_air_date ? 'Serie' : 'Unknown';
+                    itemElement.appendChild(typeDiv);
+
+                    // Añadir año de lanzamiento
+                    const yearDiv = document.createElement('div');
+                    yearDiv.classList.add('release-year');
+                    yearDiv.textContent = item.release_date ? item.release_date.split('-')[0] : 
+                                        item.first_air_date ? item.first_air_date.split('-')[0] : '';
+                    itemElement.appendChild(yearDiv);
+
+                    // Añadir calificación
+                    const ratingDiv = document.createElement('div');
+                    ratingDiv.classList.add('content-rating-container');
+                    ratingDiv.textContent = item.vote_average.toFixed(1);
+                    itemElement.appendChild(ratingDiv);
+
+                    // Añadir botón de eliminar
+                    const removeButton = document.createElement('button');
+                    removeButton.classList.add('remove-button');
+                    removeButton.textContent = 'Eliminar';
+                    removeButton.addEventListener('click', (event) => {
+                        event.stopPropagation();
+                        const index = continuarViendo.findIndex(content => content.id === item.id);
+                        if (index !== -1) {
+                            continuarViendo.splice(index, 1);
+                            localStorage.setItem('continuarViendo', JSON.stringify(continuarViendo));
+                            loadContinuarViendo(); // Recargar la sección después de eliminar
+                        }
+                    });
+                    itemElement.appendChild(removeButton);
+
+                    // Añadir evento de clic
+                    itemElement.addEventListener('click', () => {
+                        // Actualizar la fecha de visita
+                        item.lastVisited = new Date().getTime();
+                        localStorage.setItem('continuarViendo', JSON.stringify(continuarViendo));
+                        window.open(`go:${item.id}`, '_blank');
+                    });
+
+                    contentList.appendChild(itemElement);
+                });
+                
+                // No necesitamos observer para esta sección ya que mostramos todo de una vez
+                // y no hay carga progresiva
+            }
+
+            // Modificar el event listener de la categoría "continuar-viendo" para usar la función independiente
+            categories.forEach(category => {
+                category.addEventListener('click', async (event) => {
+                    categories.forEach(cat => cat.classList.remove('selected'));
+                    event.target.classList.add('selected');
+
+                    const selectedCategory = event.target.dataset.category;
+
+                    // Desconectar el observer para evitar interferencias entre secciones
+                    observer.disconnect();
+
+                    if (selectedCategory === 'continuar-viendo') {
+                        // Usar la función independiente para "Continuar Viendo"
+                        loadContinuarViendo();
+                        // No configuramos observer para esta sección
+                    } else {
+                        // Restablecer variables para que la carga progresiva funcione correctamente
+                        // Reiniciar solo el estado de la sección actual
+                        hasMore[selectedCategory] = true;
+                        loading[selectedCategory] = false;
+
+                        if (selectedCategory === 'inicio') {
+                            fetchInicioContent([...inicioMovieIds], [...inicioSeriesIds]);
+                        } else if (selectedCategory === 'peliculas') {
+                            const shuffledMovieIds = [...inicioMovieIds].sort(() => Math.random() - 0.5);
+                            currentSectionContent = []; // Resetear el contenido de la sección
+                            await fetchContentByIds(shuffledMovieIds, 'movie');
+                        } else if (selectedCategory === 'series') {
+                            const shuffledSeriesIds = [...inicioSeriesIds].sort(() => Math.random() - 0.5);
+                            currentSectionContent = [];
+                            await fetchContentByIds(shuffledSeriesIds, 'tv');
+                        } else if (selectedCategory === 'doramas') {
+                            currentSectionContent = [];
+                            const doramaSeriesPromises = doramasSeriesIds.map(id =>
+                                fetch(`${apiBaseUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`)
+                                .then(response => response.json())
+                                .then(data => ({ ...data, genre: 'dorama' }))
+                            );
+
+                            const doramaMoviePromises = doramasMovieIds.map(id =>
+                                fetch(`${apiBaseUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`)
+                                .then(response => response.json())
+                                .then(data => ({ ...data, genre: 'dorama' }))
+                            );
+
+                            try {
+                                const data = await Promise.all([...doramaSeriesPromises, ...doramaMoviePromises]);
+                                const series = data.filter(item => item.name);
+                                const movies = data.filter(item => item.title);
+                                const mixedContent = mixContent(movies, series);
+                                displayContent(mixedContent);
+                                allContent = [...mixedContent]; // Asegurar que no se mezcle con otras secciones
+                                currentSectionContent = [...mixedContent];
+                            } catch (error) {
+                                console.error('Error fetching data:', error);
+                            }
+                        } else if (selectedCategory === 'animes') {
+                            currentSectionContent = [];
+                            const animeMoviePromises = animesMovieIds.map(id =>
+                                fetch(`${apiBaseUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`)
+                                .then(response => response.json())
+                                .then(data => ({ ...data, genre: 'anime' }))
+                            );
+
+                            const animeSeriesPromises = animesSeriesIds.map(id =>
+                                fetch(`${apiBaseUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`)
+                                .then(response => response.json())
+                                .then(data => ({ ...data, genre: 'anime' }))
+                            );
+
+                            try {
+                                const data = await Promise.all([...animeMoviePromises, ...animeSeriesPromises]);
+                                const movies = data.filter(item => item.title);
+                                const series = data.filter(item => item.name);
+                                const mixedContent = mixContent(movies, series);
+                                displayContent(mixedContent);
+                                allContent = [...mixedContent]; 
+                                currentSectionContent = [...mixedContent];
+                            } catch (error) {
+                                console.error('Error fetching data:', error);
+                            }
+                        }
+                    }
+                });
+            });
+
+            // Modificar la función displayContent para que no afecte a la sección "Visto"
+            function displayContent(content) {
+                // Declare variables with default values
+                const maxWidth = '100%';
+                const width = '100%';
+                const background = '#1a1a1a';
+                const display = 'flex';
+                const border = 'none';
+
+                contentList.innerHTML = '';
+
+                // Verificar si estamos en la sección "Visto" (continuarViendo)
+                const isVistoSection = document.querySelector('.category.selected')?.dataset.category === 'continuar-viendo';
+                
+                // Si estamos en la sección "Visto", no hacemos nada y dejamos que loadContinuarViendo() se encargue
+                if (isVistoSection) {
+                    return;
+                }
+
+                content.forEach((item, index) => {
+                    if (index < 18 || item.isVisible) { // Asegurar que lo ya cargado sigue visible
+                        item.isVisible = true; 
+
+                        const itemElement = document.createElement('div');
+                        itemElement.classList.add('content');
+                        itemElement.dataset.id = item.id;
+
+                        // Crear la imagen
+                        const img = document.createElement('img');
+                        img.src = item.poster_path ? `https://image.tmdb.org/t/p/w500/${item.poster_path}` : '/placeholder.jpg';
+                        img.alt = item.title || item.name;
+                        img.loading = "lazy";
+                        
+                        // Crear el placeholder para otras secciones
+                        const placeholder = document.createElement('div');
+                        placeholder.classList.add('poster-placeholder');
+                        placeholder.innerHTML = `
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#e50914" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 6v6l4 2"></path>
+                            </svg>
+                            <span class="poster-placeholder-text">Cargando...</span>
+                        `;
+                        
+                        // Configurar un temporizador para ocultar el placeholder después de 3 segundos
+                        setTimeout(() => {
+                            if (placeholder.parentNode) {
+                                placeholder.remove(); // Eliminar el placeholder
+                                img.classList.add('loaded'); // Mostrar la imagen
+                            }
+                        }, 3000);
+
+                        // Manejar el evento de carga completada (por si carga antes de los 3 segundos)
+                        img.onload = function() {
+                            if (placeholder.parentNode) {
+                                placeholder.remove(); // Eliminar el placeholder
+                                img.classList.add('loaded'); // Mostrar la imagen
+                            }
+                        };
+                        
+                        // Añadir placeholder al elemento
+                        itemElement.appendChild(placeholder);
+
+                        // Manejar el error de carga
+                        img.onerror = function() {
+                            // Si hay un placeholder, eliminarlo
+                            const existingPlaceholder = itemElement.querySelector('.poster-placeholder');
+                            if (existingPlaceholder) {
+                                existingPlaceholder.remove();
+                            }
+            
+                            // Crear un elemento de error
+                            const errorElement = document.createElement('div');
+                            errorElement.classList.add('poster-error');
+                            errorElement.innerHTML = `
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#e50914" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                                </svg>
+                                <span>Error al cargar</span>
+                            `;
+            
+                            itemElement.prepend(errorElement);
+                        };
+                        
+                        // Añadir imagen al elemento
+                        itemElement.appendChild(img);
+
+                        // Añadir el resto de la información
+                        const infoDiv = document.createElement('div');
+                        infoDiv.classList.add('content-info');
+                        infoDiv.innerHTML = `<h3 class="content-title">${item.title || item.name}</h3>`;
+                        itemElement.appendChild(infoDiv);
+
+                        // Añadir tipo de contenido
+                        const typeDiv = document.createElement('div');
+                        typeDiv.classList.add('content-type');
+                        typeDiv.textContent = item.release_date ? 'Película' : item.first_air_date ? 'Serie' : 'Unknown';
+                        itemElement.appendChild(typeDiv);
+
+                        // Añadir año de lanzamiento
+                        const yearDiv = document.createElement('div');
+                        yearDiv.classList.add('release-year');
+                        yearDiv.textContent = item.release_date ? item.release_date.split('-')[0] : 
+                                            item.first_air_date ? item.first_air_date.split('-')[0] : '';
+                        itemElement.appendChild(yearDiv);
+
+                        // Añadir calificación
+                        const ratingDiv = document.createElement('div');
+                        ratingDiv.classList.add('content-rating-container');
+                        ratingDiv.textContent = item.vote_average.toFixed(1);
+                        itemElement.appendChild(ratingDiv);
+
+                        // Añadir evento de clic
+                        itemElement.addEventListener('click', () => {
+                            saveToContinuarViendo(item);
+                            window.open(`go:${item.id}`, '_blank');
+                        });
+
+                        contentList.appendChild(itemElement);
+                    }
+                });
+
+                // Reactivar el observador correctamente solo si no estamos en la sección "Visto"
+                if (content.length > 18) {
+                    const currentSection = document.querySelector('.category.selected')?.dataset.category || 'inicio';
+                    if (hasMore[currentSection] && currentSection !== 'continuar-viendo') {
+                        const lastElement = contentList.lastElementChild;
+                        if (lastElement) {
+                            observer.unobserve(lastElement); // Evita que se acumulen observadores
+                            observer.observe(lastElement);
+                        }
+                    }
+                }
+            }
+
+
+            function normalizeString(str) {
+                return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+            }
+
+            function searchContent(query) {
+                if (!query.trim()) {
+                    displayContent(currentSectionContent);
+                    return;
+                }
+
+                const normalizedQuery = normalizeString(query);
+                const filteredContent = currentSectionContent.filter(item => {
+                    const title = item.title || item.name;
+                    const originalTitle = item.original_title || item.original_name;
+                    const normalizedTitle = normalizeString(title);
+                    const normalizedOriginalTitle = normalizeString(originalTitle);
+                    
+                    return normalizedTitle.includes(normalizedQuery) ||
+                        normalizedOriginalTitle.includes(normalizedQuery);
+                });
+
+                const uniqueContent = Array.from(new Set(filteredContent.map(item => item.id)))
+                                            .map(id => {
+                                                return filteredContent.find(item => item.id === id);
+                                            });
+
+                displayContent(uniqueContent);
+            }
+
+            searchButton.addEventListener('click', () => {
+                const query = searchInput.value;
+                searchContent(query);
+            });
+
+            searchInput.addEventListener('input', () => {
+                const query = searchInput.value;
+                searchContent(query);
+            });
+
+        const inicioMovieIds = [117251, 117263, 974576, 950396, 921436, 76338, 616037, 10195, 993710, 851644, 49046, 497582, 829280, 748167, 646097, 1241982, 11238, 508442, 338958, 620705, 354912, 10895, 862, 693134, 872585, 787699, 438631, 565770, 76341, 588228, 1094138, 1010581, 1019411, 1029528, 359410, 629176, 593910, 558449, 831815, 639720, 466420, 335977, 575264, 1405338, 851644, 1291559, 488623, 12477, 1357633, 579741, 1231574, 916224, 445030, 680041, 372058];
+    	const inicioSeriesIds = [94664, 121964, 72505, 213402, 259140, 261298, 240633, 65945, 99966, 253905, 94605, 208730, 63174, 154825, 258707, 138501, 120734, 84958, 1403, 92749, 456, 82856, 94997, 1399, 84773, 76479, 158300, 52814, 5371, 119243, 221851, 99966, 253905, 226529, 108284, 74682, 63767, 5178, 94664, 121964, 72505, 213402, 259140, 261298, 240633, 65945];
+    	const netflixMovieIds = [993710, 851644, 49046, 497582, 829280, 748167, 646097];
+    	const netflixSeriesIds = [99966, 253905, 94605, 208730, 63174, 154825, 258707];
+        const disneyMovieIds = [1241982, 11238, 508442, 338958, 620705, 354912, 10895, 862];
+        const disneySeriesIds = [138501, 120734, 84958, 1403, 92749, 456, 82856];
+        const hboMovieIds = [693134, 872585, 787699, 438631, 565770, 76341];
+        const hboSeriesIds = [94997, 1399];
+        const primeMovieIds = [588228, 1094138, 1010581, 1019411, 1029528, 359410, 629176, 593910];
+        const primeSeriesIds = [84773, 76479];
+        const paramountMovieIds = [558449, 831815, 639720, 466420, 335977, 575264];
+        const paramountSeriesIds = [158300, 52814, 5371, 119243];
+        const doramasSeriesIds = [221851, 99966, 253905, 226529, 108284, 74682, 63767, 5178];
+      	const doramasMovieIds = [1405338, 851644, 1291559, 488623];
+        const animesSeriesIds = [94664, 121964, 72505, 213402, 259140, 261298, 240633, 65945];
+        const animesMovieIds = [12477, 1357633, 579741, 1231574, 916224, 445030, 680041, 372058];
+
+            categories.forEach(category => {
+                category.addEventListener('click', async (event) => {
+                    categories.forEach(cat => cat.classList.remove('selected'));
+                    event.target.classList.add('selected');
+
+                    const selectedCategory = event.target.dataset.category;
+
+                    // Restablecer variables para que la carga progresiva funcione correctamente
+                    // Reiniciar solo el estado de la sección actual
+                    hasMore[selectedCategory] = true;
+                    loading[selectedCategory] = false;
+                    observer.disconnect(); // Evita que el IntersectionObserver se acumule
+
+                    if (selectedCategory === 'continuar-viendo') {
+                        loadContinuarViendo();
+                    } else if (selectedCategory === 'inicio') {
+                        fetchInicioContent([...inicioMovieIds], [...inicioSeriesIds]);
+                    } else if (selectedCategory === 'peliculas') {
+                        const shuffledMovieIds = [...inicioMovieIds].sort(() => Math.random() - 0.5);
+                        currentSectionContent = []; // Resetear el contenido de la sección
+                        await fetchContentByIds(shuffledMovieIds, 'movie');
+                    } else if (selectedCategory === 'series') {
+                        const shuffledSeriesIds = [...inicioSeriesIds].sort(() => Math.random() - 0.5);
+                        currentSectionContent = [];
+                        await fetchContentByIds(shuffledSeriesIds, 'tv');
+                    } else if (selectedCategory === 'doramas') {
+                        currentSectionContent = [];
+                        const doramaSeriesPromises = doramasSeriesIds.map(id =>
+                            fetch(`${apiBaseUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`)
+                            .then(response => response.json())
+                            .then(data => ({ ...data, genre: 'dorama' }))
+                        );
+
+                        const doramaMoviePromises = doramasMovieIds.map(id =>
+                            fetch(`${apiBaseUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`)
+                            .then(response => response.json())
+                            .then(data => ({ ...data, genre: 'dorama' }))
+                        );
+
+                        try {
+                            const data = await Promise.all([...doramaSeriesPromises, ...doramaMoviePromises]);
+                            const series = data.filter(item => item.name);
+                            const movies = data.filter(item => item.title);
+                            const mixedContent = mixContent(movies, series);
+                            displayContent(mixedContent);
+                            allContent = [...mixedContent]; // Asegurar que no se mezcle con otras secciones
+                            currentSectionContent = [...mixedContent];
+                        } catch (error) {
+                            console.error('Error fetching data:', error);
+                        }
+                    } else if (selectedCategory === 'animes') {
+                        currentSectionContent = [];
+                        const animeMoviePromises = animesMovieIds.map(id =>
+                            fetch(`${apiBaseUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`)
+                            .then(response => response.json())
+                            .then(data => ({ ...data, genre: 'anime' }))
+                        );
+
+                        const animeSeriesPromises = animesSeriesIds.map(id =>
+                            fetch(`${apiBaseUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`)
+                            .then(response => response.json())
+                            .then(data => ({ ...data, genre: 'anime' }))
+                        );
+
+                        try {
+                            const data = await Promise.all([...animeMoviePromises, ...animeSeriesPromises]);
+                            const movies = data.filter(item => item.title);
+                            const series = data.filter(item => item.name);
+                            const mixedContent = mixContent(movies, series);
+                            displayContent(mixedContent);
+                            allContent = [...mixedContent]; 
+                            currentSectionContent = [...mixedContent];
+                        } catch (error) {
+                            console.error('Error fetching data:', error);
+                        }
+                    }
+                });
+            });
+
+            // In the filterContentByGenre function, replace the entire function with this updated version:
+
+            // Reemplazar la función filterContentByGenre con esta versión actualizada:
+            function filterContentByGenre(genreId) {
+                const apiUrl = 'https://api.themoviedb.org/3';
+                const apiKey = '32e5e53999e380a0291d66fb304153fe';
+                
+                // Mostrar el spinner mientras se procesa
+                document.getElementById('spinner').style.display = 'block';
+                
+                // Determinar qué IDs debemos verificar según la categoría actual
+                const currentCategory = document.querySelector('.category.selected')?.dataset.category || 'inicio';
+                
+                const promises = [];
+                
+                // Solo verificamos películas si estamos en inicio o películas
+                if (currentCategory === 'inicio' || currentCategory === 'peliculas') {
+                    inicioMovieIds.forEach(id => {
+                        promises.push(
+                            fetch(`${apiUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`)
+                                .then(response => response.json())
+                        );
+                    });
+                }
+                
+                // Solo verificamos series si estamos en inicio o series
+                if (currentCategory === 'inicio' || currentCategory === 'series') {
+                    inicioSeriesIds.forEach(id => {
+                        promises.push(
+                            fetch(`${apiUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`)
+                                .then(response => response.json())
+                        );
+                    });
+                }
+                
+                // Para animes y doramas, filtramos el contenido actual
+                if (currentCategory === 'animes' || currentCategory === 'doramas') {
+                    const filteredContent = currentSectionContent.filter(item => {
+                        return item.genres && item.genres.some(genre => genre.id == genreId);
+                    });
+                    
+                    if (filteredContent.length > 0) {
+                        displayContent(filteredContent);
+                    } else {
+                        contentList.innerHTML = '<div style="color: white; text-align: center; width: 100%; padding: 20px;">No se encontraron resultados para este género.</div>';
+                    }
+                    
+                    document.getElementById('spinner').style.display = 'none';
+                    return;
+                }
+                
+                // Procesar las promesas para las categorías principales
+                Promise.all(promises)
+                    .then(results => {
+                        // Filtrar contenido que coincida con el género seleccionado
+                        const filteredContent = results.filter(item => {
+                            return item.genres && item.genres.some(genre => genre.id == genreId);
+                        });
+                        
+                        if (filteredContent.length > 0) {
+                            // Si encontramos contenido con este género, lo mostramos
+                            displayContent(filteredContent);
+                            currentSectionContent = [...filteredContent];
+                        } else {
+                            // Si no hay contenido, mostramos un mensaje
+                            contentList.innerHTML = '<div style="color: white; text-align: center; width: 100%; padding: 20px;">No se encontraron resultados para este género.</div>';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error al filtrar por género:', error);
+                        contentList.innerHTML = '<div style="color: white; text-align: center; width: 100%; padding: 20px;">Error al cargar el contenido.</div>';
+                    })
+                    .finally(() => {
+                        document.getElementById('spinner').style.display = 'none';
+                    });
+            }
+
+            // Helper function to fetch content by genre from API
+            function fetchGenreContent(genreId, currentCategory) {
+                const apiUrl = 'https://api.themoviedb.org/3';
+                const apiKey = '32e5e53999e380a0291d66fb304153fe';
+                
+                const contentTypes = [];
+                
+                if (currentCategory === 'peliculas' || currentCategory === 'inicio') {
+                    contentTypes.push('movie');
+                }
+                
+                if (currentCategory === 'series' || currentCategory === 'inicio') {
+                    contentTypes.push('tv');
+                }
+                
+                const promises = [];
+                
+                contentTypes.forEach(type => {
+                    promises.push(
+                        fetch(`${apiUrl}/discover/${type}?api_key=${apiKey}&language=es-MX&with_genres=${genreId}&page=1`)
+                            .then(response => response.json())
+                            .then(data => data.results || [])
+                    );
+                });
+                
+                Promise.all(promises)
+                    .then(results => {
+                        // Flatten the results array
+                        const allResults = results.flat();
+                        
+                        if (allResults.length === 0) {
+                            contentList.innerHTML = '<div style="color: white; text-align: center; width: 100%; padding: 20px;">No se encontraron resultados para este género.</div>';
+                        } else {
+                            // Sort randomly
+                            allResults.sort(() => Math.random() - 0.5);
+                            
+                            // Update current section content with the filtered results
+                            currentSectionContent = [...allResults];
+                            
+                            // Display the filtered content
+                            displayContent(allResults);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching genre data:', error);
+                        contentList.innerHTML = '<div style="color: white; text-align: center; width: 100%; padding: 20px;">Error al cargar el contenido.</div>';
+                    })
+                    .finally(() => {
+                        document.getElementById('spinner').style.display = 'none';
+                    });
+            }
+
+            services.forEach(service => {
+                service.addEventListener('click', (event) => {
+                    const selectedService = event.currentTarget.dataset.service;
+                    let movieIds = [];
+                    let seriesIds = [];
+
+                    if (selectedService === 'netflix') {
+                        movieIds = [...netflixMovieIds];
+                        seriesIds = [...netflixSeriesIds];
+                    } else if (selectedService === 'disney') {
+                        movieIds = [...disneyMovieIds];
+                        seriesIds = [...disneySeriesIds];
+                    } else if (selectedService === 'hbo') {
+                        movieIds = [...hboMovieIds];
+                        seriesIds = [...hboSeriesIds];
+                    } else if (selectedService === 'prime') {
+                        movieIds = [...primeMovieIds];
+                        seriesIds = [...primeSeriesIds];
+                    } else if (selectedService === 'paramount') {
+                        movieIds = [...paramountMovieIds];
+                        seriesIds = [...paramountSeriesIds];
+                    }
+
+                    // Reiniciar el estado para el servicio seleccionado
+                    const currentSection = document.querySelector('.category.selected')?.dataset.category || 'inicio';
+                    hasMore[currentSection] = true;
+                    loading[currentSection] = false;
+
+                    const moviePromises = movieIds.map(id =>
+                        fetch(`${apiBaseUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`)
+                        .then(response => response.json())
+                    );
+
+                    const tvPromises = seriesIds.map(id =>
+                        fetch(`${apiBaseUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`)
+                        .then(response => response.json())
+                    );
+
+                    Promise.all([...moviePromises, ...tvPromises])
+                        .then(data => {
+                            const movies = data.filter(item => item.title);
+                            const series = data.filter(item => item.name);
+                            const mixedContent = mixContent(movies, series);
+                            displayContent(mixedContent);
+                            allContent = [...allContent, ...mixedContent];
+                            currentSectionContent = [...mixedContent];
+                        })
+                        .catch(error => {
+                            console.error('Error fetching data:', error);
+                        });
+
+                    categories.forEach(cat => cat.classList.remove('selected'));
+                });
+            });
+
+            fetchInicioContent([...inicioMovieIds], [...inicioSeriesIds]);
+
+            const backToTopButton = document.getElementById('back-to-top');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 200) {
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+          
+            const popup = document.getElementById('popup');
+            const closeButton = document.getElementById('close-popup');
+            const dontShowAgainCheckbox = document.getElementById('dont-show-again');
+
+            closeButton.addEventListener('click', () => {
+                popup.style.display = 'none';
+                document.body.classList.remove('popup-open');
+            });
+
+            dontShowAgainCheckbox.addEventListener('change', () => {
+                if (dontShowAgainCheckbox.checked) {
+                    localStorage.setItem('dontShowPopupAgain', true);
+                } else {
+                    localStorage.removeItem('dontShowPopupAgain');
+                }
+            });
+
+            if (!localStorage.getItem('dontShowPopupAgain')) {
+                popup.style.display = 'block';
+                document.body.classList.add('popup-open');
+            }     
+
+            const logo = document.querySelector('.logo');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            const genreItems = document.querySelectorAll('.genre-list li');
+
+            logo.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+                overlay.classList.toggle('active');
+            });
+
+            overlay.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+
+            genreItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const genreId = item.getAttribute('data-genre');
+                    console.log(`Género seleccionado: ${genreId}`);
+                    
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                });
+            });
+              
+            genreItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const genreId = item.getAttribute('data-genre');
+                    filterContentByGenre(genreId);
+                });
+            });
+
+            const contentIds = {
+                movies: [...inicioMovieIds],
+                series: [...inicioSeriesIds]
+            };
+
+            // Implementación del Intersection Observer para la carga perezosa
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Obtener la sección actual para cargar el contenido correcto
+                        const currentSection = document.querySelector('.category.selected')?.dataset.category || 'inicio';
+                        loadMoreContent(currentSection);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Función modificada para cargar más contenido según la sección
+            function loadMoreContent(section) {
+                // Si no se proporciona una sección, usar la sección actual seleccionada
+                const currentSection = section || document.querySelector('.category.selected')?.dataset.category || 'inicio';
+                
+                if (!loading[currentSection] && hasMore[currentSection]) {
+                    loading[currentSection] = true;
+
+                    const start = currentSectionContent.filter(item => item.isVisible).length;
+                    const end = start + 18;
+
+                    currentSectionContent.slice(start, end).forEach(item => {
+                        item.isVisible = true;
+                    });
+
+                    displayContent(currentSectionContent);
+
+                    if (end >= currentSectionContent.length) {
+                        hasMore[currentSection] = false;
+                    }
+
+                    loading[currentSection] = false;
+                }
+            }
+
+            function mixContent(movies, series) {
+                const mixed = [...movies, ...series];
+                // Barajar aleatoriamente la lista
+                return mixed.sort(() => Math.random() - 0.5);
+            }
+
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]]; // Intercambio de elementos
+                }
+                return array;
+            }
+
+            async function fetchInicioContent(movieIds, tvIds) {
+                contentList.innerHTML = ''; // Limpiar contenido existente
+                currentSectionContent = []; // Reiniciar contenido actual
+
+                try {
+                    // Fetch películas
+                    const moviePromises = movieIds.map(id =>
+                        fetch(`${apiBaseUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`)
+                            .then(response => response.json())
+                            .then(data => ({ ...data, type: 'movie' }))
+                    );
+
+                    // Fetch series
+                    const tvPromises = tvIds.map(id =>
+                        fetch(`${apiBaseUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`)
+                            .then(response => response.json())
+                            .then(data => ({ ...data, type: 'tv' }))
+                    );
+
+                    // Esperar a que todas las promesas se resuelvan
+                    const [movies, series] = await Promise.all([
+                        Promise.all(moviePromises),
+                        Promise.all(tvPromises)
+                    ]);
+
+                    // Mezclar contenido
+                    let mixedContent = shuffleArray([...movies, ...series]);
+
+                    if (mixedContent.length === 0) {
+                        console.warn("No se encontró contenido.");
+                        return;
+                    }
+
+                    console.log("Contenido mezclado:", mixedContent);
+
+                    // Actualizar la sección con el contenido mezclado
+                    currentSectionContent = mixedContent;
+                    allContent = [...mixedContent];
+
+                    // Mostrar contenido en la interfaz
+                    displayContent(mixedContent);
+
+                    // Filtrar imágenes válidas para el Swiper
+                    const validSwiperImages = mixedContent.filter(item => item.backdrop_path);
+                    const shuffledSwiperImages = shuffleArray(validSwiperImages).slice(0, 4); // 4 aleatorios
+
+                    // Obtener imágenes específicas (2 películas y 2 series)
+                    const specificMovieImages = await Promise.all(
+                        [822119, 939243].map(id =>
+                            fetch(`${apiBaseUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`)
+                                .then(response => response.json())
+                                .then(data => ({
+                                    url: `${imgBaseUrl}${data.backdrop_path}`,
+                                    title: data.title,
+                                    description: data.overview || '',
+                                    id: data.id
+                                }))
+                        )
+                    );
+
+                    const specificTvImages = await Promise.all(
+                        [207332, 93405].map(id =>
+                            fetch(`${apiBaseUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`)
+                                .then(response => response.json())
+                                .then(data => ({
+                                    url: `${imgBaseUrl}${data.backdrop_path}`,
+                                    title: data.name,
+                                    description: data.overview || '',
+                                    id: data.id
+                                }))
+                        )
+                    );
+
+                    // Combinar las imágenes: 4 aleatorias + 2 películas específicas + 2 series específicas
+                    const finalSwiperImages = [
+                        ...shuffledSwiperImages.map(item => ({
+                            url: `${imgBaseUrl}${item.backdrop_path}`,
+                            title: item.title || item.name,
+                            description: item.overview || '',
+                            id: item.id
+                        })),
+                        ...specificMovieImages,
+                        ...specificTvImages
+                    ];
+
+                    swiperWrapper.innerHTML = '';
+                    updateSwiper(finalSwiperImages);
+
+                    // Inicializar Swiper
+                    new Swiper('.swiper-container', {
+                        loop: true,
+                        autoplay: {
+                            delay: 5000,
+                            disableOnInteraction: false,
+                        },
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true,
+                        },
+                    });
+
+                } catch (error) {
+                    console.error('Error en fetchInicioContent:', error);
+                }
+            }
+
+
+            // Add this helper function for mixing content:
+            function mixContent(movies, series) {
+                const mixed = [...movies, ...series];
+                return mixed.sort(() => Math.random() - 0.5);
+            }
+
+            // Add this function for fetching content by IDs:
+            async function fetchContentByIds(ids, type) {
+                const promises = ids.map(id =>
+                    fetch(`${apiBaseUrl}/${type}/${id}?api_key=${apiKey}&language=es-MX`)
+                    .then(response => response.json())
+                    .then(data => ({ ...data, type }))
+                );
+
+                try {
+                    const content = await Promise.all(promises);
+                    displayContent(content);
+                    currentSectionContent = content;
+                    allContent = [...content];
+                } catch (error) {
+                    console.error(`Error fetching ${type} content:`, error);
+                }
+            }
+          
+            // Add this function instead:
+            function updateSwiper(images) {
+                images.forEach(image => {
+                    const slide = document.createElement('div');
+                    slide.classList.add('swiper-slide');
+                    slide.style.backgroundImage = `url(${image.url})`;
+                    const description = image.description.split(' ').slice(0, 18).join(' ');
+                    slide.innerHTML = `
+                        <div class="swiper-slide-content">
+                            <h2 class="swiper-slide-title">${image.title}</h2>
+                            <p class="swiper-slide-description">${description}${description.length === image.description.split(' ').length ? '' : '...'}</p>
+                            <a href="go:${image.id}" target="_blank" class="swiper-slide-button">Ver ahora</a>
+                        </div>
+                    `;
+                    swiperWrapper.appendChild(slide);
+                });
+            }
+            // Inicializar la carga de contenido
+            fetchInicioContent([...inicioMovieIds], [...inicioSeriesIds]);
+            
+            // Funcionalidad para el botón de búsqueda en móvil
+            if (window.innerWidth <= 5000) {
+                const searchContainer = document.querySelector('.search');
+                const searchBtn = document.getElementById('search-button');
+                const logo1 = document.querySelector('.logo-1');
+                
+                searchBtn.addEventListener('click', function(e) {
+                    // Si el input de búsqueda no está visible, prevenir la acción por defecto y mostrarlo
+                    if (!searchContainer.classList.contains('active')) {
+                        e.preventDefault();
+                        searchContainer.classList.add('active');
+                        // Ocultar el logo-1
+                        logo1.style.display = 'none';
+                        // Enfocar el input después de mostrarlo
+                        setTimeout(() => {
+                            searchInput.focus();
+                        }, 300);
+                    }
+                });
+                
+                // Cerrar la búsqueda al hacer clic fuera
+                document.addEventListener('click', function(e) {
+                    if (!searchContainer.contains(e.target) && searchContainer.classList.contains('active')) {
+                        searchContainer.classList.remove('active');
+                        // Mostrar el logo-1 nuevamente
+                        logo1.style.display = '';
+                    }
+                });
+            }
+        }
+
+        // Inicializar el sistema de licencia cuando se carga la página
+        window.addEventListener('DOMContentLoaded', function() {
+            licenseSystem.init();
+        });
+    </script>
+</body>
+</html>
