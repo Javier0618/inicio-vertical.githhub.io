@@ -76,7 +76,6 @@
             background-color: #fff;
             border-bottom: 1px solid #ddd;
             position: sticky;
-	    scrollbar-width: thin;
             top: 56px;
             z-index: 999;
         }
@@ -547,12 +546,11 @@
             background-color: #fff;
             border-bottom: 1px solid #ddd;
             position: sticky;
-            height: 40px;
+          	height: 40px;
             top: 0px;
-	    scrollbar-width: thin;
             z-index: 999;
-            justify-content: center;
-            align-items: center;
+          	justify-content: center;
+          	align-items: center;
         }
         .category {
           	font-size: 1.5vw;
@@ -573,7 +571,7 @@
         /* Contenedor principal */
         .container-2 {
             display: flex; /* Hace que los hijos estén en una fila */
-                height: calc(100vh - 90px);
+            height: calc(100vh - 90px);
         }
 
         /* Contenedor izquierdo (principal) */
@@ -716,13 +714,13 @@
     		overflow: hidden; /* Desactiva el scroll global */
 			}
 
-            .streamfusion {
-              	font-size: 4vw;
-                font-weight: bold;
-                background: linear-gradient(90deg, red 0%, red 50%, yellow 50%, yellow 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
+          .streamfusion {
+            font-size: 4vw;
+            font-weight: bold;
+            background: linear-gradient(90deg, red 0%, red 50%, yellow 50%, yellow 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
       	}
 		@media (min-width: 600px) and (max-width: 1365px) {
         header {
@@ -826,12 +824,11 @@
             background-color: #fff;
             border-bottom: 1px solid #ddd;
             position: sticky;
-	    scrollbar-width: thin;
-            height: 40px;
+          	height: 40px;
             top: 0px;
             z-index: 999;
-            justify-content: center;
-            align-items: center;
+          	justify-content: center;
+          	align-items: center;
         }
         .category {
           	font-size: 1.5vw;
@@ -1085,117 +1082,6 @@
         }
       }
 
-      /* Estilos para el sistema de licencia */
-      .license-dialog {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.8);
-          z-index: 9999;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-      }
-
-      .license-content {
-          background-color: #222;
-          padding: 30px;
-          border-radius: 10px;
-          width: 80%;
-          max-width: 500px;
-          text-align: center;
-      }
-
-      .license-title {
-          color: #e50914;
-          margin-top: 0;
-      }
-
-      .license-description {
-          color: #dedede;
-          margin-bottom: 20px;
-      }
-
-      .license-input-group {
-          margin-bottom: 15px;
-      }
-
-      .license-label {
-          display: block;
-          color: #fff;
-          margin-bottom: 5px;
-      }
-
-      .license-input {
-          width: 100%;
-          padding: 10px;
-          border-radius: 5px;
-          border: none;
-          text-align: center;
-          background-color: #333;
-          color: white;
-      }
-
-      .license-button {
-          background-color: #e50914;
-          color: white;
-          border: none;
-          padding: 10px 20px;
-          border-radius: 5px;
-          cursor: pointer;
-          margin-top: 10px;
-      }
-
-      .license-message {
-          margin-top: 15px;
-          color: #ff6b6b;
-          display: none;
-      }
-
-      .license-status {
-          position: fixed;
-          bottom: 10px;
-          right: 10px;
-          padding: 5px 10px;
-          border-radius: 5px;
-          font-size: 12px;
-          z-index: 1000;
-      }
-
-      .license-valid {
-          background-color: #16a34a;
-          color: white;
-      }
-
-      .license-invalid {
-          background-color: #e11d48;
-          color: white;
-          animation: pulse 2s infinite;
-      }
-
-      .license-toast {
-          position: fixed;
-          bottom: 20px;
-          left: 50%;
-          transform: translateX(-50%);
-          padding: 10px 20px;
-          border-radius: 5px;
-          color: white;
-          z-index: 10000;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-      }
-
-      .license-toast-success {
-          background-color: #16a34a;
-      }
-
-      .license-toast-error {
-          background-color: #e11d48;
-      }
-
       @keyframes pulse {
           0% { opacity: 1; }
           50% { opacity: 0.7; }
@@ -1203,23 +1089,7 @@
       }
     </style>
 </head>
-<body>
-    <!-- Sistema de licencia -->
-    <div id="license-dialog" class="license-dialog" style="display: none;">
-        <div class="license-content">
-            <h2 class="license-title">Activar StreamFusion</h2>
-            <p class="license-description">Ingrese su clave de licencia para continuar</p>
-            <div class="license-input-group">
-                <label for="licenseKey" class="license-label">Clave de Licencia</label>
-                <input type="text" id="licenseKey" class="license-input" value="" placeholder="SF-XXXX-XXXX">
-            </div>
-            <div class="license-button-group">
-                <button id="activateButton" class="license-button">Activar</button>
-            </div>
-            <p id="license-message" class="license-message"></p>
-        </div>
-    </div>
-
+<body> 
     <header>
         <div class="logo">
             <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqC8k7QO6KNqYZXNkGt-F0knO2XMq4VDjl0_sM6sbPa3FEt4_PyIs3oiThacqu1-jG7-8v7a14KGcjn8_YBEI33yLlrmcobGnt-TT9_TNMie71bwN_d9fSX6WTHSv4gtZgtN8CRyTIey5fRLOEFQmoYQ-bZImSBQXfvL6vMlJ55WORvg/s1600/StreamFusion.png" alt="StreamFusion">
@@ -1263,7 +1133,7 @@
         <div class="category" data-category="series">Series</div>
         <div class="category" data-category="animes">Animes</div>
         <div class="category" data-category="doramas">Doramas</div>
-      	<div class="category" data-category="continuar-viendo">Visto</div>       
+      	<div class="category" data-category="continuar-viendo">Visto</div>      
     </section>
     <div class="container-2">
   	<div class="container">
@@ -1302,7 +1172,7 @@
             <li><b>La cual puedes configurar a tu gusto</b></li>
             <h3></h3>
             <p>Para hacerle saber a tus usuarios el funcionamiento de tu app</p>
-            <p>Ahora visualiza este demo. 🎉</p>
+            <p>Configuralo a tu gusto. 🎉</p>
             <button id="close-popup">Cerrar</button>
             <label><input type="checkbox" id="dont-show-again"> No mostrar más</label>
         </div>
@@ -1310,544 +1180,67 @@
       </div>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        // Sistema de licencia
-        const licenseSystem = {
-            isActivated: true,
-            // IMPORTANTE: Aquí debes colocar la licencia que generes para este cliente
-            // Esta licencia estará incluida en el código que distribuyas
-            defaultLicense: "SF-ABC123-TV", // Reemplaza esto con una licencia real que generes
-            licenseKey: "",
-            
-            expectedH1Text: 'StreamFusion',
-            
-            expectedApiKey: '32e5e53999e380a0291d66fb304153fe',
-            
-            titleObserver: null,
-            titleCheckInterval: null,
-            apiKeyCheckInterval: null,
 
-            // Inicializar el sistema de licencia
-            init: function() {
-    console.log("Inicializando sistema de licencia...");
-    
-    // Obtener el licencia actual
-    const titleElement = document.querySelector("h1.streamfusion");
-    if (!titleElement) {
-        console.error("No se encontró el elemento h1.streamfusion");
-        this.showToast("Error crítico: No se encontró el elemento h1", true);
-        return;
+    const StreamFusionLicense = (() => {
+    const Config = (() => {
+    const encode = (str) => btoa(unescape(encodeURIComponent(str)));
+    const decode = (str) => decodeURIComponent(escape(atob(str)));
+    const _settings = {
+
+        isActivated: true,
+        defaultLicense: "SF-ABC123-TV",
+        licenseKey: "",
+    	encryptedExpectedH1Text: "U3RyZWFtRnVzaW9u",
+    	encryptedExpectedApiKey: "MzJlNWU1Mzk5OWUzODBhMDI5MWQ2NmZiMzA0MTUzZmU=",    
+  		};
+
+  	const _storage = {
+    saveLicense: (license) => localStorage.setItem("streamfusion_license", license),
+    getLicense: () => localStorage.getItem("streamfusion_license"),
+    setActivated: (value) => localStorage.setItem("streamfusion_activated", value ? "true" : "false"),
+    isActivated: () => localStorage.getItem("streamfusion_activated") === "true",
+    clearLicense: () => {
+      localStorage.removeItem("streamfusion_license");
+      localStorage.removeItem("streamfusion_activated");
     }
-    
-    const currentH1Text = titleElement.textContent.trim();
-    console.log("Licencia actual:", currentH1Text);
-    console.log("Licencia esperado:", this.expectedH1Text);
-    
-    // Verificar si la licencia coincide con el esperado
-    const h1IsValid = currentH1Text === this.expectedH1Text;
-    
-    // Verificar que la licencia 2 coincida con la esperada
-    const currentApiKey = this.getCurrentApiKey();
-    const apiKeyIsValid = !currentApiKey || currentApiKey === this.expectedApiKey;
-    
-    // Si ambos valores son válidos, activar automáticamente sin mostrar diálogo
-    if (h1IsValid && apiKeyIsValid) {
-        console.log("Licencia y Licencia 2 válidos, activando automáticamente");
-        
-        // Comprobar si ya hay una licencia almacenada
-        const storedLicense = localStorage.getItem("streamfusion_license");
-        
-        // Usar la licencia almacenada o la predeterminada
-        this.licenseKey = storedLicense || this.defaultLicense;
-        
-        // Guardar en localStorage si no existe
-        if (!storedLicense) {
-            localStorage.setItem("streamfusion_license", this.licenseKey);
-        }
-        
-        // Marcar como activado
-        localStorage.setItem("streamfusion_activated", "true");
-        this.isActivated = true;
-        
-        // Iniciar monitoreo de licencia y licencia 2
-        this.startTitleMonitoring();
-        this.startApiKeyMonitoring();
-        
-        // Mostrar indicador de licencia
-        this.showLicenseStatus(true);
-        
-        // Inicializar la aplicación
-        initializeApp();
-    } else {
-        // Si alguno de los valores no es válido, mostrar mensaje de error y bloquear
-        if (!h1IsValid) {
-            console.log("Licencia invalida, no coincide con el esperado");
-            this.showToast("Error: Licencia inválida", true);
-            this.deactivateLicense("Esta licencia ya ha sido usada. Desactivando código.");
-        } else if (!apiKeyIsValid) {
-            console.log("La licencia 2 no coincide con la esperada");
-            this.showToast("Error: Licencia inválida", true);
-            this.deactivateLicense("Esta licencia ya ha sido usada. Desactivando código");
-        }
+  };
+
+  return {
+    getSettings: () => ({
+      ..._settings,
+      expectedH1Text: decode(_settings.encryptedExpectedH1Text),
+      expectedApiKey: decode(_settings.encryptedExpectedApiKey),
+    }),
+
+    setActivated: (value) => {
+      _settings.isActivated = value;
+    },
+
+    setLicenseKey: (value) => {
+      _settings.licenseKey = value;
+    },
+
+    storage: {
+      saveLicense: _storage.saveLicense,
+      getLicense: _storage.getLicense,
+      setActivated: _storage.setActivated,
+      isActivated: _storage.isActivated,
+      clearLicense: _storage.clearLicense
     }
-    
-    // Configurar atajo de teclado para generación de licencia (solo para el desarrollador)
-    this.setupKeyboardShortcut();
-},
-            
-            // Iniciar monitoreo de licencia 2
-            startApiKeyMonitoring: function() {
-                console.log("Iniciando monitoreo de la licencia");
-                
-                // Detener intervalo existente si hay uno
-                if (this.apiKeyCheckInterval) {
-                    clearInterval(this.apiKeyCheckInterval);
-                }
-                
-                // Configurar verificación periódica de la licencia 2
-                this.apiKeyCheckInterval = setInterval(() => {
-                    // Obtener lalicencia 2 actual del código
-                    const currentApiKey = this.getCurrentApiKey();
-                    
-                    if (currentApiKey && currentApiKey !== this.expectedApiKey) {
-                        console.log("La licencia 2 ha sido modificada. Actual:", currentApiKey, "Esperada:", this.expectedApiKey);
-                        clearInterval(this.apiKeyCheckInterval);
-                        this.deactivateLicense("Esta licencia ya ha sido usada. Licencia invalidada.");
-                    }
-                }, 5000); // Verificar cada 5 segundos
-            },
-            
-            // Método auxiliar para obtener la licencia 2 actual del código
-            getCurrentApiKey: function() {
-                // Buscar la API key en el código fuente de la página
-                const scripts = document.querySelectorAll('script');
-                let currentApiKey = null;
-                
-                for (const script of scripts) {
-                    if (script.textContent.includes('const apiKey =')) {
-                        // Extraer la licencia 2 usando regex
-                        const match = script.textContent.match(/const apiKey = ['"]([^'"]+)['"]/);
-                        if (match && match[1]) {
-                            currentApiKey = match[1];
-                            break;
-                        }
-                    }
-                }
-                
-                return currentApiKey;
-            },
-            
-            // Generar una licencia
-            generateLicense: function(customerName) {
-                // Generar parte aleatoria de 6 caracteres
-                const randomPart = Math.random().toString(36).substring(2, 8).toUpperCase();
-                // Obtener primeras 3 letras del nombre del cliente
-                const namePart = customerName.substring(0, 3).toUpperCase();
-                // Formato: SF-XXXXXX-YYY
-                return `SF-${randomPart}-${namePart}`;
-            },
-            
-            // Validar una licencia
-            validateLicense: function(license) {
-                // Validación básica - comprobar formato
-                const licenseRegex = /^SF-[A-Z0-9]{6}-[A-Z]{3}$/;
-                return licenseRegex.test(license);
-            },
-            
-            // Iniciar monitoreo de licencia
-            startTitleMonitoring: function() {
-                const titleElement = document.querySelector("h1.streamfusion");
-                if (!titleElement) {
-                    console.error("No se encontró el elemento h1.streamfusion para monitorear");
-                    return;
-                }
-                
-                console.log("Iniciando monitoreo de licencia");
-                
-                // Desconectar observador existente si hay uno
-                if (this.titleObserver) {
-                    this.titleObserver.disconnect();
-                }
-                
-                // Detener intervalo existente si hay uno
-                if (this.titleCheckInterval) {
-                    clearInterval(this.titleCheckInterval);
-                }
-                
-                // Crear un nuevo MutationObserver
-                this.titleObserver = new MutationObserver((mutations) => {
-                    const currentH1Text = titleElement.textContent.trim();
-                    
-                    console.log("Licencia. Actual:", currentH1Text, "Esperado:", this.expectedH1Text);
-                    
-                    // Si el título ha cambiado, desactivar la licencia
-                    if (currentH1Text !== this.expectedH1Text) {
-                        console.log("Licencia invalida. Desactivado código.");
-                        this.deactivateLicense("Licencia invalida. Desactivado código.");
-                    }
-                });
-                
-                // Iniciar observación del elemento título
-                this.titleObserver.observe(titleElement, { 
-                    childList: true,      // Observar cambios en nodos hijos
-                    characterData: true,  // Observar cambios en datos de texto
-                    subtree: true,        // Observar todos los descendientes
-                    attributes: true      // Observar cambios de atributos
-                });
-                
-                // Verificación periódica adicional como respaldo
-                this.titleCheckInterval = setInterval(() => {
-                    const currentH1Text = titleElement.textContent.trim();
-                    
-                    if (currentH1Text !== this.expectedH1Text) {
-                        console.log("Licencia invalida por verificación periódica");
-                        clearInterval(this.titleCheckInterval);
-                        this.deactivateLicense("Licencia invalidada.");
-                    }
-                }, 5000); // Verificar cada 5 segundos
-            },
-            
-            // Modify the deactivateLicense function to temporarily block instead of permanently deactivating
-            deactivateLicense: function(reason) {
-                console.log("Desactivado", reason);
-                
-                // No eliminar la activación de localStorage para permitir recuperación
-                this.isActivated = false;
-                
-                // Detener monitoreo temporalmente pero no eliminar los observadores
-                if (this.titleObserver) {
-                    this.titleObserver.disconnect();
-                }
-                
-                if (this.titleCheckInterval) {
-                    clearInterval(this.titleCheckInterval);
-                }
-                
-                if (this.apiKeyCheckInterval) {
-                    clearInterval(this.apiKeyCheckInterval);
-                }
-                
-                // Guardar el contenido original del body si aún no se ha guardado
-                if (!this.originalBodyContent) {
-                    this.originalBodyContent = document.body.innerHTML;
-                }
-                
-                // Mostrar mensaje de error
-                document.body.innerHTML = '<div style="display: flex; justify-content: center; flex-direction: column; text-align: center; font-family: sans-serif; background-color: #0e0e0e; color: white; height: 100vh;"><h2 style="font-size: 28px; color: red;">ACCESO DENEGADO</h2><p>Esta licencia ya ha sido usada. Por favor, contacte al proveedor y obtenga una licencia válida.</p><p>Visita: <a href="https://streamfusion.top/" style="color: green;">https://streamfusion.top/</a></p></div>';
-                
-                this.showToast(reason, true);
-                
-                // Mostrar indicador de licencia inválida
-                this.showLicenseStatus(false);
-                
-                // Iniciar verificación periódica para comprobar si los valores han sido restaurados
-                this.startRecoveryCheck();
-            },
+  };
+})();
 
-            // Añadir una nueva función para verificar periódicamente si los valores han sido restaurados
-            startRecoveryCheck: function() {
-                console.log("Iniciando verificación de recuperación");
-                
-                // Detener verificación existente si hay una
-                if (this.recoveryInterval) {
-                    clearInterval(this.recoveryInterval);
-                }
-                
-                // Iniciar verificación periódica
-                this.recoveryInterval = setInterval(() => {
-                    // Verificar si el h1 ha sido restaurado
-                    const titleElement = document.querySelector("h1.streamfusion");
-                    let h1Restored = false;
-                    
-                    if (titleElement) {
-                        const currentH1Text = titleElement.textContent.trim();
-                        h1Restored = currentH1Text === this.expectedH1Text;
-                        console.log("Verificando h1:", currentH1Text, "Esperado:", this.expectedH1Text, "Restaurado:", h1Restored);
-                    }
-                    
-                    // Verificar si la licencia ha sido restaurada
-                    const currentApiKey = this.getCurrentApiKey();
-                    let apiKeyRestored = false;
-                    
-                    if (currentApiKey) {
-                        apiKeyRestored = currentApiKey === this.expectedApiKey;
-                        console.log("Verificando licencia:", currentApiKey, "Esperada:", this.expectedApiKey, "Restaurada:", apiKeyRestored);
-                    }
-                    
-                    // Si ambos valores han sido restaurados, recuperar la aplicación
-                    if (h1Restored && (apiKeyRestored || !currentApiKey)) {
-                        console.log("Valores restaurados, recuperando aplicación");
-                        this.recoverApplication();
-                    }
-                }, 3000); // Verificar cada 3 segundos
-            },
+function toolfk0_0x2e87(){let $=["vvfRvuS","uvP2ELG","yxbWzw5Kq2HPBa","zgL2pGOGicaGia","zw50ztWVBgfIzq","tgPlrLu","C3rVCa","CM4GDgHPCYiPka","BcbJBgLLBNrL","icaGicaGicaGia","ELPyr1y","BMX1rxu","DhjLyw1MDxnPBW","BxjJsvO","BM90AwzPy2f0Aq","CMfKAxvZoIa1Ca","BhvTBJSGDgv4Da","yw5ZlxnLCMLMoW","igvSig5VBwjYzq","D3rODhe","Cvz3DfK","q01LEeW","yxn0ia","zwrmAwnLBNnLiG","BgLKyq","AwnLBNnLuMvZDq","DMvYAwz5tgLJzq","v0fQtfq","zgvHy3rPDMf0zq","yxbWBhK","swTjufy","C2jWuLq","DhvZ","r2r6qKS","tgeGBgLJzw5JAq","zgL2","x19WCM90B19F","BKnUBxy","B2LUDgvYoYi+qW","CJOGCMvKoYi+qq","icaGpgj1DhrVBG","AgDtsfG","lxjHzgL1CZOGnq","y29UC29Szq","B0zZr3u","qMrStLK","cIaGicaGicaGia","tM8GC2uGzw5JBW","BMXPy2vUC2u","CIb2zxjPzMLJyq","zgLJyq","qLbfDuq","yM9YzgvYoIbUBW","B3bHy2L0Eq","C3rHCNq","y3rLigfSihbYBW","zeDtCMS","oYbMBgv4lwrPCG","rgvZywn0AxzHza","igXPy2vUy2LHia","psjIywnRz3jVDq","tgLJzw5JAweGyW","yNrLBMDHihvUyq","BgfZCZ0IBgLJzq","ysbKzsbSAwnLBG","pgrPDIbZDhLSzq","icaGicaGidXIDq","BvftAw0","y2HHCMfJDgvYra","v3LTt0u","yxDtwuS","uu9eDgu","uhfYCui","z2vUzxjHDg9Y","Aw5NCMvZysbLBa","ve9bwfe","z2v0rwXLBwvUDa","A2TfBuK","twfUywDLCG","D09sswy","lwfSAwDUoIbJzq","y2XPzw50ztWVCa","z2vUzxjHDg9Yra","yw1LBNrL","Bg9Zzuj1DhrVBG","BgvUz3rO","zfvJBNm","D3DQDfu","qxbPs2v5","C2HVD1rVyxn0","BgLJzw5ZzvjLCW","igfJDgL2yw5KBW","AgnUtNe","nZG0oty2zKn4tLzb","sdfuzxH0","wgnOENa","BgLJzw5ZzvrVyq","Dg9Y","Bwf0y2G","BgLJzw5Zzs10BW","yM9XyvC","Evzlq0S","BerPywi","ihbVAw50zxi7ia","ExnguvO","BgLJzw5Zzs1KAq","sM9Tuwy","ihBdOwXPzge","y29UC3rYDwn0BW","yMTIrK0","D0zSD1O","BMqTy29SB3i6ia","C3rHCNrbBgW","igpdS2rPz28U","Cxn4Dhe","q0nfu08Grevorq","Aw5JBhvKzxm","mguWztbLoYbJBW","A1DbEKO","pGOGicaGicaGia","z3LoEg8","zxHJzxb0Aw9U","ica8CcbJBgfZCW","C3rYzwfTzNvZAq","zgvZy3jPChrPBW","zguGBgLJzw5JAq","DSoHBgLKys48l3a","DhrVBG","EK9MzuC","C2HVD0XPy2vUCW","Bw1yCwG","EKnQreO","su52t1q","DgfIBgu","sK1YCgm","BgLJzw5Zzvn0yq","BMu7igjVCMrLCG","y3vZDg9Tzxjoyq","y2NdS24GCgvYACoZ","ANDkyMq","uxrpChK","s2v5","B3bPywrHigfSia","C3nHz2u","rxn0ysbSAwnLBG","Aw50zw50ysbUDq","W7nUigrLihjLy3u","C2HVD1n0yxr1CW","vK1Kqui","u0vOtgG","l2rPDJ4kicaGia","vuDlz2W","AeDnCg4","qvboEMK","mtHqC1nkB0O","vfzxr00","BMrVihnPC3rLBq","sxnbtLO","vMvYAwzPy2fJAq","EuHnyxG","A0Lvy04","BwfYz2LUlxrVCa","BezuAfe","tgLJzw5JAweGDG","DKHWv08","AdeUC3rYzwfTzG","t1Pvzxu","iMXPy2vUC2uTBa","uLPwqMm","tvjuAfK","zNKTy29UDgvUDa","y29SB3i6icmZmW","uK5oB0G","C2uIignSyxnZpq","rvr1D2u","icaGicaGicaGpa","BNBdOwXPzge","BML0B3jLyxi","DMnIA2u","vNvnCue","sefquLy","BMf6vKC","BM11s3O","zgLHBg9NCW","zgvMyxvSDeXPyW","CMv0DxjUicHMDq","C3rLBMvY","yMnkqwK","EunrvgC","ihjLy3vWzxjHza","z2v0u2v0DgLUzW","BNzHBgLKys4Gra","s3LRsKO","BNL4C04","zxzHBwvUDguU","thLwr04","C3rVCMfNzq","yxnZpsjSAwnLBG","DhrVBIbPzd0IyW","wKLitfO","y2vUC2u","tgLJzw5JAweGEq","y3rPDMfKysbJBW","zfrJEuK","zwn0ywrVoIbNzq","mIb2W6fSAwrVCYW","yK5Tt08","zgL1CZOGnxb4oW","BMn0Aw9UkcKG","B2XVCJOGi2u1ma","v2TvtNK","v3PLvu8","yM9KEq","DgvZDa","BNBdOwXPzgeUifa","CLfuuva","pgrPDIbPzd0IBa","icaGicaGica8Ba","qwLjwwm","l3a+pc9KAxy+","zguGBgeGBgLJzq","Awe8l2GYpGOGia","DxnPB24","zgLZCgXHEq","y2HPBgrmAxn0","AwfSB2C","ig5VBwjYzsbKzq","wLzhs3G","CxvLCNLtzwXLyW","zKPXEwW","BNHoyui","Dg9vChbLCKnHCW","Du54yMq","qLfLv0i","tuXesfy","Cg9YDgfWyxbLBa","BNzjreC","v0LIBMG","CMf0zwrmAwnLBG","B3bPyxi8l2j1Da","zxHWzwn0zwrimq","EdSGy3vYC29YoG","ihbVAw50zxi7iG","BgLJzw5Zzs1ZDa","seDKzwS","D2fYBG","y29UDgfPBNm","ote0oYbJB2XVCG","rxjYB3i6ieXPyW","t21vsgG","C2HVD0DLBMvYyq","z2vUBgLJzw5Zzq","A2vKA1e","igLKpsjNzw5LCG","ywrKrxzLBNrmAq","uhrfELa","rLr1vuy","q29bCw8","BMnPyq","t2z0Bey","DMvYAwzPy2fJAq","zd0Iy29WEuj1Da","zxjYyxi8l2j1Da","Dg9YqwXS","Dxr0B24+cIaGia","psjTyxjNAw4TDa","ywn0AxzHDgvmAq","DgLVBKrPywXVzW","iZmZmZSGy29SBW","r2z3rLi","reP3t28","mtm3nJC3nvn0BMfSDq","DMfSDwu","zxjYB3i","iM1HCMDPBI10BW","v2jxDMK","nNWYFde","C2uTDMfSAwq","y2LHihLHigHHia","AgPkrvK","ihbHzgrPBMC6ia","DMvYAwz5sdfuzq","BNrLCJSGzM9UDa","wxjyzgu","zd0Iz2vUzxjHDa","yxnJEgm","C3rHDxjHzg9Zla","nxWZFdD8nhWWFa","rMfIvw0","zxjoyw1LiIbJBa","zePPr2q","Dg9YrgLHBg9N","zw5JAweGAw52W6e","ieXPy2vUy2LHia","vLbxEhq","A2zvqu0","sLjqD1i","igzSzxG7igP1CW","vg50sMu","lNrVCc88l2e+pa","DgLVBG","t0Ttu0W","uK9yCgG","u0XNvwm","A2v5","EwXLpsjJB2XVCG","tM9oqxu","neXgD3vqEq","C2uTAw52ywXPza","EwTsEu0","rMjsy2m","D21Uufy","C2LKBYb1C2fKyq","CgvYywnPW7nU","C2v0DxblzxLIBW","vw1js2q","zgvdzvm","AwnLBMnPytWVyG","C2HVD0fJDgL2yq","CgXHy2vOB2XKzq","zgLZy29UBMvJDa","y2XHC3noyw1L","BNDxwuu","zxHLy0nVBw1HBG","CMf1q0q","C3vIC3rYAw5N","CuXxre8","zw1LBNrVigGXlG","qxbSAwnHy2NdS24","z2v0tgLJzw5Zzq","BgLJzw5Zzs1Tzq","CeHwsw0","z2vUzxjHDgvmAq","vMfSB3jLCYbYzq","ihjLy3vWzxjHBG","u3bVCKm","B3HYqNO","y3jLyxrLrwXLBq","seHVrMO","igjVCMrLCI1Yyq","DMfSAwrHDgvmAq","wwrxshm","q0jYtMS","BM9Uzq","tKHmwxe","v2HVyKu","C3rVCenOzwnR","r29qs2m","B25Z","EgzvCKy","mtbWEcaYmhb4oW","DMfSAwq","Aw5MBW","DMvYAwz5qxbPsW","z2v0q3vYCMvUDa","uKjPExK","zxf4tvi","Eu9UA2y","z3rYCvi","y3rVCIGICMv0Dq","vgv4Da","tgLJzw5JAweGAq","C2f2zuXPy2vUCW","CND1t3u","Durms0u","sMvvBhy","C2vHCMnO","EeXfsuO","yMXVy2S","C3rHCNrdAgvJAW","zNz2q2G","BMnPysbhzw5LCG","BYbHCgXPy2fJAq","nta5ntj3rMrYzuq","EgnYyKu","uMvJB3zLCNK","ug9YigzHDM9Yia","Ee1hwKq","q2zLALa","qNf2qvC","B3iGzMf2B3iGDG","zxnHy3rPDMfKBW","y29WEq","CdOGmtvWEdSGza","C2v0tgLJzw5Zzq","zsbSAwnLBMnPyq","y2XVC2vcDxr0BW","DguIpGOGicaGia","igrLieXPy2vUyW","wff6D1y","oIaXmhb4idiWCa","sKfpq3i","AxzHBMrVlI4U","y2XPy2S","EK1oqKK","BgzXvvm","sgT5D08","s2LcqKu","C2v0qwn0AxzHDa","zgeU","yMLUza","D3vht2O","zZOGnxb4ideWCa","CeT5sNy","Aw5PDa","y2vUC2uTAw5WDq","r0fetZWVAdi+pa","BMu7iJ4kicaGia","idXPBNb1Dcb0Eq","y2TNCM91BMqTyW","CZ0IBgLJzw5Zzq","ChHowK0","igvZigLUDSoHBgK","vLHUt00","DMvYAwzPzxi","CuLODuy","B2v4yNq","Du1Uru8","ywjLBci+tgLJzq","BuHUq3y","CMfUzg9T","DxndzNG","uKvQqMi","t3HLywy","ACoZBG","mty4nJG0nKz0sgXxrG","DhjPBq","wuLvtMe","Dg9tDhjPBMC","EgDhEgm","Aw5NCMvZysb1BG","z2vUzxjHDgvKta","zgLZCgXHEtOGzG","ihn0EwXLpsjIyq","q3nsEM0","u2LUieXPy2vUyW","Dgv4DenVBNrLBG","s0XAzvG","CMvJB3zLCG","ChG7ihbHzgrPBG","igjHy2TNCM91BG","tgeGy2XHDMuGza","B25JBgLJAW","icaGicaGica8lW","psjKAxnWBgf5oG","C3vIDhjLzq","Dg9UpGOGicaGia","zvn0yxr1CW","pKDLBMvYywrVCG","C0HKsui","CMvHC29U","vuj2D2q","Evrkwwq","yxrLqNv0Dg9UiG","ysbJB3jYzwn0yq","B3a6idiWChG7ia","ChjVDg90ExbL","tMvysxy","v3bsDfG","yxn0lxn1y2nLCW","u0D1A2K","AhfbAge","Bg9N","zxKGpq","nJyXndbYzxzXqLC","nxWWFdz8oa","yxjKu2HVCNrJDq","seXzuem","ignSyxnZpsjSAq","E30Uy29UC3rYDq","kevYCM9Ykq","s0L4zxO","BNnL","C2vSzwn0","Aw5Uzxjive1m","y29WEuj1DhrVBG","ysbWyxjHihr1ia","shf6yw4","A2HHvvi","uMvJDxbLCMfUza","BNrYW7mGzwWGzwW","psjSAwnLBNnLlq","icaGica8AdiGyW","B250lxnPEMu6ia","y2vUC2vgB3jTyq","W6fSAwrHlcbHy3q","zw5JAweGEweGAa","uLPPs1y","Dw5HignSyxzLia","uenbt1u","veXmvLO","qKHYBem","zt0IDgv4DciGAq","wen0A0S","A2DKDM8","AwnLBNnL","BKzOvMC","yxr1CYbSAwnLBG","ode2mZeWnfbJsNHJva","zxjPzMLJysbLia","zvr6qNi","y2LHlI4U","ywjLBcbMB3i9iG","DhjHy2u","teXQugK","igzVCJ0Iz2vUzq","C2uTAw5WDxqIia","BwvUDgu","vg9HC3q6","Afn4wKK","BwuIignSyxnZpq","ntG3mZyZmenSA0HYwq","zw50","ysbSAwnLBMnPyq","vg9LtK8","EvrOB08","lIbmAwnLBMnPyq","BxHdAK4","surWrg0","BNnLlxrPDgXLiG","vwnwyMS","y2HLy2TLCG","y29UC3qGyxbPsW","zg8GyxbSAwnHyW","twfNufO","EenJC1q","BNzHBgLKywrHlG","y1LPvgG","yxn0lwvYCM9Y","C3rVCefSBa","yujTs1e","oIb3AgL0ztSGyG","yxrH","ELjRCNy","CMHYALK","DM9YlcbJB250yq","DgLMEs1JB250zq","Bg9YoIb3AgL0zq","pKDLBMvYyxiGta","C3r5Bgu","yLDztuq","BhqIihn0EwXLpq","lwnVBNrLBNqIpG","yxr0CMLIDxrLCW","AgvNvxG","kcGOlISPkYKRkq","q0rUsgm","quTOA1a","Cgvkyuy","se9hswC","sw5Py2LHBMrVia","AvH6Buu","DgfYz2v0","Bgv4oYbQDxn0Aq","qNLjza","igf1Dg9TW6f0Awm","sg50B3y","B3DAzgy","oIbNCMvLBJSIpG","iMH0DhbZoI8VCW","s0vAvxG","EfLduvu","zvjQsNm","CMvTB3zLq2HPBa","zwnSywrVigrLDa","wwfczLK","BIi+r2vUzxjHia","EhLlswu","Bd4kicaGicaGia","BNq6ignLBNrLCG","CM9ozue","zw5Zzq","Bvvvy2W","Bw9UAxrVCMvVia","B2jZzxj2zq","sKPJt2m","Dg9UiIbZDhLSzq"];return(toolfk0_0x2e87=function(){return $})()}!function($,x){function _($,x,_,e){return toolfk0_0x5c29(_- -285,x)}let e=$();function t($,x,_,e){return toolfk0_0x5c29(x-303,e)}for(;;)try{let n=parseInt(t(808,1011,1218,767))/1*(parseInt(t(483,591,340,580))/2)+parseInt(t(565,552,649,767))/3+parseInt(toolfk0_0x5c29(197,-29))/4+-parseInt(t(491,638,604,722))/5+parseInt(t(687,858,637,775))/6*(parseInt(t(765,797,693,1013))/7)+parseInt(t(835,625,820,705))/8+-parseInt(t(1102,975,1197,1004))/9;if(736401===n)break;e.push(e.shift())}catch(c){e.push(e.shift())}}(toolfk0_0x2e87,736401);const toolfk0_0x5cc579=function(){let $={};var x=1088,_=1018,e=909,t=1150;$.xfrLz=toolfk0_0x5c29(372,1088);let n=$,c=!0;return function($,x){let _=c?function(){function _($,x,_,e){return toolfk0_0x5c29(e- -82,_)}function e($,x,_,e){return toolfk0_0x5c29(e- -21,_)}if(x){if(n.xfrLz!==toolfk0_0x5c29(372,109)){let t=_0x1f7e33[toolfk0_0x5c29(509,583)+"r"][toolfk0_0x5c29(280,233)][toolfk0_0x5c29(224,458)](_0x4f0487),c=_0x3d626e[_0x8a6054],f=_0xfcb971[c]||t;t[toolfk0_0x5c29(437,491)]=_0x28a480[toolfk0_0x5c29(224,275)](_0x23c5e6),t[toolfk0_0x5c29(252,176)]=f[toolfk0_0x5c29(252,423)][toolfk0_0x5c29(224,291)](f),_0x5d1c38[c]=t}else{let a=x[toolfk0_0x5c29(430,206)]($,arguments);return x=null,a}}}:function(){};return c=!1,_}}(),toolfk0_0x46b6f5=toolfk0_0x5cc579(this,function(){let $={};$[e(857,805,981,546)]=e(815,702,660,664)+"+$";let x=$;function _($,x,_,e){return toolfk0_0x5c29(e- -9,$)}function e($,x,_,e){return toolfk0_0x5c29(x-333,e)}return toolfk0_0x46b6f5[toolfk0_0x5c29(252,413)]()[e(677,523,237,312)](x.QODte)[e(316,585,651,345)]()[e(608,842,874,750)+"r"](toolfk0_0x46b6f5)[toolfk0_0x5c29(190,-94)](x.QODte)});function toolfk0_0x5c29($,x){let _=toolfk0_0x2e87();return(toolfk0_0x5c29=function(x,e){let t=_[x-=141];if(void 0===toolfk0_0x5c29.aKjmwU){var n=function($){let x="",_="",e=x+n;for(let t=0,c,f,a=0;f=$.charAt(a++);~f&&(c=t%4?64*c+f:f,t++%4)&&(x+=e.charCodeAt(a+10)-10!=0?String.fromCharCode(255&c>>(-2*t&6)):t))f="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=".indexOf(f);for(let r=0,i=x.length;r<i;r++)_+="%"+("00"+x.charCodeAt(r).toString(16)).slice(-2);return decodeURIComponent(_)};toolfk0_0x5c29.oQOuKQ=n,$=arguments,toolfk0_0x5c29.aKjmwU=!0}let c=_[0],f=x+c,a=$[f];if(a)t=a;else{let r=function($){this.oGVbpm=$,this.FKAEak=[1,0,0],this.ethPHD=function(){return"newState"},this.hjWela="\\w+ *\\(\\) *{\\w+ *",this.tBwbdA="['|\"].+['|\"];? *}"};r.prototype.HaGOFL=function(){let $=RegExp(this.hjWela+this.tBwbdA),x=$.test(this.ethPHD.toString())?--this.FKAEak[1]:--this.FKAEak[0];return this.DqAhMN(x)},r.prototype.DqAhMN=function($){return Boolean(~$)?this.ZoSMBH(this.oGVbpm):$},r.prototype.ZoSMBH=function($){for(let x=0,_=this.FKAEak.length;x<_;x++)this.FKAEak.push(Math.round(Math.random())),_=this.FKAEak.length;return $(this.FKAEak[0])},new r(toolfk0_0x5c29).HaGOFL(),t=toolfk0_0x5c29.oQOuKQ(t),$[f]=t}return t})($,x)}toolfk0_0x46b6f5();const toolfk0_0x1627e8=function(){let $=!0;return function(x,_){let e=$?function(){if(_){let $=_[toolfk0_0x5c29(430,1120)](x,arguments);return _=null,$}}:function(){};return $=!1,e}}(),toolfk0_0x5a68e1=toolfk0_0x1627e8(this,function(){var $=-115,x=-97,_=94,e=77,t=-92,n=-31,c=-40,f=-359,a=-525,r=-522,i=-318,o=-557,u=-27,d=-293,b=-159,l=161,s=-179,y=-334,v=-351,z=-147;let g={EYOjb:function($,x){return $(x)},JeUlv:function($,x){return $+x},chXSp:toolfk0_0x5c29($- -701,_)+toolfk0_0x5c29(t- -701,c),Xchzp:function($){return $()},yTJYd:m(644,704,900,815),wqcfJ:"warn",BCyra:toolfk0_0x5c29(a- -701,i),VXnOM:toolfk0_0x5c29(u- -701,b),mHnCv:toolfk0_0x5c29(s- -701,v),nwWYE:m(915,1014,956,1063),MRThY:function($,x){return $<x}},B;try{var w=-512,L=-304,C=-317,q=-364,D=-408,G=-327,M=-473,A=-489,h=-293,k=-461,H=-161,K=-522;let W=g.EYOjb(Function,g[m(783,545,462,718)](g[0,toolfk0_0x5c29(w- -701,C)](g.chXSp,toolfk0_0x5c29(D- -701,M)+m(568,490,671,712)+toolfk0_0x5c29(h- -701,H)+" )"),");"));B=g[m(1160,1099,801,1025)](W)}catch(P){B=window}let U=B[m(783,1201,773,973)]=B[m(1197,867,704,973)]||{};function m($,x,_,e){return toolfk0_0x5c29(e-529,$)}var p=-425,N=-473,j=-551,S=-527,J=-464,Y=-295,I=-423,V=-290,E=-458,Z=-438,O=-427,T=-275,X=-374,F=-242,R=-410,Q=-655;let $$=[g[toolfk0_0x5c29(p- -701,j)],g.wqcfJ,g.BCyra,g[toolfk0_0x5c29(J- -701,I)],g[toolfk0_0x5c29(E- -701,O)],g[m(468,542,511,675)],toolfk0_0x5c29(X- -701,R)];function $x($,x,_,e){return toolfk0_0x5c29($- -701,_)}for(let $0=0;g[m(1039,1328,839,1099)]($0,$$[m(800,1181,1134,1015)]);$0++){let $_=toolfk0_0x1627e8[m(1191,1259,771,1038)+"r"][m(766,763,702,809)].bind(toolfk0_0x1627e8),$1=$$[$0],$2=U[$1]||$_;$_[toolfk0_0x5c29(437,4)]=toolfk0_0x1627e8.bind(toolfk0_0x1627e8),$_[toolfk0_0x5c29(252,-424)]=$2.toString[m(730,732,820,753)]($2),U[$1]=$_}});toolfk0_0x5a68e1();const Validator=(()=>{let $={};function x($,x,_,e){return toolfk0_0x5c29(x-729,$)}$[a(41,167,302,259)]="script",$[x(1272,1043,961,1321)]=a(-325,-254,-512,-551)+x(1087,1016,780,1078),$[a(-300,-455,-147,-420)]=x(1512,1274,1168,1338)+a(8,161,-172,194)+"sido usada. Licencia invalidada.",$.mwmio=a(-105,0,96,145)+x(1221,1352,1421,1187),$[x(1334,1231,1237,1371)]=function($,x){return $===x},$[x(1437,1318,1383,1324)]=a(-390,-167,-431,-582),$[a(31,-27,219,-29)]=a(-430,-437,-470,-494),$[a(-444,-246,-226,-429)]=function($,x){return $!==x},$[x(1340,1345,1573,1414)]=a(-75,207,202,47),$[x(1555,1296,1579,1497)]=a(-358,-411,-370,-110),$[a(32,-241,-108,-49)]=function($,x){return $===x},$[x(1070,1161,1304,1144)]="Esta licen"+x(1559,1408,1187,1547)+x(1515,1442,1421,1692)+". C\xf3digo desactivado",$[x(1248,1209,1040,1153)]=a(-265,-229,-254,-175),$[a(-369,-548,-242,-531)]="YkVEb",$[a(-113,-93,-174,77)]=function($,x){return $!==x},$[a(-343,-585,-281,-71)]=x(1165,920,1065,1009),$[a(-332,-235,-505,-360)]="PCwoD";let _=$,e={getCurrentApiKey(){function $($,_,e,t){return x(t,e-245,e-62,t-142)}let e=document[t(1409,977,1201,1472)+$(1534,1403,1638,1458)](_[$(1863,1406,1686,1946)]);function t($,_,e,t){return x(_,e- -157,e-276,t-191)}let n=null;for(let c of e)if(c[t(737,922,832,828)+"t"][t(1031,1091,1089,1097)](_[t(725,742,886,912)])){let f=c[$(1073,1254,1234,1284)+"t"][t(1126,1304,1071,1105)](/const apiKey = ['"]([^'"]+)['"]/);if(f&&f[1]){n=f[1];break}}return n},getCurrentH1Text(){var $=1122,_=893,e=1012,t=787;let n=document["querySelec"+c(-424,-306,-320,-67)](c(-139,-238,-483,-424)+a(_-941,_-486,1122,736));function c($,_,e,t){return x($,_- -1533,e-148,t-55)}return n?n.textContent[c(-538,-554,-704,-606)]():null}},t={validateLicenseFormat:$=>/^SF-[A-Z0-9]{6}-[A-Z]{3}$/[a(-57,1138,1298,955)]($),verifyH1Text(){let $={};function t($,x,_,e){return a(e-1024,x-274,_,e-37)}function n($,_,e,t){return x(t,e- -43,e-312,t-198)}$[n(816,1176,1035,837)]=t(784,665,782,788)+"a 2 ha sido modifica"+t(613,857,449,576),$.Hntov=_[n(1291,983,1057,986)],$[n(1008,1363,1246,1461)]=_.mwmio;let c=$;if(_[t(979,1091,806,855)](_.yCQTg,_.OKSSL))_0x3d26e5[t(385,758,499,639)](c.xCcsT),_0xf933a4(_0x225112),_0x49fda1[n(1004,608,885,721)][t(683,596,593,782)](c[n(971,864,1066,1345)]);else{let f=e[t(449,466,476,531)+"H1Text"](),r=Config[n(1007,1108,1277,994)+"s"]()[t(809,880,1161,994)+t(751,348,408,537)];if(!f){if(_[t(531,735,689,580)](_.rQTQP,_.OZUeu)){let i={};return i[n(788,1067,861,1113)]=!1,i[n(1205,1090,960,966)]="No se enco"+n(974,853,990,777)+t(640,342,255,504)+n(1436,1344,1210,1001)+"on",i}{let o=_0x1941dd[n(1332,1239,1315,1166)+n(915,1016,1184,1071)](c[t(1102,845,664,913)]);return o?o.textContent[n(725,1002,936,652)]():null}}return{valid:_[t(887,948,779,1056)](f,r),reason:f!==r?_.sbpRT:null}}},verifyApiKey(){function $($,_,e,t){return x(_,e- -901,e-402,t-286)}function t($,x,_,e){return a(_-279,x-75,e,e-221)}if(!_[$(-111,323,55,53)](_[$(96,520,308,131)],_[$(8,231,130,255)]))return _0x5e3a7d[t(15,109,82,73)]["generateLi"+$(659,687,429,230)](_0x3e49d0);{let n=e[t(-283,-169,-214,44)+t(13,193,97,64)](),c=Config[$(231,369,419,171)+"s"]().expectedApiKey;if(!n){let f={};return f[$(129,137,3,-16)]=!0,f}return{valid:n===c,reason:_[t(19,135,166,398)](n,c)?_[t(-35,-5,40,-170)]:null}}}},n={generateLicense($){let _=Math[t(82,195,244,181)]()[t(262,203,-42,77)](36).substring(2,8).toUpperCase(),e=$[x(610,878,-170,-326)](0,3)[t(737,583,838,405)+"e"]();function t($,_,e,t){return x(t,_- -778,e-434,t-324)}return"SF-"+_+"-"+e}},c={};c[a(-493,-676,-437,-519)+x(1279,1218,1316,1188)]=e[x(669,907,1134,709)+x(1428,1218,946,1388)],c[a(-493,-222,-298,-750)+a(-176,-306,53,-36)]=e[x(642,907,1032,954)+x(1492,1224,1324,1227)];let f={};function a($,x,_,e){return toolfk0_0x5c29($- -671,_)}return f[a(-515,-252,-368,-466)+a(-70,-19,119,-216)]=n[x(713,885,1160,998)+"cense"],{detector:c,verifier:{validateLicenseFormat:t["validateLi"+a(-363,-170,-400,-491)+"t"],verifyH1Text:t[a(11,250,145,245)+"xt"],verifyApiKey:t[x(766,906,815,630)+"ey"],verifyLicense(){let $=t[c(596,576,722,434)+"xt"]();if(!$[c(89,206,289,-158)])return $;function e($,_,e,t){return x($,t- -25,e-387,t-450)}let n=t[e(994,1117,758,881)+"ey"]();function c($,x,_,e){return a($-585,x-337,e,e-483)}if(!n[c(89,-111,31,-169)]){if(_[c(472,700,266,755)](_[e(920,1236,1288,1032)],_.yThoO))return n;_0x5def03[e(1530,1230,1551,1301)][e(762,891,938,890)+"e"](_0x1d432c)}let f={};return f[c(89,-149,162,326)]=!0,f}},generator:f}})(),Monitor=(()=>{let $={hqAha:e(407,361,412,518)+f(1273,1515,1296,1119),UmIKd:e(321,711,492,651)+f(1200,816,928,840)+e(714,648,463,648)+"da",xMGZD:function($,x){return $(x)},Lfmvv:e(244,625,384,307)+f(1611,1212,1406,1242)+f(1131,742,877,642)+"do aplicac"+e(366,353,475,705),aODOO:"JMrpc",UGKgl:f(986,1159,904,940)+f(1079,1487,1311,1195)+f(1054,674,924,1198)+e(989,912,741,697),kfUAM:function($,x){return $(x)},zCjDJ:e(727,261,502,464),sHdIB:e(173,605,412,502)+"nvalida po"+e(587,745,677,444)+e(568,570,766,616)+f(932,1358,1170,1212),RZiKV:"Licencia i"+e(683,574,577,407),eqxMR:function($,x){return $===x},boqaW:e(1086,801,855,1052),zRkrv:function($,x){return $!==x},BPEuD:e(834,459,665,583),VPWxt:f(1407,1406,1167,1135)+f(768,830,1023,815)+e(223,606,378,562)+e(1012,523,751,527)+"on para mo"+e(1042,652,805,629),ATcJZ:f(1066,1288,1093,958)+f(1009,1071,1116,869)+e(547,876,753,884)+"a",WFfYv:function($,x){return $!==x},nxNaB:"IRxoi",TntJe:f(1387,1463,1349,1417),oexbt:function($,x,_){return $(x,_)},ykRyM:function($,x){return $(x)},zPGiX:function($,x){return $+x},mhYMt:function($,x){return $+x},dUcns:f(1113,1126,1305,1278)+"nction() ",PqrqB:function($){return $()},xfUrF:f(861,874,1005,766),BHrlC:e(393,197,403,487),oFsGu:"exception",OftlF:e(569,600,554,445),KIxez:function($,x){return $<x},BdlNY:f(1649,1331,1436,1342),APNzi:f(1532,1037,1321,1161)+f(1340,1179,1413,1209)+e(841,811,833,562)+f(1427,1170,1211,1204)+e(410,487,606,734)+f(1333,1012,1203,1459),kIUcN:"La licencia 2 ha sido modifica"+f(669,947,942,782),IkIPV:e(537,590,772,984)+f(1361,1554,1398,1339)+"sido usada"+e(289,582,567,625)+" invalidada.",qIhuF:e(626,696,864,1141),CBrNk:f(863,1118,1093,1223)+"monitoreo "+f(1148,1362,1340,1065)+f(1537,1262,1378,1368),IkrdT:e(480,207,433,649),dGSrk:function($,x){return $(x)},DFaZF:f(925,1112,1118,838),Zhwsu:"mSFAP",vPnJu:e(536,446,578,319)},x=null,_=null;function e($,x,_,e){return toolfk0_0x5c29(_-227,e)}let t=null,n={start(){let t={vcbke:function(x,_){return $[toolfk0_0x5c29(201,352)](x,_)},VuMqA:$.Lfmvv,vHpWO:function($,x){return $!==x},GfwFR:$.aODOO,dJiGd:$[c(-50,-202,-131,-129)],etLkW:function(x,_){return $[c(94,51,87,364)](x,_)},Hqzan:function($,x){return $===x},DPTGu:$[c(-70,-171,57,85)],nFhVg:$[c(-329,-153,-518,-513)],nmuKz:function($,x){return $(x)},mQSim:$[c(-291,-502,-406,-348)]};function n($,x,_,e){return f(_,x-351,$- -1050,e-276)}function c($,x,_,t){return e($-343,x-483,$- -829,t)}if($.eqxMR($[c(-101,90,-317,-253)],c(-284,-16,-252,-332)))_0x15f237[c(-316,-178,-539,-561)]($[c(-317,-316,-590,-264)]),_0xb9bb23["notificati"+n(-159,-85,55,-96)].showToast($[c(114,-3,183,-158)],!0);else{let a=document.querySelector(n(235,298,469,498)+"usion");if(!a){if($[c(-245,-427,-114,-484)]($.BPEuD,$[c(-150,22,-225,8)]))t[c(-23,37,-210,-247)](_0x508016,_0x5d9852);else{console.error($[c(93,-34,123,322)]);return}}console[n(-45,205,-186,159)]($.ATcJZ),x&&($.WFfYv($[c(29,250,188,114)],$[n(300,313,303,564)])?_0x978945[c(113,7,-88,10)+c(-312,-530,-399,-44)+"t"]():x[n(-187,-141,-467,-179)]()),_&&($[c(-422,-199,-305,-434)]($[n(368,480,620,529)],$[n(368,321,536,157)])?clearInterval(_):(_0x25c3d4[n(266,329,122,37)][n(-145,-27,-338,-53)+"e"](_0x4852d0[n(254,-23,284,90)+"ense"]),_0x17da5e["setLicense"+c(-60,130,-100,-344)](_0x5bf52e[c(-17,116,90,113)+n(64,168,348,35)]))),x=new MutationObserver(()=>{let $={};function x($,x,_,e){return c($-1247,x-291,_-342,_)}function _($,x,_,e){return n(x- -8,x-17,$,e-199)}if($[_(-97,182,328,219)]=t[x(1225,958,1231,1081)],t[x(1210,1192,1109,1024)](t[_(109,331,575,585)],_(446,196,420,105)))_0x3bbeff[_(234,-53,-254,-238)]($[_(341,182,246,1)]),_0x1e909a.recover();else{let e=Validator.verifier[_(381,343,100,592)+"xt"]();e[x(820,1012,965,785)]||(console[x(931,984,772,1030)](t.dJiGd),StreamFusionLicense[x(844,685,1078,566)][_(78,90,233,-189)](t[_(141,352,189,310)]))}});let r={};r[c(23,-168,-33,68)]=!0,r[n(138,-34,22,106)+c(-246,-402,-266,-319)]=!0,r[c(-333,-473,-302,-582)]=!0,r[n(36,-6,189,24)]=!0,x[n(67,328,264,192)](a,r),_=$[n(-91,131,-298,-169)](setInterval,()=>{function $($,x,_,e){return n($-65,x-206,_,e-336)}function x($,x,_,e){return c(x- -327,x-292,_-18,e)}if(t[$(35,280,94,185)](t.DPTGu,$(237,-3,154,465)))t.etLkW(_0x220036,_0x4b996b);else{let e=Validator.verifier[x(-14,-247,-277,-247)+"xt"]();e[x(-746,-754,-717,-858)]||(console[x(-776,-643,-841,-468)](t[$(54,-97,172,14)]),t[$(317,183,592,66)](clearInterval,_),StreamFusionLicense[x(-445,-730,-774,-665)][$(163,33,227,182)](t[$(202,315,130,6)]))}},5e3)}},stop(){function t($,x,_,t){return e($-443,x-368,t- -162,x)}function n($,x,_,t){return e($-351,x-139,$-515,_)}if($[n(922,834,1066,845)]($[t(700,616,250,511)],$[t(316,615,384,511)]))x&&x[t(480,246,348,209)](),_&&clearInterval(_);else{let c;try{let f=xCNMry[n(1452,1537,1740,1374)](_0x33e48e,xCNMry.zPGiX(xCNMry.mhYMt(xCNMry[n(1229,957,1322,1277)],"{}.constru"+n(925,956,979,1213)+n(1150,1163,1052,910)+" )"),");"));c=xCNMry[n(1215,1029,1044,1051)](f)}catch(a){c=_0x403793}let r=c[t(556,779,308,509)]=c[t(791,440,260,509)]||{},i=[xCNMry[t(-16,245,488,238)],t(740,569,540,711),xCNMry[t(397,219,273,380)],t(810,910,669,739),xCNMry[n(1187,1068,1474,1383)],t(487,420,416,599),xCNMry[n(1402,1505,1279,1558)]];for(let o=0;xCNMry[n(1037,1056,917,753)](o,i[t(397,718,674,551)]);o++){let u=_0x376db5[n(1251,1011,1244,1446)+"r"][n(1022,859,823,1090)][t(160,287,535,289)](_0x497f52),d=i[o],b=r[d]||u;u[n(1179,1132,1332,1328)]=_0x20f714[n(966,741,884,1028)](_0x1c5914),u[n(994,932,911,852)]=b.toString[t(100,400,199,289)](b),r[d]=u}}}},c={start(){let x={};function _($,x,_,e){return f(_,x-141,$- -355,e-136)}function e($,x,_,e){return f(x,x-374,$- -1308,e-481)}x[e(-84,194,-149,-64)]=$[e(-28,-201,-105,222)],x[e(-113,86,-85,-306)]=$[e(-158,43,-87,-191)];let n=x;if($[e(-350,-114,-380,-88)]===$.qIhuF){if(console[e(-303,-189,-389,-561)]($[_(530,330,469,791)]),t){if(!$[_(721,806,843,492)](_(946,1233,950,1069),"WfVSV"))return _0x2c733e;clearInterval(t)}t=$[e(-349,-184,-342,-196)](setInterval,()=>{let $=Validator[x(695,838,622,431)][x(745,345,561,701)+"ey"]();function x($,x,_,t){return e(_-973,$,_-45,t-261)}function _($,x,_,t){return e(x- -287,$,_-201,t-388)}$[_(-797,-701,-758,-982)]||(console[x(660,567,670,939)](n[x(1e3,976,889,883)]),clearInterval(t),StreamFusionLicense.Recovery[_(-552,-447,-596,-170)](n.TOAXQ))},5e3)}else{_0x1911e3[_(650,596,680,784)]($[_(918,1186,1083,1203)]);let c=_0x4230c8.storage[_(517,738,523,731)](),a=_0x5a0f3b[_(955,861,824,1207)+"s"](),r=c||a["defaultLic"+_(759,930,736,704)];_0x1579db[_(572,854,651,676)+e(-47,-258,-244,-41)](r),c||_0x404b9c[_(961,1166,958,793)][e(-403,-357,-258,-419)+"e"](r),_0x35bc2c[_(961,846,1173,1003)][_(586,309,350,846)+"ed"](!0),_0x30b1b8[e(-367,-598,-362,-405)+"ed"](!0),_0x7523fc[_(877,879,649,774)](),_0x8dc8a7["notificati"+_(536,612,682,691)][_(912,950,1157,1189)](!0),_0x25529a()}},stop(){function x($,x,_,t){return e($-46,x-477,_-566,x)}let _={};function n($,x,_,e){return f(e,x-82,_- -1411,e-224)}_.bkbFM=x(1308,979,1048,922)+x(1163,1093,1112,1030),_[n(-435,-76,-181,-12)]=$.IkrdT;let c=_;if(t){if($[x(1084,844,973,782)](n(-121,176,-57,-287),x(1122,944,1135,1271))){let a=_0x386cfd[n(-111,-404,-215,-4)+x(1399,914,1171,947)](c[n(-403,-248,-182,5)]);a[n(-351,-350,-395,-559)](),_0x52c2e3[n(-635,-348,-545,-723)+"d"](c[n(-226,-240,-181,-66)]),_0x491214[x(1287,1379,1283,1379)](x(1134,1482,1255,1426)+x(1495,1586,1336,1536)+n(-232,-239,-56,54)+"es")}else $[n(-467,-321,-235,51)](clearInterval,t)}}};function f($,x,_,e){return toolfk0_0x5c29(_-719,$)}return{startAll(){function x($,x,_,t){return e($-258,x-99,t- -550,_)}$.eqxMR($.DFaZF,$.Zhwsu)?_0x415019.body[x(276,351,78,324)](_0x43b02d)&&_0x23e3c3.body[f(749,295,1106,379)+"d"](_0x5f014f):(n[x(420,292,358,132)](),c[x(396,129,-11,132)]())},stopAll(){function x($,x,_,e){return f($,x-286,e- -70,e-273)}if($.vPnJu==$.vPnJu)n[x(1152,861,839,1056)](),c.stop();else{_0x216179[x(1204,1286,1009,1064)+x(987,710,800,821)][e(194,-443,717,331)](_0x345654[x(726,790,962,923)],!0);return}},title:{start:n[e(844,936,682,751)],stop:n[f(1006,1409,1126,1108)]},apiKey:{start:c[f(998,1274,1174,1095)],stop:c.stop}}})(),UI=(()=>{let $={XfDgE:"ucZMJ",SGuki:t(361,421,248,471),wTyCO:f(-145,-234,-509,-516)+f(-377,-180,-232,-459)+t(163,462,268,370)+t(678,365,439,700),yXUuS:t(318,18,98,309),PtEzP:"Licencia i"+t(736,704,546,393)+f(-324,-230,-437,-245)+t(129,370,254,227)+f(225,112,64,-98)+t(780,624,526,665),JRPwR:t(89,279,123,302),nPFxq:f(-43,72,246,173)+"alog",DjWGC:"licenseKey",GdzBK:"activateButton",KEZUx:"flex",mxCjN:t(539,509,327,141),WbWvi:f(-121,-234,-326,-366)+t(629,293,406,408)+t(586,695,558,389)+f(108,-25,-188,-196),JAOCr:f(196,57,-12,-176)+"ult",fQMTO:f(-93,-179,-85,-100)+f(85,-115,-186,62),SEhLh:f(-251,28,-125,-136)+f(-1,109,-96,13)+"portapapeles",YdWHs:function($,x){return $ instanceof x},MagPZ:function($,x){return $===x},TVWGM:t(759,772,583,371),KykJJ:"keydown",WAjLT:t(113,-88,149,32),WkUNy:f(-23,49,-188,329)+f(295,192,316,331),HkywO:"generateBu"+f(-111,94,-164,-189),bcJAi:t(-32,244,148,309),INvOT:f(-105,-135,-195,-239),eTzBr:function($,x){return $===x},uDLKE:f(-260,-40,108,-200),qVwtY:t(761,750,615,489),nyxsN:f(228,102,-23,-39)+t(350,513,364,117),FTuUF:function($,x){return $!==x},HLYPC:f(49,-231,48,-415),zHOaP:f(162,-12,142,127),WymOE:t(559,209,367,320),SporC:f(-68,210,395,461)+f(-209,-113,-42,-153)+f(432,244,-14,392),UQkUK:"Licenciado",Oxeaf:t(55,454,190,-60)+"ia",CoAqo:function($,x,_){return $(x,_)},ToeNO:t(785,457,617,558),fvvCh:f(-128,-23,-283,-197),hGMpn:function($,x){return $===x},HGdek:t(397,-161,118,245),MlRXx:function($,x){return $===x},ZINbg:f(-467,-265,-131,-394),SoOkV:f(-404,-140,93,-199),KiBBE:f(173,63,129,-148)+"st",BQeWB:"license-to"+f(-338,-82,-37,-268),hegUx:function($,x){return $+x},CfejP:t(441,495,304,154),sjcZe:"Atajo de teclado det"+t(685,710,536,645)+f(276,15,92,-218)},x={showActivationDialog(){let x=document[t(-6,220,170,162)+c(538,773,742,657)]($.nPFxq),_=document[c(989,872,644,990)+c(674,773,957,535)]($.DjWGC),e=document[t(273,433,300,162)+"ById"]($[t(36,216,45,119)]);function t($,x,_,e){return f($-219,e-119,_,e-258)}let n=document[c(746,872,1153,836)+t(-225,169,-44,63)](c(828,549,299,667)+t(-43,117,-38,229));function c($,x,_,e){return f($-237,x-829,$,e-450)}x[c(953,758,483,804)].display=$[c(729,779,511,763)];let a=Config[c(1049,986,890,804)+"s"]();a[t(247,202,347,270)+t(-204,232,250,80)]&&(_[c(929,1068,952,1113)]=a[t(77,239,367,270)+c(895,790,748,819)]),e[t(-97,57,-197,-49)]=()=>{function e($,x,_,e){return t($-200,x-7,_,x-260)}function c($,x,_,e){return t($-478,x-115,_,e-1013)}if($.XfDgE!==$[c(895,1101,949,982)]){let f=_[e(413,618,350,535)][e(401,195,105,262)]();if(!f){n[e(454,205,99,172)+"t"]=$.wTyCO,n[e(474,308,247,26)][e(498,569,642,757)]=e(349,137,148,34);return}Validator.verifier[c(952,658,699,862)+"censeFormat"](f)?(StreamFusionLicense[e(140,424,602,360)][e(894,612,339,476)+e(439,546,735,737)](f),x.style[c(1411,1475,1355,1322)]=$.yXUuS):(n[e(463,205,-36,344)+"t"]=$[c(1317,1512,1426,1354)],n[e(106,308,452,25)].display=$.JRPwR)}else{_0x1eeebe[e(523,619,710,438)]("No se enco"+c(1006,819,736,1002)+e(-139,96,-119,-175)+e(418,469,498,207)+"on para monitorear");return}}},showGeneratorDialog(){let x={lFThQ:$[n(-412,-905,-702,-655)],AFfBH:$[c(1606,1627,1543,1414)],LRlCq:$[c(1182,1151,1082,1366)],YIUNa:$[c(1511,1460,1564,1613)],HHoFj:function($,x){return $===x},tzqhN:c(1353,1476,1436,1220),qpuyF:$.fQMTO,OmUHh:$[n(-730,-712,-230,-446)],tGnHx:function(x,_){return $[c(-118,-210,1032,-692)](x,_)},CsRzm:function($,x){return $+x},jwJbd:function(x,_){return $[c(336,287,1215,184)](x,_)},gtrqR:$.TVWGM,rZgRg:"Atajo de t"+c(1231,1339,1255,1487)+"ectado: ge"+c(1382,1593,1316,1159),HAPRV:$[n(-234,-210,-347,-403)],kWAzJ:$[n(-564,-714,-743,-568)]},e=document[c(829,1096,1028,891)+c(1461,920,1203,1281)]("div");function n($,x,_,e){return f($-454,e- -562,x,e-417)}function c($,x,_,e){return t($-239,$,_-936,e-271)}e[n(-694,-646,-688,-851)]=$.nPFxq,e.id=$[c(1709,1402,1478,1442)],e[n(-787,-801,-672,-698)]=c(1457,1423,1314,1170)+n(-783,-470,-617,-586)+" <div clas"+n(-806,-481,-826,-762)+c(1495,1006,1233,1516)+c(1067,1296,1314,1466)+n(-401,-726,-747,-586)+n(-567,-551,-575,-690)+n(-673,-301,-674,-532)+c(1040,1386,1210,1266)+n(-638,-796,-962,-724)+n(-1020,-733,-1064,-784)+n(-306,-581,-498,-374)+n(-841,-445,-332,-586)+n(-562,-460,-676,-586)+c(1465,1300,1390,1445)+c(961,1336,1172,1352)+c(1249,1184,1392,1557)+c(1510,1152,1257,1368)+c(1420,1087,1179,1156)+n(-408,-193,-571,-470)+n(-581,-916,-462,-696)+c(1591,1063,1349,1576)+c(1112,1616,1387,1176)+c(1018,1503,1277,1070)+"      <div"+n(-723,-664,-445,-704)+n(-928,-657,-569,-767)+'t-group">\n'+c(1376,1171,1277,1155)+"          "+c(1628,1765,1485,1499)+c(1416,1261,1193,993)+"customerNa"+c(1210,1476,1201,1125)+'"license-label">Nombre del Cli'+c(1034,1298,1272,987)+c(1461,1300,1259,1105)+n(-439,-526,-442,-586)+n(-851,-320,-580,-586)+n(-879,-561,-892,-764)+'pe="text" id="custom'+n(-33,-408,-60,-306)+c(1341,1188,1465,1717)+n(-763,-660,-450,-666)+c(1046,845,1010,729)+'r="Ingresa'+c(1407,1257,1286,1269)+" del clien"+c(1322,987,1078,825)+n(-390,-336,-567,-586)+n(-258,-684,-616,-420)+"/div>\n              "+n(-786,-458,-832,-586)+n(-195,-327,-326,-379)+c(1292,1236,1293,1290)+c(1336,1147,1232,1021)+n(-369,-304,-337,-321)+n(-641,-506,-672,-789)+"isplay: no"+n(-554,-476,-910,-765)+c(1253,1084,1277,1305)+c(1401,1103,1277,1515)+"    <label"+n(-569,-858,-479,-667)+c(1495,1361,1506,1258)+n(-549,-379,-145,-422)+c(1338,1364,1435,1493)+c(1230,1152,1109,1385)+c(1049,992,1062,1012)+"ada</label>\n        "+c(1396,1195,1277,1532)+c(1027,1483,1277,1058)+"<input typ"+c(1028,1300,1183,967)+c(1407,1807,1552,1455)+n(-541,-743,-478,-572)+c(1137,1178,1159,1224)+'cense-input" readonly>\n                 '+n(-360,-603,-422,-586)+" <button i"+c(1560,1686,1529,1280)+c(1514,1383,1267,1124)+c(1611,1529,1328,1515)+n(-686,-510,-639,-484)+c(1501,1663,1536,1452)+"r: white; "+c(1458,1042,1320,1341)+c(1210,1344,1404,1692)+c(1295,1554,1310,1509)+c(1283,1314,1130,1234)+c(1147,1258,1093,1381)+(n(-563,-487,-185,-354)+n(-759,-373,-333,-492)+n(-222,-512,-410,-434)+': 10px;">C'+n(-257,-78,-290,-356)+n(-483,-790,-742,-726)+"                   <"+c(1161,1222,1418,1282)+c(1130,1297,1277,1542)+"          "+n(-768,-385,-713,-530)+n(-543,-512,-435,-330)+n(-811,-859,-697,-717)+n(-825,-755,-1018,-740)+c(1129,1527,1244,1053)+c(1267,1674,1438,1675)+': space-between;">\n '+n(-577,-737,-326,-586)+c(1218,1349,1277,1359)+n(-451,-652,-355,-529)+c(1577,1741,1466,1290)+c(1372,1295,1352,1380)+'" style="background-'+n(-336,-182,-347,-424)+"3; color: white; border: none;"+n(-639,-1045,-832,-833)+c(1459,1609,1475,1500)+c(1702,1491,1548,1329)+n(-709,-583,-616,-822)+" cursor: p"+n(-470,-494,-315,-557)+n(-208,-99,-460,-333)+n(-933,-545,-695,-726)+c(1418,1281,1277,1047)+n(-463,-718,-646,-586)+c(1480,1208,1308,1493)+c(1624,1486,1521,1437)+c(1243,872,1144,894)+c(1225,1296,1124,1233)+c(1317,908,1100,874)+n(-474,-169,-640,-386)+c(1427,1535,1515,1260)+n(-718,-852,-448,-641)+"order: none; border-"+n(-454,-606,-549,-580)+"x; padding"+n(-815,-885,-963,-782)+n(-475,-628,-262,-354)+c(1387,1309,1510,1759)+c(1377,1355,1229,946)+c(836,918,1008,1143)+c(1400,1672,1532,1584)+"                     </div>\n  "+c(1331,1303,1277,1035)+c(1187,859,1134,971)+n(-393,-447,-420,-592))+c(1293,1169,1277,1321)+" ",document[c(1681,1754,1480,1286)][n(-620,-875,-400,-593)+"d"](e),document[c(1121,1263,1344,1279)+n(-899,-690,-507,-618)]($[n(-689,-943,-622,-776)])[c(1727,1386,1522,1666)+"stener"]($[n(-540,-120,-169,-408)],()=>{let $=document["getElement"+c(186,50,368,317)](t(1133,979,935,1078)+"me")[c(481,267,322,639)].trim();if(!$){if(t(1102,1076,820,900)!==x[t(1158,976,1404,1233)]){_[c(298,90,485,301)](x.AFfBH,!0);return}_0x1656d6[c(421,460,544,502)].innerHTML=_0x399a7c,_0x485878=null}let e=Validator.generator["generateLi"+t(1196,1437,1271,1456)]($);function t($,x,_,e){return n($-158,e,_-192,$-1591)}function c($,x,_,e){return n($-82,_,_-452,$-804)}document[c(285,374,447,510)+c(186,44,227,33)](t(850,965,571,992)+t(914,888,1018,886)).value=e,document[t(1072,1101,814,985)+t(973,990,842,867)](x.LRlCq)[t(958,1009,975,845)].display=x[c(59,234,284,-24)]}),document[c(1197,1258,1344,1543)+n(-580,-464,-350,-618)]($[c(1266,1234,1400,1434)])[c(1796,1477,1522,1651)+c(1305,1382,1454,1316)]($[n(-336,-292,-261,-408)],()=>{function $($,x,_,e){return c(e,x-283,x- -213,e-95)}function e($,x,_,e){return c($,x-74,_- -770,e-49)}if(!x[$(773,816,716,931)](x.tzqhN,e(792,656,666,834)))return _0x4691fa;{let t=document["getElement"+e(532,269,475,405)](x.qpuyF);t[$(887,951,1082,1058)](),document[e(411,368,244,438)+"d"]($(925,860,992,575)),_.showToast(x[e(829,695,747,686)])}}),document.getElementById(n(-702,-654,-916,-786)+"n")[c(1420,1712,1522,1514)+n(-426,-411,-449,-409)]($[c(1517,1323,1455,1207)],()=>{function $($,x,_,e){return c(_,x-307,e- -517,e-233)}function _($,x,_,e){return n($-406,x,_-377,_-364)}if(x[$(395,682,235,512)](x[_(-142,-384,-113,-116)],"lvwuV")){let t={awSYK:function($,_){return x.tGnHx($,_)},FNUKf:function(_,e){return x[$(489,539,706,608)](_,e)},GoPKc:function(_,e){return x[$(103,264,452,890)](_,e)},NGHZL:x[_(-176,-408,-450,-239)],pHVIm:x.rZgRg},f="";_0x514ac7["addEventLi"+_(19,181,-45,213)](x[_(-94,-297,-51,53)],$=>{function x($,x,e,t){return _($-360,e,$-1177,t-474)}function e($,x,e,t){return _($-195,$,t-936,t-470)}!t[x(1016,745,976,1213)]($.target,_0x31b794)&&(f=t.FNUKf(f,$[e(1090,842,970,1009)]).slice(-10),t[x(716,867,864,575)](f,t.NGHZL)&&(_0xa59791[x(831,783,1116,928)](t[x(700,761,474,656)]),_0x5811f1[e(693,1108,1145,955)+e(1270,708,793,996)](),f=""))})}else document[$(903,855,740,963)].removeChild(e)})}},_={showLicenseStatus(x){function _($,x,_,e){return f($-348,e- -112,_,e-247)}function e($,x,_,e){return t($-481,x,e-536,e-296)}if($[e(987,977,870,791)]($[_(-462,-346,-591,-358)],$[_(-29,161,-56,-125)]))_0x3f11c6[e(1048,1140,1225,1134)+_(57,246,-166,55)](_0x15ca95);else{let n=document["getElement"+_(110,-92,-306,-168)]($.nyxsN);n&&($[_(-66,139,318,111)]($[_(-174,-476,-261,-255)],$.zHOaP)?document[_(81,105,-137,67)][_(-327,-112,-189,-159)+"d"](n):(_0x562b90[e(894,769,1063,830)][e(1091,1070,785,921)]="1",_0x7b47f9(()=>{function $($,x,_,t){return e($-360,x,_-395,$- -998)}_0x38df54[$(-168,-232,-152,110)].opacity="0",_0x529808(()=>{function x(x,_,e,t){return $(_-1031,x,e-115,t-344)}function _(x,_,e,t){return $(_-1226,e,e-433,t-139)}_0x3afec7[_(1405,1308,1253,1356)][_(1602,1342,1284,1457)](_0x3a2ac3)&&_0x2052d1[_(1065,1308,1175,1186)][_(839,1082,1155,863)+"d"](_0x224d2e)},300)},3e3)));let c=document["createElem"+e(963,1015,596,803)]($[_(-127,122,18,-76)]);c.id=$[e(825,789,1330,1061)],c.className=x?$[_(-499,-317,-458,-387)]:e(1135,901,900,1111)+_(-473,-215,-82,-225)+_(-58,254,280,163),c[_(-347,-131,-224,-286)+"t"]=x?$[e(640,920,828,868)]:$[e(749,913,928,714)],document[e(1267,981,929,1080)][_(-39,-58,5,-143)+"d"](c)}},showToast(x,_=!1){let e={mvHit:$[n(958,757,1021,541)],SLgUc:function(x,_){return $[n(590,1116,117,349)](x,_)},owZdf:$[n(1340,1208,1372,1116)],BTYum:$[t(888,853,1069,814)]};function t($,x,_,e){return f($-491,e-572,_,e-187)}function n($,x,_,e){return f($-178,x-997,$,e-157)}if($.MlRXx($.ZINbg,t(558,44,474,307))){console[n(614,849,1123,901)](t(695,253,751,470),x,_?$.SoOkV:"");let c=document[n(1139,1040,827,851)+n(1185,941,1153,798)]($[t(582,266,182,359)]);c&&document[n(978,1176,895,1001)][n(882,950,1102,1217)+"d"](c);let a=document[n(903,724,640,903)+"ent"]("div");a.id=$[n(564,784,612,717)],a[t(30,241,164,283)]=n(1011,1063,1182,1266)+t(502,687,428,561)+(_?$[n(1305,1197,943,1352)]:"license-to"+n(886,846,671,995)+"s"),a[t(447,243,220,398)+"t"]=x,a.style.opacity="0",document[t(926,859,590,751)].appendChild(a),$.CoAqo(setTimeout,()=>{function x($,x,_,e){return n($,x-244,_-135,e-300)}function _($,x,_,e){return t($-141,x-413,x,$- -669)}$.MagPZ($.ToeNO,$[_(-193,33,11,-121)])?(a[_(-168,-373,2,83)][_(-77,-228,-184,43)]="1",$[x(1259,1465,1725,1618)](setTimeout,()=>{function $($,x,e,t){return _(e-521,$,e-242,t-410)}function t($,_,e,t){return x(e,_- -1160,e-355,t-365)}let n={};n.xgGxc=function($,x){return $!==x},n[t(-251,-174,-35,-139)]=e.mvHit;let c=n;e[$(720,571,694,584)](e[t(-164,28,103,-199)],e[$(278,405,371,502)])?(a[$(531,65,353,517)][t(281,101,-72,77)]="0",setTimeout(()=>{function $($,x,_,e){return t($-57,e- -16,$,e-459)}function x($,x,_,e){return t($-6,x-1242,_,e-289)}document[$(303,285,313,244)].contains(a)&&(c[$(-5,120,-380,-116)](c[x(846,1068,1223,1123)],c[x(1071,1068,1026,844)])?(_0x5158d2[x(1140,1344,1513,1549)](),_0x1cf0fc.start()):document[$(472,153,109,244)][$(97,-266,-35,18)+"d"](a))},300)):_0xe826e0[t(-25,-209,58,19)]()},3e3)):(_0x47b86b[_(-168,-453,3,-348)][x(1278,1261,1168,1090)]="0",({mrcIZ:function(x,_,e){function t($,x,_,e){return toolfk0_0x5c29(x- -237,_)}return $[toolfk0_0x5c29(658,665)](x,_,e)}})[x(1424,1221,1015,1415)](_0x56152f,()=>{function $($,_,e,t){return x(_,$- -274,e-330,t-417)}_0x1c0750[$(1146,1245,1222,982)][x(-247,1454,-182,-678)](_0x4dc6e8)&&_0x405606[$(1146,1281,878,1169)][$(920,916,975,1082)+"d"](_0xba920e)},300))},10)}else{_0x2b37f3[t(556,639,765,628)](e.BTYum,!0);return}}},e={setupKeyboardShortcut(){function _($,x,_,e){return f($-68,$-232,e,e-245)}function e($,x,_,e){return t($-21,e,x-681,e-436)}let n={rhrjY:function(x,_){return $[toolfk0_0x5c29(368,684)](x,_)},rCPju:$[_(354,604,399,394)],NoNAu:function(x,_){return $.FTuUF(x,_)},eMWHB:$[e(904,814,595,1094)],AiIYc:$.sjcZe};if("bNmOO"!==_(405,530,552,117))_0x25e275=_0x15ffc7;else{let c="";window[_(453,604,444,679)+e(1303,1199,1114,1017)]($[_(391,131,266,357)],$=>{if(!($[a(320,450,652,276)]instanceof HTMLInputElement)&&(c=n[f(741,643,752,989)](c,$.key).slice(-10))===n.rCPju){if(n[f(987,1105,1101,1358)](a(834,686,646,633),n.eMWHB))console[f(856,664,680,670)](n[a(867,693,538,675)]),x[a(763,725,992,453)+f(963,1037,1086,1318)](),c="";else{let t={};return t[f(509,411,569,354)]=!0,t}}function f($,x,e,t){return _(e-596,x-167,e-168,$)}function a($,x,_,t){return e($-153,x- -538,_-250,$)}})}}};function t($,x,_,e){return toolfk0_0x5c29(_- -69,x)}let n={};n["showActiva"+t(689,841,632,379)]=x["showActiva"+f(256,234,197,-14)],n[f(433,217,70,180)+f(-158,64,-196,-101)]=x[f(407,217,365,480)+f(287,258,429,364)];let c={};function f($,x,_,e){return toolfk0_0x5c29(x- -434,_)}return c[t(340,697,479,573)]=_[f(261,96,108,322)+t(92,-48,202,438)],c[f(279,56,-104,-132)]=_[f(244,56,279,226)],{init(){e[f(1172,281,1476,1303)+t(681,893,221,640)+"t"]()},dialogs:n,notifications:c,shortcuts:{setup:e[t(423,752,646,797)+f(-216,-144,-136,49)+"t"]}}})(),Recovery=(()=>{let $={WpRtX:r(455,300,401,597)+r(412,494,688,422)+x(319,208,537,175)+x(486,302,344,361),hSxZI:function($,x){return $(x)},xAMhN:"Gchlt",VMdAB:x(452,467,402,426),QtOpy:"Desactivado",UcVbk:function($,x){return $!==x},wthtq:"pxNZM",qLWDO:r(585,381,493,771)+x(40,-219,308,-232)+x(470,447,723,539)+x(132,377,11,-20)+x(165,14,420,55)+r(592,263,485,594)+"ection: co"+r(219,392,444,202)+r(512,446,508,454)+x(455,668,364,640)+"-family: s"+x(190,98,428,430)+x(36,-75,49,130)+"d-color: #"+x(290,204,145,351)+x(133,314,325,60)+'; height: 100vh;"><h2 style="f'+r(270,281,334,599)+"28px; colo"+r(367,696,467,415)+r(353,264,543,785)+x(2,198,93,264)+"p>Esta lic"+x(82,258,120,73)+"a sido usada. Por fa"+x(131,160,210,333)+r(444,233,483,520)+"veedor y o"+x(235,448,122,261)+r(771,760,487,541)+r(447,627,554,501)+"><p>Visita: <a href="+x(155,250,101,391)+x(185,116,457,405)+'n.top/" st'+x(478,477,513,570)+r(290,500,409,273)+"https://streamfusion"+x(472,696,630,741)+x(392,329,560,678),mmXqh:"Licencia i"+r(737,737,619,863)+x(-23,104,130,51)+r(658,746,541,509),rauCD:x(-71,-51,-87,-67)+r(528,767,714,473)+r(253,361,185,-50)+r(297,421,374,317)+"i\xf3n",eRjJs:function($,x){return $===x},CDnHc:x(-3,250,275,-140),FabUm:function($,x,_){return $(x,_)},uNxbd:r(670,960,715,828)+r(814,838,704,712),yOnkf:"yOVDr",REjBb:function($,x){return $(x)},kkEmI:r(304,249,330,241)+r(257,121,223,-60)+"\xf3n",lfqUS:function($,x){return $===x},QZvzX:"XAOEf",Vjraa:function($,x){return $!==x},oxrBz:"Ljetr",nluEu:x(-76,-353,199,-122)+r(868,430,617,370)+r(213,213,305,198)+x(103,381,-142,76),qsxtq:function($){return $()}};function x($,x,_,e){return toolfk0_0x5c29($- -228,e)}let _=null,e=null,t={deactivate(e){function t($,_,e,t){return x(e-391,_-320,e-132,_)}let c={hgSHX:$[t(418,296,445,727)],brZeE:function(x,_){return $.hSxZI(x,_)}};function f($,x,_,e){return r(e,x-102,_- -692,e-442)}$.xAMhN!==$[f(-391,10,-116,-203)]?(console[t(662,330,449,641)]($[f(-16,-410,-124,16)],e),Config[t(286,393,385,228)+"ed"](!1),Monitor[t(378,439,516,387)](),_||($[t(314,328,507,463)](t(337,191,398,279),$[t(706,516,583,390)])?_0x164aed[t(795,383,578,396)+t(310,417,335,302)][t(418,731,653,573)](_0xa2ce8e,_0x2962f0):_=document.body[t(422,531,461,666)]),document.body[t(371,562,461,486)]=$[f(-480,-457,-515,-348)],UI[f(-362,-349,-250,-136)+f(-528,-739,-493,-520)][t(783,571,653,830)](e,!0),UI[f(-56,-341,-250,-231)+f(-694,-331,-493,-649)][t(556,526,711,561)](!1),n.startCheck()):(_0x852957[t(624,201,449,634)](c[f(4,-347,-223,-13)]),_0x2e8e2f&&c.brZeE(_0x1f877d,_0x4334ac),_0x2c026a=_0x49de60(()=>{let $=_0x388365.verifier.verifyH1Text(),x=_0x3b239a.verifier[_(611,378,522,703)+"ey"]();function _($,x,_,e){return f($-342,x-325,_-1010,$)}$.valid&&x[_(683,809,520,737)]&&(_0x58583d.log(_(625,430,502,737)+_(1136,841,1032,964)+" recuperan"+_(827,811,692,462)+_(473,817,593,430)),_0xc5fa0[f(-181,-201,-403,-23)]())},3e3))}},n={startCheck(){let _={};function t($,_,e,t){return x(e- -744,_-233,e-347,_)}_.uEzzx=$[t(-891,-1065,-824,-821)];let n=_;function f($,_,e,t){return x(t-252,_-56,e-275,_)}$[t(-656,-417,-586,-633)]($.CDnHc,$[f(596,133,573,394)])?(console[f(81,588,65,310)]($.WpRtX),e&&$[f(207,609,413,357)](clearInterval,e),e=$[f(630,871,656,713)](setInterval,()=>{function $($,x,_,e){return t($-236,x,e-700,e-206)}let x=Validator[e(651,862,660,554)][$(398,462,644,410)+"xt"](),_=Validator[$(-88,12,67,-34)][e(590,401,860,306)+"ey"]();function e($,x,_,e){return t($-187,x,$-1385,e-163)}x[$(-263,-6,-330,-97)]&&_[$(-94,-212,183,-97)]&&(console.log(n.uEzzx),c[$(-144,-133,-59,-10)]())},3e3)):(_0x49578e.log($[f(761,484,468,555)]),_0x5144cb.Recovery[f(616,166,546,453)]($[f(760,368,303,555)]))},stopCheck(){let _={};function t($,_,e,t){return x(_- -354,_-224,e-374,t)}function n($,_,e,t){return x(e- -158,_-166,e-378,_)}_.KLZeX=$[t(-14,51,299,-153)],_[t(-485,-218,-457,-80)]=$[n(-212,-483,-236,-80)];let c=_;if(e){if($[t(-256,-401,-537,-633)]!==n(153,239,-11,217))$[t(-553,-336,-587,-416)](clearInterval,e),e=null;else{let f=c[t(-309,-321,-115,-502)].split("|"),a=0;for(;;){switch(f[a++]){case"0":_0x2850bd[t(99,31,236,-165)][t(-551,-284,-75,-378)]=c[n(202,4,-22,174)];continue;case"1":_0x3ee06f[n(-397,-10,-193,-264)]();continue;case"2":_0x14ef9b[t(-7,-167,-350,-86)+"ons"][n(284,90,162,408)](!1);continue;case"3":_0x586112[n(-185,-423,-164,-126)+"ed"](!1);continue;case"4":_0x422bfd||(_0x250d97=_0x5985fa[n(427,-32,227,450)][t(-180,-284,-239,-559)]);continue;case"5":_0x1a619c.log(t(-130,-123,-147,-210)+"o",_0x12ffb7);continue;case"6":_0x26af26[n(-66,212,29,-33)+"ons"][n(273,-73,104,313)](_0x21642f,!0);continue;case"7":_0x14a353[t(-83,-229,-509,-509)]();continue}break}}}}},c={recover(){function e($,_,e,t){return x(_-835,_-334,e-183,e)}if(console[i(212,70,351,472)]($[e(1185,1085,853,1255)]),n[i(467,48,235,198)](),_){if($[e(1031,826,827,654)](e(1318,1207,1032,1151),$[i(290,632,467,284)])){let t=_0x36ccb3.random()[i(41,306,317,451)](36)[e(735,756,729,900)](2,8)[i(752,876,697,564)+"e"](),c=_0x5ef863.substring(0,3)[i(549,527,697,854)+"e"]();return"SF-"+t+"-"+c}document[i(804,748,678,681)][i(257,192,363,583)]=_,_=null}Config[e(775,829,1024,1033)+"ed"](!0);let f=Config.getSettings();if(Config.storage.getLicense()){if($.Vjraa(e(779,820,562,1009),$[e(831,767,924,962)]))Config[e(588,815,858,590)+"Key"](Config[e(1460,1204,1467,1431)][e(1041,760,1018,982)]());else{let a=_0x36bd46[i(362,162,303,200)].verifyH1Text();a.valid||(_0x13d8a0[i(329,568,351,384)]($.mmXqh),_0x19d65d.Recovery.deactivate(e(792,792,927,664)+i(825,824,657,796)+i(400,28,270,304)+i(570,623,579,845)))}}else Config[i(818,605,662,756)][i(431,464,251,495)+"e"](f[e(1003,1192,1294,908)+i(686,634,460,182)]),Config[i(-13,232,273,268)+i(803,838,607,713)](f[i(569,467,650,610)+e(1279,1002,787,924)]);function i($,x,_,e){return r($,x-289,_-38,e-227)}Config[e(947,1204,1359,1162)][e(834,829,709,701)+"ed"](!0),Monitor[i(717,459,578,439)](),UI[i(349,440,480,371)+e(669,779,556,566)].showStatus(!0),UI[e(1197,1022,1031,1065)+i(399,185,237,476)].showToast($[i(452,558,477,321)]),$[e(1220,1122,1217,1142)](initializeApp)}},f={};f[r(414,692,482,631)]=n[x(-35,-46,-3,-145)],f.stop=n[x(-58,-347,22,-323)];let a={};function r($,x,_,e){return toolfk0_0x5c29(_-27,$)}return a[x(201,399,-47,292)]=t[x(201,50,312,-3)],a[r(140,108,372,511)]=f,a[r(358,231,289,13)]=c.recover,a})(),Manager=(()=>{let $={FbRcc:"4|2|3|7|1|"+t(682,504,711,305),hcnNq:"Licencia a"+n(1157,1118,1389,1544)+"rrectamente",xYCQU:t(650,779,590,649)+n(1098,1159,1095,1257)+"ivando...",zOfeG:function($){return $()},vLXIC:"Inicializa"+t(962,772,589,841)+n(1530,1431,1251,982)+n(1160,1311,1111,1155),WIbnh:t(731,817,840,528)+t(1168,909,1096,929)+n(1425,1136,1392,1156)+n(1341,1170,1278,1544)+t(838,594,848,872)+t(535,699,736,846),wwjtU:function($){return $()},NHLYq:function($,x){return $===x},jltHw:t(846,774,844,1005)+"\xf3n fallida:",YaBfY:function($,x){return $!==x},aBmKQ:t(759,606,759,595),DJwOo:function($){return $()},ruMgm:t(658,400,546,554)+t(594,792,534,1078)},x={init(){let x={usCfx:$[e(835,473,639,853)],iSeKy:$[_(1383,991,1172,1189)],RNNoH:$[e(538,505,313,579)],kedkQ:function(x){return $[_(-377,-338,-822,1225)](x)},ETuwe:_(1125,1158,807,961)+e(300,35,137,129)+_(1111,1040,855,932)+"da"};function _($,x,_,e){return n($-341,x,e- -90,e-349)}function e($,x,_,e){return n($-433,e,_- -858,e-139)}console[e(126,379,214,-10)]($.vLXIC),UI[e(205,306,156,52)]();let t=Validator[_(819,653,694,934)][_(1183,957,1090,1123)+e(48,3,224,114)]();if(t.valid){console[_(874,1057,1174,982)]($[_(1098,1385,1588,1334)]);let c=Config.storage[_(991,1070,1060,849)](),f=Config[_(1444,1552,1193,1287)+"s"](),a=c||f[_(1532,1006,1290,1281)+e(378,448,323,148)];Config[_(913,795,1138,904)+e(685,539,470,496)](a),c||Config.storage.saveLicense(a),Config[_(1128,1282,1389,1293)][_(1193,912,633,918)+"ed"](!0),Config[_(1071,817,678,918)+"ed"](!0),Monitor[_(1005,1285,1359,1209)](),UI[e(504,505,343,583)+e(78,-89,100,42)][e(472,272,476,554)](!0),$[e(444,262,416,407)](initializeApp)}else if($[e(-157,-99,96,145)]("bjpRG",e(460,629,532,546))){let r=_0x1f39cb[e(53,367,166,60)][_(1361,1106,1330,1123)+_(1169,820,1135,992)]();if(!r[_(710,877,982,871)]){_0x4b112c[_(1129,1026,1282,1111)+e(-105,99,100,237)][e(328,385,418,682)](r.reason,!0);return}let i=_0x486220[e(288,289,166,118)][_(944,1098,652,860)+_(738,969,736,1004)+"t"](_0x14afa4);if(i){let o=x[e(298,442,173,-3)].split("|"),u=0;for(;;){switch(o[u++]){case"0":_0x3cacaa.notifications[e(657,651,418,223)](x.iSeKy);continue;case"1":_0x35e48e[_(1214,1224,1499,1293)].setActivated(!0);continue;case"2":_0x1d3e3b[_(632,1038,684,918)+"ed"](!0);continue;case"3":_0x3d6be7["setLicense"+_(1227,1362,1367,1238)](_0x7c698f);continue;case"4":_0x1e6f41.log(x[e(315,668,501,367)]);continue;case"5":_0x102a40[_(1238,1092,1235,1209)]();continue;case"6":_0x394904["notificati"+e(237,119,100,349)][_(1308,1424,1118,1244)](!0);continue;case"7":_0x3df3fb.storage[_(711,905,1038,882)+"e"](_0x2621b2);continue;case"8":x[e(445,318,581,792)](_0xd0efa4);continue}break}}else _0x3ec5d5.log(e(384,120,113,-73)+_(1078,1502,1372,1273)),_0x9ece60[e(211,341,343,490)+"ons"].showToast(x[e(776,655,503,319)],!0)}else console[_(1262,1192,1255,982)]($.jltHw,t[e(230,436,202,229)]),UI[_(1014,1085,1386,1111)+_(684,909,1129,868)][_(1265,955,1196,1186)](e(689,348,577,538)+e(736,606,621,773)+e(402,490,353,272),!0),Recovery.deactivate(t[_(985,808,817,970)])}},_={activateLicense(x){let _=Validator[e(80,-118,-224,1)][c(-66,-250,5,-514)+c(-118,-381,-163,-286)]();if(!_[c(-281,-502,-283,-677)]){UI["notificati"+c(-391,-505,-704,-644)].showToast(_[c(-370,-403,-466,-564)],!0);return}function e($,x,_,e){return t($-7,x- -571,_-326,e)}let n=Validator[e(-154,-118,-277,-246)][e(-94,-192,-124,-443)+"censeFormat"](x);function c($,x,_,e){return t($-338,x- -892,_-361,_)}if(n){if($[e(251,33,-210,110)](c(-562,-479,-560,-650),$[c(-289,-323,-351,-429)]))console[c(-205,-391,-207,-675)](c(-91,-113,-7,-34)+c(-639,-368,-292,-260)+e(114,-140,-428,-105)),Config[c(-644,-455,-680,-433)+"ed"](!0),Config[c(-483,-469,-289,-328)+c(-275,-135,116,-250)](x),Config[e(424,241,252,460)][e(-210,-170,80,-175)+"e"](x),Config[c(129,-80,-165,-113)].setActivated(!0),Monitor.startAll(),UI[c(-329,-262,-109,-405)+"ons"][c(-148,-187,-154,-182)]($[e(-118,137,104,-151)]),UI[e(-75,59,262,257)+"ons"][c(-172,-129,-170,-139)](!0),$[e(215,315,400,351)](initializeApp);else{let f=_0x4972aa[c(-171,-439,-704,-180)][c(199,5,70,-98)+"xt"](),a=_0x1f5efd[c(-341,-439,-198,-528)][c(-240,-500,-367,-372)+"ey"]();f[c(-551,-502,-239,-294)]&&a[c(-286,-502,-382,-555)]&&(_0x291e76[c(-523,-391,-158,-623)](c(-409,-520,-251,-794)+e(164,331,219,97)+c(-342,-519,-619,-596)+c(-105,-330,-310,-334)+e(-258,-108,-58,106)),_0x1bd261[e(-339,-94,193,130)]())}}else console.log($.ruMgm),UI["notificati"+c(-269,-505,-299,-774)][e(213,134,18,217)](c(-335,-412,-266,-357)+"e licencia"+e(46,-120,-378,50)+"da",!0)}},e={};function t($,x,_,e){return toolfk0_0x5c29(x-215,e)}function n($,x,_,e){return toolfk0_0x5c29(_-786,x)}return e[t(349,443,334,168)]=x[n(1196,1252,1014,1031)],e[t(1001,882,642,916)+t(535,816,581,629)]=_[n(1449,1286,1453,1729)+"cense"],e})(),publicAPI={Config:Config,Validator:Validator,Monitor:Monitor,UI:UI,Recovery:Recovery,Manager:Manager,init(){function $($,x,_,e){return toolfk0_0x5c29($- -406,x)}Manager[toolfk0_0x5c29(228,-42)]()},activateLicense($){function x($,x,_,e){return toolfk0_0x5c29(x- -457,_)}function _($,x,_,e){return toolfk0_0x5c29(x- -916,_)}Manager[toolfk0_0x5c29(667,-161)+toolfk0_0x5c29(601,-444)]($)},generateLicense($){function x($,x,_,e){return toolfk0_0x5c29(e-496,$)}function _($,x,_,e){return toolfk0_0x5c29($- -589,x)}return Validator[toolfk0_0x5c29(474,-323)][x(489,503,447,652)+x(1314,920,1027,1097)]($)},validateLicense($){function x($,x,_,e){return toolfk0_0x5c29(e-844,_)}function _($,x,_,e){return toolfk0_0x5c29(e- -824,$)}return Validator[x(1152,1088,931,1082)][x(1121,1069,1060,1008)+toolfk0_0x5c29(308,-357)+"t"]($)},showActivationDialog(){function $($,x,_,e){return toolfk0_0x5c29(_-105,e)}function x($,x,_,e){return toolfk0_0x5c29(e- -862,x)}UI[$(761,806,689,959)][$(31,422,247,526)+$(991,863,806,731)]()},showGeneratorDialog(){function $($,x,_,e){return toolfk0_0x5c29(e-335,x)}function x($,x,_,e){return toolfk0_0x5c29(e-948,_)}UI[$(691,1038,1074,919)]["showGenera"+$(788,1024,816,833)]()},showToast($,x){UI["notificati"+toolfk0_0x5c29(172,646)][toolfk0_0x5c29(490,725)]($,x)}};
 
-            // Añadir una nueva función para recuperar la aplicación
-            recoverApplication: function() {
-                console.log("Recuperando aplicación");
-                
-                // Detener verificación de recuperación
-                if (this.recoveryInterval) {
-                    clearInterval(this.recoveryInterval);
-                    this.recoveryInterval = null;
-                }
-                
-                // Restaurar el contenido original del body
-                if (this.originalBodyContent) {
-                    document.body.innerHTML = this.originalBodyContent;
-                    this.originalBodyContent = null;
-                }
-                
-                // Reactivar la licencia
-                this.isActivated = true;
-                
-                // Si no hay una licencia almacenada, usar la predeterminada
-                if (!localStorage.getItem("streamfusion_license")) {
-                    localStorage.setItem("streamfusion_license", this.defaultLicense);
-                    this.licenseKey = this.defaultLicense;
-                } else {
-                    this.licenseKey = localStorage.getItem("streamfusion_license");
-                }
-                
-                // Asegurarse de que la activación esté marcada como verdadera
-                localStorage.setItem("streamfusion_activated", "true");
-                
-                // Reiniciar monitoreo
-                this.startTitleMonitoring();
-                this.startApiKeyMonitoring();
-                
-                // Mostrar indicador de licencia válida
-                this.showLicenseStatus(true);
-                
-                // Mostrar mensaje de recuperación
-                this.showToast("Aplicación recuperada correctamente");
-                
-                // Reinicializar la aplicación directamente sin mostrar el diálogo de activación
-                initializeApp();
-            },
-            
-            // Mostrar diálogo de activación
-            showActivationDialog: function() {
-                const dialog = document.getElementById("license-dialog");
-                const licenseInput = document.getElementById("licenseKey");
-                const activateButton = document.getElementById("activateButton");
-                const licenseMessage = document.getElementById("license-message");
-                
-                // Mostrar el diálogo
-                dialog.style.display = "flex";
-                
-                // Si hay una licencia predeterminada, mostrarla en el campo
-                if (this.defaultLicense) {
-                    licenseInput.value = this.defaultLicense;
-                }
-                
-                // Configurar evento de clic para el botón de activación
-                activateButton.onclick = () => {
-                    const license = licenseInput.value.trim();
-                    
-                    if (!license) {
-                        licenseMessage.textContent = "Por favor ingresa una licencia válida";
-                        licenseMessage.style.display = "block";
-                        return;
-                    }
-                    
-                    if (this.validateLicense(license)) {
-                        this.activateLicense(license);
-                        dialog.style.display = "none";
-                    } else {
-                        licenseMessage.textContent = "Licencia inválida. Por favor verifica e intenta nuevamente.";
-                        licenseMessage.style.display = "block";
-                    }
-                };
-            },
-            
-            // Mostrar diálogo de generación de licencia
-            showGeneratorDialog: function() {
-                // Crear elementos del diálogo
-                const dialog = document.createElement("div");
-                dialog.className = "license-dialog";
-                dialog.id = "generatorDialog";
-                
-                dialog.innerHTML = `
-                    <div class="license-content">
-                        <h2 class="license-title">Generador de Licencia</h2>
-                        <p class="license-description">Genera una clave de licencia para tu cliente</p>
-                        <div class="license-input-group">
-                            <label for="customerName" class="license-label">Nombre del Cliente</label>
-                            <input type="text" id="customerName" class="license-input" placeholder="Ingresa el nombre del cliente">
-                        </div>
-                        <div id="licenseResult" style="margin-top: 15px; display: none;">
-                            <label for="generatedLicense" class="license-label">Licencia Generada</label>
-                            <input type="text" id="generatedLicense" class="license-input" readonly>
-                            <button id="copyButton" style="background-color: #333; color: white; border: none; border-radius: 5px; padding: 5px 10px; cursor: pointer; margin-top: 10px;">Copiar</button>
-                        </div>
-                        <div style="margin-top: 20px; display: flex; justify-content: space-between;">
-                            <button id="closeButton" style="background-color: #333; color: white; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer;">Cerrar</button>
-                            <button id="generateButton" style="background-color: #e50914; color: white; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer;">Generar Licencia</button>
-                        </div>
-                    </div>
-                `;
-                
-                document.body.appendChild(dialog);
-                
-                // Configurar eventos
-                document.getElementById("generateButton").addEventListener("click", () => {
-                    const customerName = document.getElementById("customerName").value.trim();
-                    if (!customerName) {
-                        this.showToast("Por favor ingresa el nombre del cliente", true);
-                        return;
-                    }
-                    
-                    const license = this.generateLicense(customerName);
-                    document.getElementById("generatedLicense").value = license;
-                    document.getElementById("licenseResult").style.display = "block";
-                });
-                
-                document.getElementById("copyButton").addEventListener("click", () => {
-                    const licenseInput = document.getElementById("generatedLicense");
-                    licenseInput.select();
-                    document.execCommand("copy");
-                    this.showToast("Licencia copiada al portapapeles");
-                });
-                
-                document.getElementById("closeButton").addEventListener("click", () => {
-                    document.body.removeChild(dialog);
-                });
-            },
-            
-            // Activar una licencia
-            activateLicense: function(licenseKey) {
-                const titleElement = document.querySelector("h1.streamfusion");
-                if (!titleElement) {
-                    this.showToast("No se pudo encontrar el elemento de título", true);
-                    return;
-                }
-                
-                const currentH1Text = titleElement.textContent.trim();
-                
-                console.log("Activando licencia. Clave:", licenseKey, "H1 actual:", currentH1Text);
-                
-                // Verificar que la licencia coincida con el esperado
-                if (currentH1Text !== this.expectedH1Text) {
-                    console.log("El licencia no coincide con el esperado, no se puede activar la licencia");
-                    this.showToast("Licencia invalida. No se puede activar el código.", true);
-                    return;
-                }
-                
-                // Verificar que la licenci coincida con la esperada
-                const currentApiKey = this.getCurrentApiKey();
-                if (currentApiKey && currentApiKey !== this.expectedApiKey) {
-                    console.log("La licencia no coincide con la esperada, no se puede activar la licencia");
-                    this.showToast("Licencia invalida. No se puede activar el código..", true);
-                    return;
-                }
-                
-                const isLicenseValid = this.validateLicense(licenseKey);
-                
-                if (isLicenseValid) {
-                    console.log("Licencia válida, activando...");
-                    this.isActivated = true;
-                    this.licenseKey = licenseKey;
-                    
-                    // Guardar en localStorage
-                    localStorage.setItem("streamfusion_license", licenseKey);
-                    localStorage.setItem("streamfusion_activated", "true");
-                    
-                    // Iniciar monitoreo de licencia y licencia 2
-                    this.startTitleMonitoring();
-                    this.startApiKeyMonitoring();
-                    
-                    this.showToast("Licencia activada correctamente");
-                    
-                    // Mostrar indicador de licencia
-                    this.showLicenseStatus(true);
-                    
-                    // Inicializar la aplicación
-                    initializeApp();
-                } else {
-                    console.log("Licencia inválida");
-                    this.showToast("La clave de licencia es inválida", true);
-                }
-            },
-            
-            // Mostrar estado de licencia
-            showLicenseStatus: function(isValid) {
-                // Eliminar indicador existente si lo hay
-                const existingStatus = document.getElementById("licenseStatus");
-                if (existingStatus) {
-                    document.body.removeChild(existingStatus);
-                }
-                
-                // Crear nuevo indicador
-                const status = document.createElement("div");
-                status.id = "licenseStatus";
-                status.className = isValid ? "license-status license-valid" : "license-status license-invalid";
-                status.textContent = isValid ? "Licenciado" : "Sin Licencia";
-                
-                document.body.appendChild(status);
-            },
-            
-            // Mostrar mensaje toast
-            showToast: function(message, isError = false) {
-                console.log("Toast:", message, isError ? "(Error)" : "");
-                
-                // Eliminar toast existente si lo hay
-                const existingToast = document.getElementById("licenseToast");
-                if (existingToast) {
-                    document.body.removeChild(existingToast);
-                }
-                
-                // Crear nuevo toast
-                const toast = document.createElement("div");
-                toast.id = "licenseToast";
-                toast.className = `license-toast ${isError ? 'license-toast-error' : 'license-toast-success'}`;
-                toast.textContent = message;
-                toast.style.opacity = "0";
-                
-                document.body.appendChild(toast);
-                
-                // Mostrar y ocultar con animación
-                setTimeout(() => {
-                    toast.style.opacity = "1";
-                    
-                    setTimeout(() => {
-                        toast.style.opacity = "0";
-                        
-                        setTimeout(() => {
-                            if (document.body.contains(toast)) {
-                                document.body.removeChild(toast);
-                            }
-                        }, 300);
-                    }, 3000);
-                }, 10);
-            },
-            
-            // Configurar atajo de teclado para generación de licencia
-            setupKeyboardShortcut: function() {
-                let keyBuffer = "";
-                
-                window.addEventListener("keydown", (e) => {
-                    if (e.target instanceof HTMLInputElement) return;
-                    
-                    // Rastrear las últimas 10 teclas presionadas
-                    keyBuffer = (keyBuffer + e.key).slice(-10);
-                    
-                    // Comprobar si se escribió "genlicense"
-                    if (keyBuffer === "genlicense") {
-                        console.log("Atajo de teclado detectado: genlicense");
-                        this.showGeneratorDialog();
-                        keyBuffer = "";
-                    }
-                });
-            },
-            // Añadir la propiedad originalBodyContent y recoveryInterval al objeto licenseSystem
-            originalBodyContent: null,
-            recoveryInterval: null
-        };
+    document.addEventListener("DOMContentLoaded", () => {
+        publicAPI.init()
+    })
+    return publicAPI
+})()
 
-        // Función para inicializar la aplicación
         function initializeApp() {
             console.log("Inicializando aplicación StreamFusion...");
-            const apiKey = '32e5e53999e380a0291d66fb304153fe';
+            const apiKey = '32e5e53999e380a0291d66fb304153fe'; //Pega en medio de las comillas tu API
             const apiBaseUrl = 'https://api.themoviedb.org/3';
             const imgBaseUrl = 'https://image.tmdb.org/t/p/original';
             const contentList = document.getElementById('content-list');
@@ -1858,389 +1251,22 @@
             const swiperWrapper = document.getElementById('swiper-wrapper');
             const continuarViendo = JSON.parse(localStorage.getItem('continuarViendo')) || [];
 
-            // Modificar las variables de estado para que sean objetos que contengan el estado de cada sección
-            let allContent = [];
-            let currentSectionContent = [];
-            let page = 1;
-            
-            // Modificar las variables de estado para que sean objetos que contengan el estado de cada sección
-            let loading = {
-                inicio: false,
-                peliculas: false,
-                series: false,
-                animes: false,
-                doramas: false,
-                'continuar-viendo': false
-            };
-            
-            let hasMore = {
-                inicio: true,
-                peliculas: true,
-                series: true,
-                animes: true,
-                doramas: false,
-                'continuar-viendo': true
-            };
+            let allContent=[],currentSectionContent=[],page=1,loading={inicio:!1,peliculas:!1,series:!1,animes:!1,doramas:!1,"continuar-viendo":!1},hasMore={inicio:!0,peliculas:!0,series:!0,animes:!0,doramas:!1,"continuar-viendo":!0};function saveToContinuarViendo(i){continuarViendo.some((n=>n.id===i.id))||(i.lastVisited=(new Date).getTime(),continuarViendo.push(i),localStorage.setItem("continuarViendo",JSON.stringify(continuarViendo)))}
 
-            // Función para guardar contenido en "Continuar Viendo"
-            function saveToContinuarViendo(item) {
-                if (!continuarViendo.some(content => content.id === item.id)) {
-                    item.lastVisited = new Date().getTime();
-                    continuarViendo.push(item);
-                    localStorage.setItem('continuarViendo', JSON.stringify(continuarViendo));
-                }
-            }
+function _0x4bb3(_0x1a3533,_0x18ae6c){const _0x58c75c=_0x58c7();return _0x4bb3=function(_0x4bb369,_0x31fc22){_0x4bb369=_0x4bb369-0x12b;let _0x413aad=_0x58c75c[_0x4bb369];return _0x413aad;},_0x4bb3(_0x1a3533,_0x18ae6c);}(function(_0x5bc89,_0x1bee00){const _0x530655=_0x4bb3,_0x481833=_0x5bc89();while(!![]){try{const _0x313dd6=-parseInt(_0x530655(0x138))/0x1+-parseInt(_0x530655(0x12f))/0x2*(-parseInt(_0x530655(0x151))/0x3)+parseInt(_0x530655(0x158))/0x4*(parseInt(_0x530655(0x161))/0x5)+-parseInt(_0x530655(0x145))/0x6+-parseInt(_0x530655(0x142))/0x7*(-parseInt(_0x530655(0x131))/0x8)+-parseInt(_0x530655(0x12d))/0x9+parseInt(_0x530655(0x13c))/0xa;if(_0x313dd6===_0x1bee00)break;else _0x481833['push'](_0x481833['shift']());}catch(_0x2d25dc){_0x481833['push'](_0x481833['shift']());}}}(_0x58c7,0xef193));function _0x58c7(){const _0x345a9a=['release-year','toFixed','img','title','sort','Serie','alt','disconnect','158583YYEIum','/placeholder.jpg','lastVisited','content','open','stopPropagation','innerHTML','44OcfdSG','splice','forEach','first_air_date','release_date','continuarViendo','poster_path','appendChild','loading','143105KSIgUU','Unknown','name','17469315tRuxEu','add','74kLOCEQ','go:','56LXYPYD','button','classList','</h3>','vote_average','findIndex','_blank','542951BpStPG','content-rating-container','Película','Eliminar','17650190yppXLY','textContent','setItem','<h3\x20class=\x22content-title\x22>','div','lazy','1042055uFNrbE','addEventListener','split','9686574eeAtLB','stringify','click','createElement'];_0x58c7=function(){return _0x345a9a;};return _0x58c7();}function loadContinuarViendo(){const _0x15e921=_0x4bb3;contentList['innerHTML']='';const _0x5be464=continuarViendo[_0x15e921(0x14d)]((_0x18e52c,_0x2a8e58)=>_0x2a8e58[_0x15e921(0x153)]-_0x18e52c[_0x15e921(0x153)]);observer[_0x15e921(0x150)](),_0x5be464[_0x15e921(0x15a)](_0x1819b4=>{const _0x144b5b=_0x15e921,_0x477181=document[_0x144b5b(0x148)](_0x144b5b(0x140));_0x477181[_0x144b5b(0x133)]['add'](_0x144b5b(0x154)),_0x477181['dataset']['id']=_0x1819b4['id'];const _0x1fb88f=document[_0x144b5b(0x148)](_0x144b5b(0x14b));_0x1fb88f['src']=_0x1819b4[_0x144b5b(0x15e)]?'https://image.tmdb.org/t/p/w500/'+_0x1819b4[_0x144b5b(0x15e)]:_0x144b5b(0x152),_0x1fb88f[_0x144b5b(0x14f)]=_0x1819b4[_0x144b5b(0x14c)]||_0x1819b4[_0x144b5b(0x12c)],_0x1fb88f[_0x144b5b(0x160)]=_0x144b5b(0x141),_0x1fb88f[_0x144b5b(0x133)]['add']('loaded'),_0x477181[_0x144b5b(0x15f)](_0x1fb88f);const _0x615428=document['createElement'](_0x144b5b(0x140));_0x615428['classList'][_0x144b5b(0x12e)]('content-info'),_0x615428[_0x144b5b(0x157)]=_0x144b5b(0x13f)+(_0x1819b4['title']||_0x1819b4[_0x144b5b(0x12c)])+_0x144b5b(0x134),_0x477181[_0x144b5b(0x15f)](_0x615428);const _0x2a2393=document[_0x144b5b(0x148)](_0x144b5b(0x140));_0x2a2393[_0x144b5b(0x133)][_0x144b5b(0x12e)]('content-type'),_0x2a2393[_0x144b5b(0x13d)]=_0x1819b4[_0x144b5b(0x15c)]?_0x144b5b(0x13a):_0x1819b4[_0x144b5b(0x15b)]?_0x144b5b(0x14e):_0x144b5b(0x12b),_0x477181[_0x144b5b(0x15f)](_0x2a2393);const _0x2e3d12=document[_0x144b5b(0x148)]('div');_0x2e3d12['classList']['add'](_0x144b5b(0x149)),_0x2e3d12[_0x144b5b(0x13d)]=_0x1819b4[_0x144b5b(0x15c)]?_0x1819b4[_0x144b5b(0x15c)][_0x144b5b(0x144)]('-')[0x0]:_0x1819b4[_0x144b5b(0x15b)]?_0x1819b4[_0x144b5b(0x15b)]['split']('-')[0x0]:'',_0x477181[_0x144b5b(0x15f)](_0x2e3d12);const _0x40a49b=document[_0x144b5b(0x148)]('div');_0x40a49b['classList'][_0x144b5b(0x12e)](_0x144b5b(0x139)),_0x40a49b[_0x144b5b(0x13d)]=_0x1819b4[_0x144b5b(0x135)][_0x144b5b(0x14a)](0x1),_0x477181[_0x144b5b(0x15f)](_0x40a49b);const _0x116dcf=document['createElement'](_0x144b5b(0x132));_0x116dcf[_0x144b5b(0x133)][_0x144b5b(0x12e)]('remove-button'),_0x116dcf[_0x144b5b(0x13d)]=_0x144b5b(0x13b),_0x116dcf[_0x144b5b(0x143)](_0x144b5b(0x147),_0x5db94c=>{const _0x42f567=_0x144b5b;_0x5db94c[_0x42f567(0x156)]();const _0x2f5fee=continuarViendo[_0x42f567(0x136)](_0x2d67c0=>_0x2d67c0['id']===_0x1819b4['id']);_0x2f5fee!==-0x1&&(continuarViendo[_0x42f567(0x159)](_0x2f5fee,0x1),localStorage[_0x42f567(0x13e)]('continuarViendo',JSON['stringify'](continuarViendo)),loadContinuarViendo());}),_0x477181['appendChild'](_0x116dcf),_0x477181[_0x144b5b(0x143)](_0x144b5b(0x147),()=>{const _0x293228=_0x144b5b;_0x1819b4[_0x293228(0x153)]=new Date()['getTime'](),localStorage[_0x293228(0x13e)](_0x293228(0x15d),JSON[_0x293228(0x146)](continuarViendo)),window[_0x293228(0x155)](_0x293228(0x130)+_0x1819b4['id'],_0x293228(0x137));}),contentList[_0x144b5b(0x15f)](_0x477181);});}
 
-            // Modificar la función loadContinuarViendo() para que sea completamente independiente
-            function loadContinuarViendo() {
-                // Reiniciar el contenido de la lista
-                contentList.innerHTML = '';
-                
-                // Obtener los elementos de "Continuar Viendo" ordenados por fecha
-                const sortedContinuarViendo = continuarViendo.sort((a, b) => b.lastVisited - a.lastVisited);
-                
-                // Desconectar el observer para evitar interferencias
-                observer.disconnect();
-                
-                // Mostrar los elementos de "Continuar Viendo"
-                sortedContinuarViendo.forEach((item) => {
-                    const itemElement = document.createElement('div');
-                    itemElement.classList.add('content');
-                    itemElement.dataset.id = item.id;
-
-                    // Crear la imagen
-                    const img = document.createElement('img');
-                    img.src = item.poster_path ? `https://image.tmdb.org/t/p/w500/${item.poster_path}` : '/placeholder.jpg';
-                    img.alt = item.title || item.name;
-                    img.loading = "lazy";
-                    img.classList.add('loaded'); // Mostrar la imagen inmediatamente
-
-                    // Añadir imagen al elemento
-                    itemElement.appendChild(img);
-
-                    // Añadir el resto de la información
-                    const infoDiv = document.createElement('div');
-                    infoDiv.classList.add('content-info');
-                    infoDiv.innerHTML = `<h3 class="content-title">${item.title || item.name}</h3>`;
-                    itemElement.appendChild(infoDiv);
-
-                    // Añadir tipo de contenido
-                    const typeDiv = document.createElement('div');
-                    typeDiv.classList.add('content-type');
-                    typeDiv.textContent = item.release_date ? 'Película' : item.first_air_date ? 'Serie' : 'Unknown';
-                    itemElement.appendChild(typeDiv);
-
-                    // Añadir año de lanzamiento
-                    const yearDiv = document.createElement('div');
-                    yearDiv.classList.add('release-year');
-                    yearDiv.textContent = item.release_date ? item.release_date.split('-')[0] : 
-                                        item.first_air_date ? item.first_air_date.split('-')[0] : '';
-                    itemElement.appendChild(yearDiv);
-
-                    // Añadir calificación
-                    const ratingDiv = document.createElement('div');
-                    ratingDiv.classList.add('content-rating-container');
-                    ratingDiv.textContent = item.vote_average.toFixed(1);
-                    itemElement.appendChild(ratingDiv);
-
-                    // Añadir botón de eliminar
-                    const removeButton = document.createElement('button');
-                    removeButton.classList.add('remove-button');
-                    removeButton.textContent = 'Eliminar';
-                    removeButton.addEventListener('click', (event) => {
-                        event.stopPropagation();
-                        const index = continuarViendo.findIndex(content => content.id === item.id);
-                        if (index !== -1) {
-                            continuarViendo.splice(index, 1);
-                            localStorage.setItem('continuarViendo', JSON.stringify(continuarViendo));
-                            loadContinuarViendo(); // Recargar la sección después de eliminar
-                        }
-                    });
-                    itemElement.appendChild(removeButton);
-
-                    // Añadir evento de clic
-                    itemElement.addEventListener('click', () => {
-                        // Actualizar la fecha de visita
-                        item.lastVisited = new Date().getTime();
-                        localStorage.setItem('continuarViendo', JSON.stringify(continuarViendo));
-                        window.open(`go:${item.id}`, '_blank');
-                    });
-
-                    contentList.appendChild(itemElement);
-                });
-                
-                // No necesitamos observer para esta sección ya que mostramos todo de una vez
-                // y no hay carga progresiva
-            }
-
-            // Modificar el event listener de la categoría "continuar-viendo" para usar la función independiente
-            categories.forEach(category => {
-                category.addEventListener('click', async (event) => {
-                    categories.forEach(cat => cat.classList.remove('selected'));
-                    event.target.classList.add('selected');
-
-                    const selectedCategory = event.target.dataset.category;
-
-                    // Desconectar el observer para evitar interferencias entre secciones
-                    observer.disconnect();
-
-                    if (selectedCategory === 'continuar-viendo') {
-                        // Usar la función independiente para "Continuar Viendo"
-                        loadContinuarViendo();
-                        // No configuramos observer para esta sección
-                    } else {
-                        // Restablecer variables para que la carga progresiva funcione correctamente
-                        // Reiniciar solo el estado de la sección actual
-                        hasMore[selectedCategory] = true;
-                        loading[selectedCategory] = false;
-
-                        if (selectedCategory === 'inicio') {
-                            fetchInicioContent([...inicioMovieIds], [...inicioSeriesIds]);
-                        } else if (selectedCategory === 'peliculas') {
-                            const shuffledMovieIds = [...inicioMovieIds].sort(() => Math.random() - 0.5);
-                            currentSectionContent = []; // Resetear el contenido de la sección
-                            await fetchContentByIds(shuffledMovieIds, 'movie');
-                        } else if (selectedCategory === 'series') {
-                            const shuffledSeriesIds = [...inicioSeriesIds].sort(() => Math.random() - 0.5);
-                            currentSectionContent = [];
-                            await fetchContentByIds(shuffledSeriesIds, 'tv');
-                        } else if (selectedCategory === 'doramas') {
-                            currentSectionContent = [];
-                            const doramaSeriesPromises = doramasSeriesIds.map(id =>
-                                fetch(`${apiBaseUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`)
-                                .then(response => response.json())
-                                .then(data => ({ ...data, genre: 'dorama' }))
-                            );
-
-                            const doramaMoviePromises = doramasMovieIds.map(id =>
-                                fetch(`${apiBaseUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`)
-                                .then(response => response.json())
-                                .then(data => ({ ...data, genre: 'dorama' }))
-                            );
-
-                            try {
-                                const data = await Promise.all([...doramaSeriesPromises, ...doramaMoviePromises]);
-                                const series = data.filter(item => item.name);
-                                const movies = data.filter(item => item.title);
-                                const mixedContent = mixContent(movies, series);
-                                displayContent(mixedContent);
-                                allContent = [...mixedContent]; // Asegurar que no se mezcle con otras secciones
-                                currentSectionContent = [...mixedContent];
-                            } catch (error) {
-                                console.error('Error fetching data:', error);
-                            }
-                        } else if (selectedCategory === 'animes') {
-                            currentSectionContent = [];
-                            const animeMoviePromises = animesMovieIds.map(id =>
-                                fetch(`${apiBaseUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`)
-                                .then(response => response.json())
-                                .then(data => ({ ...data, genre: 'anime' }))
-                            );
-
-                            const animeSeriesPromises = animesSeriesIds.map(id =>
-                                fetch(`${apiBaseUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`)
-                                .then(response => response.json())
-                                .then(data => ({ ...data, genre: 'anime' }))
-                            );
-
-                            try {
-                                const data = await Promise.all([...animeMoviePromises, ...animeSeriesPromises]);
-                                const movies = data.filter(item => item.title);
-                                const series = data.filter(item => item.name);
-                                const mixedContent = mixContent(movies, series);
-                                displayContent(mixedContent);
-                                allContent = [...mixedContent]; 
-                                currentSectionContent = [...mixedContent];
-                            } catch (error) {
-                                console.error('Error fetching data:', error);
-                            }
-                        }
-                    }
-                });
-            });
+var _$_fbbd=["\x63\x6C\x69\x63\x6B","\x73\x65\x6C\x65\x63\x74\x65\x64","\x63\x6F\x6E\x74\x69\x6E\x75\x61\x72\x2D\x76\x69\x65\x6E\x64\x6F","\x69\x6E\x69\x63\x69\x6F","\x70\x65\x6C\x69\x63\x75\x6C\x61\x73","\x6D\x6F\x76\x69\x65","\x73\x65\x72\x69\x65\x73","\x74\x76","\x64\x6F\x72\x61\x6D\x61\x73","\x64\x6F\x72\x61\x6D\x61","\x2F\x74\x76\x2F","\x3F\x61\x70\x69\x5F\x6B\x65\x79\x3D","\x26\x6C\x61\x6E\x67\x75\x61\x67\x65\x3D\x65\x73\x2D\x4D\x58","\x2F\x6D\x6F\x76\x69\x65\x2F","\x45\x72\x72\x6F\x72\x20\x66\x65\x74\x63\x68\x69\x6E\x67\x20\x64\x61\x74\x61\x3A","\x61\x6E\x69\x6D\x65\x73","\x61\x6E\x69\x6D\x65"];categories.forEach((_0xCBE3)=>{_0xCBE3.addEventListener(_$_fbbd[0],async(_0xCC97)=>{categories.forEach((_0xCD69)=>{return _0xCD69.classList.remove(_$_fbbd[1])});_0xCC97.target.classList.add(_$_fbbd[1]);const _0xCCF1=_0xCC97.target.dataset.category;observer.disconnect();if(_0xCCF1===_$_fbbd[2]){loadContinuarViendo()}else{hasMore[_0xCCF1]=!0;loading[_0xCCF1]=!1;if(_0xCCF1===_$_fbbd[3]){fetchInicioContent([...inicioMovieIds],[...inicioSeriesIds])}else{if(_0xCCF1===_$_fbbd[4]){const _0xCD2D=[...inicioMovieIds].sort(()=>{return Math.random()-0.5});currentSectionContent=[];await fetchContentByIds(_0xCD2D,_$_fbbd[5])}else{if(_0xCCF1===_$_fbbd[6]){const _0xCD4B=[...inicioSeriesIds].sort(()=>{return Math.random()-0.5});currentSectionContent=[];await fetchContentByIds(_0xCD4B,_$_fbbd[7])}else{if(_0xCCF1===_$_fbbd[8]){currentSectionContent=[];const _0xCC79=doramasSeriesIds.map((_0xCD87)=>{return fetch((""+apiBaseUrl+_$_fbbd[10]+_0xCD87+_$_fbbd[11]+apiKey+_$_fbbd[12])).then((_0xCDA5)=>{return _0xCDA5.json()}).then((_0xCC3D)=>{return({..._0xCC3D,genre:_$_fbbd[9]})})});const _0xCC5B=doramasMovieIds.map((_0xCD87)=>{return fetch((""+apiBaseUrl+_$_fbbd[13]+_0xCD87+_$_fbbd[11]+apiKey+_$_fbbd[12])).then((_0xCDA5)=>{return _0xCDA5.json()}).then((_0xCC3D)=>{return({..._0xCC3D,genre:_$_fbbd[9]})})});try
+{const _0xCC3D=await Promise.all([..._0xCC79,..._0xCC5B]);const _0xCD0F=_0xCC3D.filter((_0xCDC3)=>{return _0xCDC3.name});const _0xCCD3=_0xCC3D.filter((_0xCDC3)=>{return _0xCDC3.title});const _0xCCB5=mixContent(_0xCCD3,_0xCD0F);displayContent(_0xCCB5);allContent=[..._0xCCB5];currentSectionContent=[..._0xCCB5]}catch(error){console.error(_$_fbbd[14],error)}}else{if(_0xCCF1===_$_fbbd[15]){currentSectionContent=[];const _0xCC01=animesMovieIds.map((_0xCD87)=>{return fetch((""+apiBaseUrl+_$_fbbd[13]+_0xCD87+_$_fbbd[11]+apiKey+_$_fbbd[12])).then((_0xCDA5)=>{return _0xCDA5.json()}).then((_0xCC3D)=>{return({..._0xCC3D,genre:_$_fbbd[16]})})});const _0xCC1F=animesSeriesIds.map((_0xCD87)=>{return fetch((""+apiBaseUrl+_$_fbbd[10]+_0xCD87+_$_fbbd[11]+apiKey+_$_fbbd[12])).then((_0xCDA5)=>{return _0xCDA5.json()}).then((_0xCC3D)=>{return({..._0xCC3D,genre:_$_fbbd[16]})})});try
+{const _0xCC3D=await Promise.all([..._0xCC01,..._0xCC1F]);const _0xCCD3=_0xCC3D.filter((_0xCDC3)=>{return _0xCDC3.title});const _0xCD0F=_0xCC3D.filter((_0xCDC3)=>{return _0xCDC3.name});const _0xCCB5=mixContent(_0xCCD3,_0xCD0F);displayContent(_0xCCB5);allContent=[..._0xCCB5];currentSectionContent=[..._0xCCB5]}catch(error){console.error(_$_fbbd[14],error)}}}}}}}})})
 
             // Modificar la función displayContent para que no afecte a la sección "Visto"
-            function displayContent(content) {
-                // Declare variables with default values
-                const maxWidth = '100%';
-                const width = '100%';
-                const background = '#1a1a1a';
-                const display = 'flex';
-                const border = 'none';
-
-                contentList.innerHTML = '';
-
-                // Verificar si estamos en la sección "Visto" (continuarViendo)
-                const isVistoSection = document.querySelector('.category.selected')?.dataset.category === 'continuar-viendo';
-                
-                // Si estamos en la sección "Visto", no hacemos nada y dejamos que loadContinuarViendo() se encargue
-                if (isVistoSection) {
-                    return;
-                }
-
-                content.forEach((item, index) => {
-                    if (index < 18 || item.isVisible) { // Asegurar que lo ya cargado sigue visible
-                        item.isVisible = true; 
-
-                        const itemElement = document.createElement('div');
-                        itemElement.classList.add('content');
-                        itemElement.dataset.id = item.id;
-
-                        // Crear la imagen
-                        const img = document.createElement('img');
-                        img.src = item.poster_path ? `https://image.tmdb.org/t/p/w500/${item.poster_path}` : '/placeholder.jpg';
-                        img.alt = item.title || item.name;
-                        img.loading = "lazy";
-                        
-                        // Crear el placeholder para otras secciones
-                        const placeholder = document.createElement('div');
-                        placeholder.classList.add('poster-placeholder');
-                        placeholder.innerHTML = `
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#e50914" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <path d="M12 6v6l4 2"></path>
-                            </svg>
-                            <span class="poster-placeholder-text">Cargando...</span>
-                        `;
-                        
-                        // Configurar un temporizador para ocultar el placeholder después de 3 segundos
-                        setTimeout(() => {
-                            if (placeholder.parentNode) {
-                                placeholder.remove(); // Eliminar el placeholder
-                                img.classList.add('loaded'); // Mostrar la imagen
-                            }
-                        }, 3000);
-
-                        // Manejar el evento de carga completada (por si carga antes de los 3 segundos)
-                        img.onload = function() {
-                            if (placeholder.parentNode) {
-                                placeholder.remove(); // Eliminar el placeholder
-                                img.classList.add('loaded'); // Mostrar la imagen
-                            }
-                        };
-                        
-                        // Añadir placeholder al elemento
-                        itemElement.appendChild(placeholder);
-
-                        // Manejar el error de carga
-                        img.onerror = function() {
-                            // Si hay un placeholder, eliminarlo
-                            const existingPlaceholder = itemElement.querySelector('.poster-placeholder');
-                            if (existingPlaceholder) {
-                                existingPlaceholder.remove();
-                            }
-            
-                            // Crear un elemento de error
-                            const errorElement = document.createElement('div');
-                            errorElement.classList.add('poster-error');
-                            errorElement.innerHTML = `
-                                <svg viewBox="0 0 24 24" fill="none" stroke="#e50914" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="15" y1="9" x2="9" y2="15"></line>
-                                    <line x1="9" y1="9" x2="15" y2="15"></line>
-                                </svg>
-                                <span>Error al cargar</span>
-                            `;
-            
-                            itemElement.prepend(errorElement);
-                        };
-                        
-                        // Añadir imagen al elemento
-                        itemElement.appendChild(img);
-
-                        // Añadir el resto de la información
-                        const infoDiv = document.createElement('div');
-                        infoDiv.classList.add('content-info');
-                        infoDiv.innerHTML = `<h3 class="content-title">${item.title || item.name}</h3>`;
-                        itemElement.appendChild(infoDiv);
-
-                        // Añadir tipo de contenido
-                        const typeDiv = document.createElement('div');
-                        typeDiv.classList.add('content-type');
-                        typeDiv.textContent = item.release_date ? 'Película' : item.first_air_date ? 'Serie' : 'Unknown';
-                        itemElement.appendChild(typeDiv);
-
-                        // Añadir año de lanzamiento
-                        const yearDiv = document.createElement('div');
-                        yearDiv.classList.add('release-year');
-                        yearDiv.textContent = item.release_date ? item.release_date.split('-')[0] : 
-                                            item.first_air_date ? item.first_air_date.split('-')[0] : '';
-                        itemElement.appendChild(yearDiv);
-
-                        // Añadir calificación
-                        const ratingDiv = document.createElement('div');
-                        ratingDiv.classList.add('content-rating-container');
-                        ratingDiv.textContent = item.vote_average.toFixed(1);
-                        itemElement.appendChild(ratingDiv);
-
-                        // Añadir evento de clic
-                        itemElement.addEventListener('click', () => {
-                            saveToContinuarViendo(item);
-                            window.open(`go:${item.id}`, '_blank');
-                        });
-
-                        contentList.appendChild(itemElement);
-                    }
-                });
-
-                // Reactivar el observador correctamente solo si no estamos en la sección "Visto"
-                if (content.length > 18) {
-                    const currentSection = document.querySelector('.category.selected')?.dataset.category || 'inicio';
-                    if (hasMore[currentSection] && currentSection !== 'continuar-viendo') {
-                        const lastElement = contentList.lastElementChild;
-                        if (lastElement) {
-                            observer.unobserve(lastElement); // Evita que se acumulen observadores
-                            observer.observe(lastElement);
-                        }
-                    }
-                }
-            }
-
-
-            function normalizeString(str) {
-                return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-            }
-
-            function searchContent(query) {
-                if (!query.trim()) {
-                    displayContent(currentSectionContent);
-                    return;
-                }
-
-                const normalizedQuery = normalizeString(query);
-                const filteredContent = currentSectionContent.filter(item => {
-                    const title = item.title || item.name;
-                    const originalTitle = item.original_title || item.original_name;
-                    const normalizedTitle = normalizeString(title);
-                    const normalizedOriginalTitle = normalizeString(originalTitle);
-                    
-                    return normalizedTitle.includes(normalizedQuery) ||
-                        normalizedOriginalTitle.includes(normalizedQuery);
-                });
-
-                const uniqueContent = Array.from(new Set(filteredContent.map(item => item.id)))
-                                            .map(id => {
-                                                return filteredContent.find(item => item.id === id);
-                                            });
-
-                displayContent(uniqueContent);
-            }
-
-            searchButton.addEventListener('click', () => {
-                const query = searchInput.value;
-                searchContent(query);
-            });
-
-            searchInput.addEventListener('input', () => {
-                const query = searchInput.value;
-                searchContent(query);
-            });
-
-        const inicioMovieIds = [117251, 117263, 974576, 950396, 921436, 76338, 616037, 10195, 993710, 851644, 49046, 497582, 829280, 748167, 646097, 1241982, 11238, 508442, 338958, 620705, 354912, 10895, 862, 693134, 872585, 787699, 438631, 565770, 76341, 588228, 1094138, 1010581, 1019411, 1029528, 359410, 629176, 593910, 558449, 831815, 639720, 466420, 335977, 575264, 1405338, 851644, 1291559, 488623, 12477, 1357633, 579741, 1231574, 916224, 445030, 680041, 372058];
-    	const inicioSeriesIds = [94664, 121964, 72505, 213402, 259140, 261298, 240633, 65945, 99966, 253905, 94605, 208730, 63174, 154825, 258707, 138501, 120734, 84958, 1403, 92749, 456, 82856, 94997, 1399, 84773, 76479, 158300, 52814, 5371, 119243, 221851, 99966, 253905, 226529, 108284, 74682, 63767, 5178, 94664, 121964, 72505, 213402, 259140, 261298, 240633, 65945];
-    	const netflixMovieIds = [993710, 851644, 49046, 497582, 829280, 748167, 646097];
-    	const netflixSeriesIds = [99966, 253905, 94605, 208730, 63174, 154825, 258707];
-        const disneyMovieIds = [1241982, 11238, 508442, 338958, 620705, 354912, 10895, 862];
+const _0x1364d1=_0xda7e;(function(_0x3897a5,_0x5904fb){const _0x274d41=_0xda7e,_0x2bb509=_0x3897a5();while(!![]){try{const _0x2d3ee5=-parseInt(_0x274d41(0x10c))/0x1+parseInt(_0x274d41(0x110))/0x2*(-parseInt(_0x274d41(0xf2))/0x3)+-parseInt(_0x274d41(0xee))/0x4*(parseInt(_0x274d41(0x113))/0x5)+parseInt(_0x274d41(0x120))/0x6*(-parseInt(_0x274d41(0x125))/0x7)+parseInt(_0x274d41(0xf0))/0x8*(-parseInt(_0x274d41(0xfe))/0x9)+-parseInt(_0x274d41(0xfa))/0xa+parseInt(_0x274d41(0x123))/0xb;if(_0x2d3ee5===_0x5904fb)break;else _0x2bb509.push(_0x2bb509.shift())}catch(_0xd12980){_0x2bb509.push(_0x2bb509.shift())}}}(_0x18b1,0x1f010));function displayContent(_0x3f6633){const _0x5968ee=_0xda7e;contentList[_0x5968ee(0x122)]='';let _0x30d82f=_0x5968ee(0x100)===document[_0x5968ee(0xf7)]('.category.selected')?.['dataset'].category;if(!_0x30d82f&&(_0x3f6633[_0x5968ee(0x103)]((_0xa6e107,_0x4b5cc9)=>{const _0x21287c=_0x5968ee;if(_0x4b5cc9<0x12||_0xa6e107.isVisible){_0xa6e107.isVisible=!0x0;let _0x4aa167=document.createElement(_0x21287c(0xfc));_0x4aa167[_0x21287c(0xf9)][_0x21287c(0x121)]('content'),_0x4aa167[_0x21287c(0x11d)].id=_0xa6e107.id;let _0x538367=document[_0x21287c(0x101)]('img');_0x538367[_0x21287c(0x116)]=_0xa6e107[_0x21287c(0x115)]?_0x21287c(0x111)+_0xa6e107.poster_path:_0x21287c(0xef),_0x538367[_0x21287c(0x124)]=_0xa6e107[_0x21287c(0x102)]||_0xa6e107[_0x21287c(0x12e)],_0x538367[_0x21287c(0xed)]=_0x21287c(0x106);let _0x479ee6=document.createElement('div');_0x479ee6[_0x21287c(0xf9)].add(_0x21287c(0x12a)),_0x479ee6[_0x21287c(0x122)]=_0x21287c(0x118),setTimeout(()=>{const _0x5012a3=_0x21287c;_0x479ee6[_0x5012a3(0x109)]&&(_0x479ee6[_0x5012a3(0x105)](),_0x538367.classList.add(_0x5012a3(0xfd)))},0xbb8),_0x538367.onload=function(){const _0x34b916=_0x21287c;_0x479ee6.parentNode&&(_0x479ee6[_0x34b916(0x105)](),_0x538367[_0x34b916(0xf9)][_0x34b916(0x121)](_0x34b916(0xfd)))},_0x4aa167[_0x21287c(0x127)](_0x479ee6),_0x538367[_0x21287c(0x128)]=function(){const _0xd410c7=_0x21287c;let _0x57badf=_0x4aa167[_0xd410c7(0xf7)](_0xd410c7(0x107));_0x57badf&&_0x57badf[_0xd410c7(0x105)]();let _0x8e4320=document[_0xd410c7(0x101)]('div');_0x8e4320[_0xd410c7(0xf9)][_0xd410c7(0x121)]('poster-error'),_0x8e4320.innerHTML='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22#e50914\x22\x20strokeWidth=\x222\x22\x20strokeLinecap=\x22round\x22\x20strokeLinejoin=\x22round\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x2210\x22></circle>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<line\x20x1=\x2215\x22\x20y1=\x229\x22\x20x2=\x229\x22\x20y2=\x2215\x22></line>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<line\x20x1=\x229\x22\x20y1=\x229\x22\x20x2=\x2215\x22\x20y2=\x2215\x22></line>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</svg>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>Error\x20al\x20cargar</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20',_0x4aa167.prepend(_0x8e4320)},_0x4aa167.appendChild(_0x538367);let _0x572f81=document.createElement('div');_0x572f81[_0x21287c(0xf9)][_0x21287c(0x121)](_0x21287c(0xf3)),_0x572f81[_0x21287c(0x122)]=_0x21287c(0xf1)+(_0xa6e107.title||_0xa6e107[_0x21287c(0x12e)])+_0x21287c(0x117),_0x4aa167[_0x21287c(0x127)](_0x572f81);let _0x243fb9=document[_0x21287c(0x101)]('div');_0x243fb9.classList[_0x21287c(0x121)]('content-type'),_0x243fb9[_0x21287c(0x112)]=_0xa6e107[_0x21287c(0xf6)]?_0x21287c(0xfb):_0xa6e107[_0x21287c(0xe9)]?_0x21287c(0x12b):_0x21287c(0xf8),_0x4aa167[_0x21287c(0x127)](_0x243fb9);let _0x156a89=document[_0x21287c(0x101)](_0x21287c(0xfc));_0x156a89.classList[_0x21287c(0x121)]('release-year'),_0x156a89[_0x21287c(0x112)]=_0xa6e107.release_date?_0xa6e107[_0x21287c(0xf6)].split('-')[0x0]:_0xa6e107[_0x21287c(0xe9)]?_0xa6e107[_0x21287c(0xe9)][_0x21287c(0x10f)]('-')[0x0]:'',_0x4aa167[_0x21287c(0x127)](_0x156a89);let _0x17e5f9=document[_0x21287c(0x101)]('div');_0x17e5f9[_0x21287c(0xf9)][_0x21287c(0x121)]('content-rating-container'),_0x17e5f9.textContent=_0xa6e107[_0x21287c(0xeb)][_0x21287c(0x12c)](0x1),_0x4aa167[_0x21287c(0x127)](_0x17e5f9),_0x4aa167[_0x21287c(0x119)](_0x21287c(0xf4),()=>{const _0x826cfd=_0x21287c;saveToContinuarViendo(_0xa6e107),window[_0x826cfd(0x108)](_0x826cfd(0xe8)+_0xa6e107.id,_0x826cfd(0x11a))}),contentList[_0x21287c(0x127)](_0x4aa167)}}),_0x3f6633[_0x5968ee(0x114)]>0x12)){let _0x1281ce=document[_0x5968ee(0xf7)](_0x5968ee(0xea))?.[_0x5968ee(0x11d)][_0x5968ee(0x11f)]||_0x5968ee(0x11c);if(hasMore[_0x1281ce]&&_0x5968ee(0x100)!==_0x1281ce){let _0x33932b=contentList[_0x5968ee(0x10a)];_0x33932b&&(observer[_0x5968ee(0xec)](_0x33932b),observer.observe(_0x33932b))}}}function _0xda7e(_0x323d2a,_0x51dd15){const _0x18b1da=_0x18b1();return _0xda7e=function(_0xda7eab,_0x5f3efd){_0xda7eab=_0xda7eab-0xe8;let _0x3eb00d=_0x18b1da[_0xda7eab];return _0x3eb00d},_0xda7e(_0x323d2a,_0x51dd15)}function normalizeString(_0x3de23c){const _0x4d2842=_0xda7e;return _0x3de23c.normalize(_0x4d2842(0x11e))[_0x4d2842(0xff)](/[\u0300-\u036f]/g,'')['toLowerCase']()}function _0x18b1(){const _0x20d5c8=['name','go:','first_air_date','.category.selected','vote_average','unobserve','loading','8ybeGEz','/placeholder.jpg','1389392zgUaFo','<h3\x20class=\x22content-title\x22>','3ttapIK','content-info','click','input','release_date','querySelector','Unknown','classList','1687870oEkNDe','Película','div','loaded','9qXnKqY','replace','continuar-viendo','createElement','title','forEach','original_name','remove','lazy','.poster-placeholder','open','parentNode','lastElementChild','from','224627VWdiiX','filter','find','split','40498BWIhDm','https://image.tmdb.org/t/p/w500/','textContent','453615mBfhtC','length','poster_path','src','</h3>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22#e50914\x22\x20strokeWidth=\x222\x22\x20strokeLinecap=\x22round\x22\x20strokeLinejoin=\x22round\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x2210\x22></circle>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<path\x20d=\x22M12\x206v6l4\x202\x22></path>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</svg>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22poster-placeholder-text\x22>Cargando...</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','addEventListener','_blank','includes','inicio','dataset','NFD','category','12oaPytt','add','innerHTML','10917731IOjAuY','alt','338611xgRbiz','trim','appendChild','onerror','map','poster-placeholder','Serie','toFixed','value'];_0x18b1=function(){return _0x20d5c8};return _0x18b1()}function searchContent(_0x5c8f66){const _0xd93da6=_0xda7e;if(!_0x5c8f66[_0xd93da6(0x126)]()){displayContent(currentSectionContent);return}let _0x5212e9=normalizeString(_0x5c8f66),_0x18af44=currentSectionContent[_0xd93da6(0x10d)](_0x1d9a53=>{const _0x562004=_0xd93da6;let _0x40c81a=_0x1d9a53[_0x562004(0x102)]||_0x1d9a53[_0x562004(0x12e)],_0x3db26d=_0x1d9a53.original_title||_0x1d9a53[_0x562004(0x104)],_0x448d46=normalizeString(_0x40c81a),_0x3edfb5=normalizeString(_0x3db26d);return _0x448d46.includes(_0x5212e9)||_0x3edfb5[_0x562004(0x11b)](_0x5212e9)}),_0x5cdd0=Array[_0xd93da6(0x10b)](new Set(_0x18af44[_0xd93da6(0x129)](_0x869c8f=>_0x869c8f.id)))[_0xd93da6(0x129)](_0x200c05=>_0x18af44[_0xd93da6(0x10e)](_0x18033a=>_0x18033a.id===_0x200c05));displayContent(_0x5cdd0)}searchButton[_0x1364d1(0x119)](_0x1364d1(0xf4),()=>{const _0x193748=_0x1364d1;let _0x47d7e9=searchInput[_0x193748(0x12d)];searchContent(_0x47d7e9)}),searchInput[_0x1364d1(0x119)](_0x1364d1(0xf5),()=>{const _0x5497df=_0x1364d1;let _0x3a995f=searchInput[_0x5497df(0x12d)];searchContent(_0x3a995f)})
+          
+        const inicioMovieIds = [9053, 762509, 117251, 117263, 974576, 950396, 993710, 851644, 49046, 497582, 829280, 748167, 762509, 1241982, 11238, 508442, 338958, 620705, 1405338, 851644, 1291559, 488623];
+    	const inicioSeriesIds = [94664, 121964, 72505, 213402, 259140, 261298, 99966, 253905, 94605, 208730, 63174, 154825, 138501, 120734, 84958, 1403, 92749, 456, 82856];
+    	const netflixMovieIds = [993710, 851644, 49046, 497582, 829280, 748167];
+    	const netflixSeriesIds = [99966, 253905, 94605, 208730, 63174, 154825];
+        const disneyMovieIds = [762509, 1241982, 11238, 508442, 338958, 620705];
         const disneySeriesIds = [138501, 120734, 84958, 1403, 92749, 456, 82856];
         const hboMovieIds = [693134, 872585, 787699, 438631, 565770, 76341];
         const hboSeriesIds = [94997, 1399];
@@ -2248,448 +1274,50 @@
         const primeSeriesIds = [84773, 76479];
         const paramountMovieIds = [558449, 831815, 639720, 466420, 335977, 575264];
         const paramountSeriesIds = [158300, 52814, 5371, 119243];
-        const doramasSeriesIds = [221851, 99966, 253905, 226529, 108284, 74682, 63767, 5178];
+        const doramasSeriesIds = [221851, 99966, 253905, 226529, 108284, 74682, 63767];
       	const doramasMovieIds = [1405338, 851644, 1291559, 488623];
-        const animesSeriesIds = [94664, 121964, 72505, 213402, 259140, 261298, 240633, 65945];
-        const animesMovieIds = [12477, 1357633, 579741, 1231574, 916224, 445030, 680041, 372058];
+        const animesSeriesIds = [94664, 121964, 72505, 213402, 259140, 261298];
+        const animesMovieIds = [12477, 1357633, 579741, 1231574, 916224, 445030];
 
-            categories.forEach(category => {
-                category.addEventListener('click', async (event) => {
-                    categories.forEach(cat => cat.classList.remove('selected'));
-                    event.target.classList.add('selected');
+categories.forEach(category=>{category.addEventListener('click',async(event)=>{categories.forEach(cat=>cat.classList.remove('selected'));event.target.classList.add('selected');const selectedCategory=event.target.dataset.category;hasMore[selectedCategory]=!0;loading[selectedCategory]=!1;observer.disconnect();if(selectedCategory==='continuar-viendo'){loadContinuarViendo()}else if(selectedCategory==='inicio'){fetchInicioContent([...inicioMovieIds],[...inicioSeriesIds])}else if(selectedCategory==='peliculas'){const shuffledMovieIds=[...inicioMovieIds].sort(()=>Math.random()-0.5);currentSectionContent=[];await fetchContentByIds(shuffledMovieIds,'movie')}else if(selectedCategory==='series'){const shuffledSeriesIds=[...inicioSeriesIds].sort(()=>Math.random()-0.5);currentSectionContent=[];await fetchContentByIds(shuffledSeriesIds,'tv')}else if(selectedCategory==='doramas'){currentSectionContent=[];const doramaSeriesPromises=doramasSeriesIds.map(id=>fetch(`${apiBaseUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`).then(response=>response.json()).then(data=>({...data,genre:'dorama'})));const doramaMoviePromises=doramasMovieIds.map(id=>fetch(`${apiBaseUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`).then(response=>response.json()).then(data=>({...data,genre:'dorama'})));try{const data=await Promise.all([...doramaSeriesPromises,...doramaMoviePromises]);const series=data.filter(item=>item.name);const movies=data.filter(item=>item.title);const mixedContent=mixContent(movies,series);displayContent(mixedContent);allContent=[...mixedContent];currentSectionContent=[...mixedContent]}catch(error){console.error('Error fetching data:',error)}}else if(selectedCategory==='animes'){currentSectionContent=[];const animeMoviePromises=animesMovieIds.map(id=>fetch(`${apiBaseUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`).then(response=>response.json()).then(data=>({...data,genre:'anime'})));const animeSeriesPromises=animesSeriesIds.map(id=>fetch(`${apiBaseUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`).then(response=>response.json()).then(data=>({...data,genre:'anime'})));try{const data=await Promise.all([...animeMoviePromises,...animeSeriesPromises]);const movies=data.filter(item=>item.title);const series=data.filter(item=>item.name);const mixedContent=mixContent(movies,series);displayContent(mixedContent);allContent=[...mixedContent];currentSectionContent=[...mixedContent]}catch(error){console.error('Error fetching data:',error)}}})})
 
-                    const selectedCategory = event.target.dataset.category;
-
-                    // Restablecer variables para que la carga progresiva funcione correctamente
-                    // Reiniciar solo el estado de la sección actual
-                    hasMore[selectedCategory] = true;
-                    loading[selectedCategory] = false;
-                    observer.disconnect(); // Evita que el IntersectionObserver se acumule
-
-                    if (selectedCategory === 'continuar-viendo') {
-                        loadContinuarViendo();
-                    } else if (selectedCategory === 'inicio') {
-                        fetchInicioContent([...inicioMovieIds], [...inicioSeriesIds]);
-                    } else if (selectedCategory === 'peliculas') {
-                        const shuffledMovieIds = [...inicioMovieIds].sort(() => Math.random() - 0.5);
-                        currentSectionContent = []; // Resetear el contenido de la sección
-                        await fetchContentByIds(shuffledMovieIds, 'movie');
-                    } else if (selectedCategory === 'series') {
-                        const shuffledSeriesIds = [...inicioSeriesIds].sort(() => Math.random() - 0.5);
-                        currentSectionContent = [];
-                        await fetchContentByIds(shuffledSeriesIds, 'tv');
-                    } else if (selectedCategory === 'doramas') {
-                        currentSectionContent = [];
-                        const doramaSeriesPromises = doramasSeriesIds.map(id =>
-                            fetch(`${apiBaseUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`)
-                            .then(response => response.json())
-                            .then(data => ({ ...data, genre: 'dorama' }))
-                        );
-
-                        const doramaMoviePromises = doramasMovieIds.map(id =>
-                            fetch(`${apiBaseUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`)
-                            .then(response => response.json())
-                            .then(data => ({ ...data, genre: 'dorama' }))
-                        );
-
-                        try {
-                            const data = await Promise.all([...doramaSeriesPromises, ...doramaMoviePromises]);
-                            const series = data.filter(item => item.name);
-                            const movies = data.filter(item => item.title);
-                            const mixedContent = mixContent(movies, series);
-                            displayContent(mixedContent);
-                            allContent = [...mixedContent]; // Asegurar que no se mezcle con otras secciones
-                            currentSectionContent = [...mixedContent];
-                        } catch (error) {
-                            console.error('Error fetching data:', error);
-                        }
-                    } else if (selectedCategory === 'animes') {
-                        currentSectionContent = [];
-                        const animeMoviePromises = animesMovieIds.map(id =>
-                            fetch(`${apiBaseUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`)
-                            .then(response => response.json())
-                            .then(data => ({ ...data, genre: 'anime' }))
-                        );
-
-                        const animeSeriesPromises = animesSeriesIds.map(id =>
-                            fetch(`${apiBaseUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`)
-                            .then(response => response.json())
-                            .then(data => ({ ...data, genre: 'anime' }))
-                        );
-
-                        try {
-                            const data = await Promise.all([...animeMoviePromises, ...animeSeriesPromises]);
-                            const movies = data.filter(item => item.title);
-                            const series = data.filter(item => item.name);
-                            const mixedContent = mixContent(movies, series);
-                            displayContent(mixedContent);
-                            allContent = [...mixedContent]; 
-                            currentSectionContent = [...mixedContent];
-                        } catch (error) {
-                            console.error('Error fetching data:', error);
-                        }
-                    }
-                });
-            });
-
-            // In the filterContentByGenre function, replace the entire function with this updated version:
-
-            // Reemplazar la función filterContentByGenre con esta versión actualizada:
             function filterContentByGenre(genreId) {
                 const apiUrl = 'https://api.themoviedb.org/3';
-                const apiKey = '32e5e53999e380a0291d66fb304153fe';
+                const apiKey = '32e5e53999e380a0291d66fb304153fe'; //Pega en medio de las comillas tu API
                 
-                // Mostrar el spinner mientras se procesa
-                document.getElementById('spinner').style.display = 'block';
-                
-                // Determinar qué IDs debemos verificar según la categoría actual
-                const currentCategory = document.querySelector('.category.selected')?.dataset.category || 'inicio';
-                
+                document.getElementById('spinner').style.display = 'block';                
+                const currentCategory = document.querySelector('.category.selected')?.dataset.category || 'inicio';                
                 const promises = [];
                 
                 // Solo verificamos películas si estamos en inicio o películas
-                if (currentCategory === 'inicio' || currentCategory === 'peliculas') {
-                    inicioMovieIds.forEach(id => {
-                        promises.push(
-                            fetch(`${apiUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`)
-                                .then(response => response.json())
-                        );
-                    });
-                }
-                
-                // Solo verificamos series si estamos en inicio o series
-                if (currentCategory === 'inicio' || currentCategory === 'series') {
-                    inicioSeriesIds.forEach(id => {
-                        promises.push(
-                            fetch(`${apiUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`)
-                                .then(response => response.json())
-                        );
-                    });
-                }
-                
-                // Para animes y doramas, filtramos el contenido actual
-                if (currentCategory === 'animes' || currentCategory === 'doramas') {
-                    const filteredContent = currentSectionContent.filter(item => {
-                        return item.genres && item.genres.some(genre => genre.id == genreId);
-                    });
-                    
-                    if (filteredContent.length > 0) {
-                        displayContent(filteredContent);
-                    } else {
-                        contentList.innerHTML = '<div style="color: white; text-align: center; width: 100%; padding: 20px;">No se encontraron resultados para este género.</div>';
-                    }
-                    
-                    document.getElementById('spinner').style.display = 'none';
-                    return;
-                }
-                
-                // Procesar las promesas para las categorías principales
-                Promise.all(promises)
-                    .then(results => {
-                        // Filtrar contenido que coincida con el género seleccionado
-                        const filteredContent = results.filter(item => {
-                            return item.genres && item.genres.some(genre => genre.id == genreId);
-                        });
-                        
-                        if (filteredContent.length > 0) {
-                            // Si encontramos contenido con este género, lo mostramos
-                            displayContent(filteredContent);
-                            currentSectionContent = [...filteredContent];
-                        } else {
-                            // Si no hay contenido, mostramos un mensaje
-                            contentList.innerHTML = '<div style="color: white; text-align: center; width: 100%; padding: 20px;">No se encontraron resultados para este género.</div>';
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error al filtrar por género:', error);
-                        contentList.innerHTML = '<div style="color: white; text-align: center; width: 100%; padding: 20px;">Error al cargar el contenido.</div>';
-                    })
-                    .finally(() => {
-                        document.getElementById('spinner').style.display = 'none';
-                    });
+const _0x5303ce=_0xe3e9;function _0x3142(){const _0x4fd416=['series','9AJSHaf','1461888hsewWW','1045645iiyznx','then','26FPSmcj','style','/tv/','/movie/','3808651JSvmzk','42114dGAcsK','animes','push','548562agLQQk','none','some','all','forEach','&language=es-MX','<div\x20style=\x22color:\x20white;\x20text-align:\x20center;\x20width:\x20100%;\x20padding:\x2020px;\x22>Error\x20al\x20cargar\x20el\x20contenido.</div>','1723740LNiaZK','4720370qqIXLN','?api_key=','catch','Error\x20al\x20filtrar\x20por\x20género:','length','8QxdAvd','getElementById','<div\x20style=\x22color:\x20white;\x20text-align:\x20center;\x20width:\x20100%;\x20padding:\x2020px;\x22>No\x20se\x20encontraron\x20resultados\x20para\x20este\x20género.</div>','json','genres','display'];_0x3142=function(){return _0x4fd416;};return _0x3142();}function _0xe3e9(_0x4ff5cc,_0x353a63){const _0x3142c4=_0x3142();return _0xe3e9=function(_0xe3e97b,_0x227a32){_0xe3e97b=_0xe3e97b-0xce;let _0xdc6e2b=_0x3142c4[_0xe3e97b];return _0xdc6e2b;},_0xe3e9(_0x4ff5cc,_0x353a63);}(function(_0x2e5ba7,_0xd7f167){const _0x473949=_0xe3e9,_0x195310=_0x2e5ba7();while(!![]){try{const _0x53cf1f=-parseInt(_0x473949(0xd2))/0x1*(-parseInt(_0x473949(0xed))/0x2)+parseInt(_0x473949(0xd5))/0x3+-parseInt(_0x473949(0xdc))/0x4+parseInt(_0x473949(0xeb))/0x5+-parseInt(_0x473949(0xea))/0x6+parseInt(_0x473949(0xd1))/0x7*(parseInt(_0x473949(0xe2))/0x8)+-parseInt(_0x473949(0xe9))/0x9*(parseInt(_0x473949(0xdd))/0xa);if(_0x53cf1f===_0xd7f167)break;else _0x195310['push'](_0x195310['shift']());}catch(_0x1d0739){_0x195310['push'](_0x195310['shift']());}}}(_0x3142,0x5242a));(currentCategory==='inicio'||currentCategory==='peliculas')&&inicioMovieIds['forEach'](_0x5a6856=>{const _0x49d9ff=_0xe3e9;promises[_0x49d9ff(0xd4)](fetch(apiUrl+_0x49d9ff(0xd0)+_0x5a6856+_0x49d9ff(0xde)+apiKey+_0x49d9ff(0xda))[_0x49d9ff(0xec)](_0x59a7e7=>_0x59a7e7['json']()));});(currentCategory==='inicio'||currentCategory===_0x5303ce(0xe8))&&inicioSeriesIds[_0x5303ce(0xd9)](_0x56afaa=>{const _0x530c76=_0x5303ce;promises[_0x530c76(0xd4)](fetch(apiUrl+_0x530c76(0xcf)+_0x56afaa+'?api_key='+apiKey+'&language=es-MX')[_0x530c76(0xec)](_0x147e9f=>_0x147e9f[_0x530c76(0xe5)]()));});if(currentCategory===_0x5303ce(0xd3)||currentCategory==='doramas'){const filteredContent=currentSectionContent['filter'](_0x44b484=>{const _0xb7430a=_0x5303ce;return _0x44b484['genres']&&_0x44b484[_0xb7430a(0xe6)][_0xb7430a(0xd7)](_0x569e57=>_0x569e57['id']==genreId);});filteredContent[_0x5303ce(0xe1)]>0x0?displayContent(filteredContent):contentList['innerHTML']='<div\x20style=\x22color:\x20white;\x20text-align:\x20center;\x20width:\x20100%;\x20padding:\x2020px;\x22>No\x20se\x20encontraron\x20resultados\x20para\x20este\x20género.</div>';document[_0x5303ce(0xe3)]('spinner')[_0x5303ce(0xce)][_0x5303ce(0xe7)]=_0x5303ce(0xd6);return;}Promise[_0x5303ce(0xd8)](promises)[_0x5303ce(0xec)](_0x4bd590=>{const _0x49709b=_0x5303ce,_0x4c91a7=_0x4bd590['filter'](_0x485d15=>{const _0x471da3=_0xe3e9;return _0x485d15[_0x471da3(0xe6)]&&_0x485d15['genres'][_0x471da3(0xd7)](_0x12dfbc=>_0x12dfbc['id']==genreId);});_0x4c91a7[_0x49709b(0xe1)]>0x0?(displayContent(_0x4c91a7),currentSectionContent=[..._0x4c91a7]):contentList['innerHTML']=_0x49709b(0xe4);})[_0x5303ce(0xdf)](_0x269b36=>{const _0x46f57b=_0x5303ce;console['error'](_0x46f57b(0xe0),_0x269b36),contentList['innerHTML']=_0x46f57b(0xdb);})['finally'](()=>{const _0xf5fd3c=_0x5303ce;document[_0xf5fd3c(0xe3)]('spinner')[_0xf5fd3c(0xce)]['display']=_0xf5fd3c(0xd6);});
             }
 
-            // Helper function to fetch content by genre from API
             function fetchGenreContent(genreId, currentCategory) {
                 const apiUrl = 'https://api.themoviedb.org/3';
-                const apiKey = '32e5e53999e380a0291d66fb304153fe';
-                
+                const apiKey = '32e5e53999e380a0291d66fb304153fe'; //Pega en medio de las comillas tu API
                 const contentTypes = [];
                 
-                if (currentCategory === 'peliculas' || currentCategory === 'inicio') {
-                    contentTypes.push('movie');
-                }
-                
-                if (currentCategory === 'series' || currentCategory === 'inicio') {
-                    contentTypes.push('tv');
-                }
-                
-                const promises = [];
-                
-                contentTypes.forEach(type => {
-                    promises.push(
-                        fetch(`${apiUrl}/discover/${type}?api_key=${apiKey}&language=es-MX&with_genres=${genreId}&page=1`)
-                            .then(response => response.json())
-                            .then(data => data.results || [])
-                    );
-                });
-                
-                Promise.all(promises)
-                    .then(results => {
-                        // Flatten the results array
-                        const allResults = results.flat();
-                        
-                        if (allResults.length === 0) {
-                            contentList.innerHTML = '<div style="color: white; text-align: center; width: 100%; padding: 20px;">No se encontraron resultados para este género.</div>';
-                        } else {
-                            // Sort randomly
-                            allResults.sort(() => Math.random() - 0.5);
-                            
-                            // Update current section content with the filtered results
-                            currentSectionContent = [...allResults];
-                            
-                            // Display the filtered content
-                            displayContent(allResults);
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error fetching genre data:', error);
-                        contentList.innerHTML = '<div style="color: white; text-align: center; width: 100%; padding: 20px;">Error al cargar el contenido.</div>';
-                    })
-                    .finally(() => {
-                        document.getElementById('spinner').style.display = 'none';
-                    });
-            }
-
-            services.forEach(service => {
-                service.addEventListener('click', (event) => {
-                    const selectedService = event.currentTarget.dataset.service;
-                    let movieIds = [];
-                    let seriesIds = [];
-
-                    if (selectedService === 'netflix') {
-                        movieIds = [...netflixMovieIds];
-                        seriesIds = [...netflixSeriesIds];
-                    } else if (selectedService === 'disney') {
-                        movieIds = [...disneyMovieIds];
-                        seriesIds = [...disneySeriesIds];
-                    } else if (selectedService === 'hbo') {
-                        movieIds = [...hboMovieIds];
-                        seriesIds = [...hboSeriesIds];
-                    } else if (selectedService === 'prime') {
-                        movieIds = [...primeMovieIds];
-                        seriesIds = [...primeSeriesIds];
-                    } else if (selectedService === 'paramount') {
-                        movieIds = [...paramountMovieIds];
-                        seriesIds = [...paramountSeriesIds];
-                    }
-
-                    // Reiniciar el estado para el servicio seleccionado
-                    const currentSection = document.querySelector('.category.selected')?.dataset.category || 'inicio';
-                    hasMore[currentSection] = true;
-                    loading[currentSection] = false;
-
-                    const moviePromises = movieIds.map(id =>
-                        fetch(`${apiBaseUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`)
-                        .then(response => response.json())
-                    );
-
-                    const tvPromises = seriesIds.map(id =>
-                        fetch(`${apiBaseUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`)
-                        .then(response => response.json())
-                    );
-
-                    Promise.all([...moviePromises, ...tvPromises])
-                        .then(data => {
-                            const movies = data.filter(item => item.title);
-                            const series = data.filter(item => item.name);
-                            const mixedContent = mixContent(movies, series);
-                            displayContent(mixedContent);
-                            allContent = [...allContent, ...mixedContent];
-                            currentSectionContent = [...mixedContent];
-                        })
-                        .catch(error => {
-                            console.error('Error fetching data:', error);
-                        });
-
-                    categories.forEach(cat => cat.classList.remove('selected'));
-                });
-            });
-
-            fetchInicioContent([...inicioMovieIds], [...inicioSeriesIds]);
-
-            const backToTopButton = document.getElementById('back-to-top');
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 200) {
-                    backToTopButton.style.display = 'block';
-                } else {
-                    backToTopButton.style.display = 'none';
-                }
-            });
-
-            backToTopButton.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-          
-            const popup = document.getElementById('popup');
-            const closeButton = document.getElementById('close-popup');
-            const dontShowAgainCheckbox = document.getElementById('dont-show-again');
-
-            closeButton.addEventListener('click', () => {
-                popup.style.display = 'none';
-                document.body.classList.remove('popup-open');
-            });
-
-            dontShowAgainCheckbox.addEventListener('change', () => {
-                if (dontShowAgainCheckbox.checked) {
-                    localStorage.setItem('dontShowPopupAgain', true);
-                } else {
-                    localStorage.removeItem('dontShowPopupAgain');
-                }
-            });
-
-            if (!localStorage.getItem('dontShowPopupAgain')) {
-                popup.style.display = 'block';
-                document.body.classList.add('popup-open');
-            }     
-
-            const logo = document.querySelector('.logo');
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('overlay');
-            const genreItems = document.querySelectorAll('.genre-list li');
-
-            logo.addEventListener('click', () => {
-                sidebar.classList.toggle('active');
-                overlay.classList.toggle('active');
-            });
-
-            overlay.addEventListener('click', () => {
-                sidebar.classList.remove('active');
-                overlay.classList.remove('active');
-            });
-
-            genreItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    const genreId = item.getAttribute('data-genre');
-                    console.log(`Género seleccionado: ${genreId}`);
-                    
-                    sidebar.classList.remove('active');
-                    overlay.classList.remove('active');
-                });
-            });
-              
-            genreItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    const genreId = item.getAttribute('data-genre');
-                    filterContentByGenre(genreId);
-                });
-            });
-
-            const contentIds = {
-                movies: [...inicioMovieIds],
-                series: [...inicioSeriesIds]
-            };
-
-            // Implementación del Intersection Observer para la carga perezosa
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Obtener la sección actual para cargar el contenido correcto
-                        const currentSection = document.querySelector('.category.selected')?.dataset.category || 'inicio';
-                        loadMoreContent(currentSection);
-                    }
-                });
-            }, { threshold: 0.1 });
+if(currentCategory==='peliculas'||currentCategory==='inicio'){contentTypes.push('movie')}
+if(currentCategory==='series'||currentCategory==='inicio'){contentTypes.push('tv')}
+const promises=[];contentTypes.forEach(type=>{promises.push(fetch(`${apiUrl}/discover/${type}?api_key=${apiKey}&language=es-MX&with_genres=${genreId}&page=1`).then(response=>response.json()).then(data=>data.results||[]))});Promise.all(promises).then(results=>{const allResults=results.flat();if(allResults.length===0){contentList.innerHTML='<div style="color: white; text-align: center; width: 100%; padding: 20px;">No se encontraron resultados para este género.</div>'}else{allResults.sort(()=>Math.random()-0.5);currentSectionContent=[...allResults];displayContent(allResults)}}).catch(error=>{console.error('Error fetching genre data:',error);contentList.innerHTML='<div style="color: white; text-align: center; width: 100%; padding: 20px;">Error al cargar el contenido.</div>'}).finally(()=>{document.getElementById('spinner').style.display='none'})}
+services.forEach(service=>{service.addEventListener('click',(event)=>{const selectedService=event.currentTarget.dataset.service;let movieIds=[];let seriesIds=[];if(selectedService==='netflix'){movieIds=[...netflixMovieIds];seriesIds=[...netflixSeriesIds]}else if(selectedService==='disney'){movieIds=[...disneyMovieIds];seriesIds=[...disneySeriesIds]}else if(selectedService==='hbo'){movieIds=[...hboMovieIds];seriesIds=[...hboSeriesIds]}else if(selectedService==='prime'){movieIds=[...primeMovieIds];seriesIds=[...primeSeriesIds]}else if(selectedService==='paramount'){movieIds=[...paramountMovieIds];seriesIds=[...paramountSeriesIds]}
+const currentSection=document.querySelector('.category.selected')?.dataset.category||'inicio';hasMore[currentSection]=!0;loading[currentSection]=!1;const moviePromises=movieIds.map(id=>fetch(`${apiBaseUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`).then(response=>response.json()));const tvPromises=seriesIds.map(id=>fetch(`${apiBaseUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`).then(response=>response.json()));Promise.all([...moviePromises,...tvPromises]).then(data=>{const movies=data.filter(item=>item.title);const series=data.filter(item=>item.name);const mixedContent=mixContent(movies,series);displayContent(mixedContent);allContent=[...allContent,...mixedContent];currentSectionContent=[...mixedContent]}).catch(error=>{console.error('Error fetching data:',error)});categories.forEach(cat=>cat.classList.remove('selected'))})});fetchInicioContent([...inicioMovieIds],[...inicioSeriesIds]);const backToTopButton=document.getElementById('back-to-top');window.addEventListener('scroll',()=>{if(window.scrollY>200){backToTopButton.style.display='block'}else{backToTopButton.style.display='none'}});backToTopButton.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});const popup=document.getElementById('popup');const closeButton=document.getElementById('close-popup');const dontShowAgainCheckbox=document.getElementById('dont-show-again');closeButton.addEventListener('click',()=>{popup.style.display='none';document.body.classList.remove('popup-open')});dontShowAgainCheckbox.addEventListener('change',()=>{if(dontShowAgainCheckbox.checked){localStorage.setItem('dontShowPopupAgain',!0)}else{localStorage.removeItem('dontShowPopupAgain')}});if(!localStorage.getItem('dontShowPopupAgain')){popup.style.display='block';document.body.classList.add('popup-open')}
+const logo=document.querySelector('.logo');const sidebar=document.getElementById('sidebar');const overlay=document.getElementById('overlay');const genreItems=document.querySelectorAll('.genre-list li');logo.addEventListener('click',()=>{sidebar.classList.toggle('active');overlay.classList.toggle('active')});overlay.addEventListener('click',()=>{sidebar.classList.remove('active');overlay.classList.remove('active')});genreItems.forEach(item=>{item.addEventListener('click',()=>{const genreId=item.getAttribute('data-genre');console.log(`Género seleccionado: ${genreId}`);sidebar.classList.remove('active');overlay.classList.remove('active')})});genreItems.forEach(item=>{item.addEventListener('click',()=>{const genreId=item.getAttribute('data-genre');filterContentByGenre(genreId)})});const contentIds={movies:[...inicioMovieIds],series:[...inicioSeriesIds]};const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){const currentSection=document.querySelector('.category.selected')?.dataset.category||'inicio';loadMoreContent(currentSection)}})}, { threshold: 0.1 });
 
             // Función modificada para cargar más contenido según la sección
-            function loadMoreContent(section) {
-                // Si no se proporciona una sección, usar la sección actual seleccionada
-                const currentSection = section || document.querySelector('.category.selected')?.dataset.category || 'inicio';
-                
-                if (!loading[currentSection] && hasMore[currentSection]) {
-                    loading[currentSection] = true;
-
-                    const start = currentSectionContent.filter(item => item.isVisible).length;
-                    const end = start + 18;
-
-                    currentSectionContent.slice(start, end).forEach(item => {
-                        item.isVisible = true;
-                    });
-
-                    displayContent(currentSectionContent);
-
-                    if (end >= currentSectionContent.length) {
-                        hasMore[currentSection] = false;
-                    }
-
-                    loading[currentSection] = false;
-                }
-            }
-
-            function mixContent(movies, series) {
-                const mixed = [...movies, ...series];
-                // Barajar aleatoriamente la lista
-                return mixed.sort(() => Math.random() - 0.5);
-            }
-
-            function shuffleArray(array) {
-                for (let i = array.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [array[i], array[j]] = [array[j], array[i]]; // Intercambio de elementos
-                }
-                return array;
-            }
+(function(_0x489754,_0x222ef2){const _0x4bb528=_0x3f24,_0x5ab541=_0x489754();while(!![]){try{const _0x59ef75=parseInt(_0x4bb528(0x81))/0x1*(parseInt(_0x4bb528(0x79))/0x2)+-parseInt(_0x4bb528(0x89))/0x3*(parseInt(_0x4bb528(0x76))/0x4)+-parseInt(_0x4bb528(0x87))/0x5+parseInt(_0x4bb528(0x7d))/0x6*(parseInt(_0x4bb528(0x83))/0x7)+-parseInt(_0x4bb528(0x77))/0x8+parseInt(_0x4bb528(0x84))/0x9*(-parseInt(_0x4bb528(0x85))/0xa)+parseInt(_0x4bb528(0x78))/0xb;if(_0x59ef75===_0x222ef2)break;else _0x5ab541['push'](_0x5ab541['shift']());}catch(_0x5306a0){_0x5ab541['push'](_0x5ab541['shift']());}}}(_0x502d,0xa759e));function _0x3f24(_0x4ed7aa,_0xd9afe4){const _0x502dc9=_0x502d();return _0x3f24=function(_0x3f2496,_0x4c99ca){_0x3f2496=_0x3f2496-0x75;let _0x52b673=_0x502dc9[_0x3f2496];return _0x52b673;},_0x3f24(_0x4ed7aa,_0xd9afe4);}function loadMoreContent(_0x5dd6e4){const _0x5eccee=_0x3f24,_0x16ddb2=_0x5dd6e4||document[_0x5eccee(0x82)](_0x5eccee(0x75))?.[_0x5eccee(0x7c)]['category']||_0x5eccee(0x7b);if(!loading[_0x16ddb2]&&hasMore[_0x16ddb2]){loading[_0x16ddb2]=!![];const _0x5d833b=currentSectionContent['filter'](_0x58e4c1=>_0x58e4c1['isVisible'])[_0x5eccee(0x7a)],_0x4e8c74=_0x5d833b+0x12;currentSectionContent[_0x5eccee(0x80)](_0x5d833b,_0x4e8c74)[_0x5eccee(0x88)](_0x47e05c=>{_0x47e05c['isVisible']=!![];}),displayContent(currentSectionContent),_0x4e8c74>=currentSectionContent[_0x5eccee(0x7a)]&&(hasMore[_0x16ddb2]=![]),loading[_0x16ddb2]=![];}}function mixContent(_0x51c9ae,_0x3e050a){const _0x452421=_0x3f24,_0x343344=[..._0x51c9ae,..._0x3e050a];return _0x343344[_0x452421(0x7f)](()=>Math[_0x452421(0x7e)]()-0.5);}function _0x502d(){const _0x21fff4=['290076RDgOxT','length','inicio','dataset','834etMvFS','random','sort','slice','9TruDsv','querySelector','36379ynKakq','2868363mtaDlB','10XWJmQe','floor','2236225IbXTIL','forEach','897033KgBALh','.category.selected','4qcingf','3303768wsGPoF','1492469rWZyld'];_0x502d=function(){return _0x21fff4;};return _0x502d();}function shuffleArray(_0x22b390){const _0x51f91e=_0x3f24;for(let _0x1a1d99=_0x22b390[_0x51f91e(0x7a)]-0x1;_0x1a1d99>0x0;_0x1a1d99--){const _0x1cff9e=Math[_0x51f91e(0x86)](Math[_0x51f91e(0x7e)]()*(_0x1a1d99+0x1));[_0x22b390[_0x1a1d99],_0x22b390[_0x1cff9e]]=[_0x22b390[_0x1cff9e],_0x22b390[_0x1a1d99]];}return _0x22b390;}
 
             async function fetchInicioContent(movieIds, tvIds) {
                 contentList.innerHTML = ''; // Limpiar contenido existente
                 currentSectionContent = []; // Reiniciar contenido actual
 
-                try {
-                    // Fetch películas
-                    const moviePromises = movieIds.map(id =>
-                        fetch(`${apiBaseUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`)
-                            .then(response => response.json())
-                            .then(data => ({ ...data, type: 'movie' }))
-                    );
-
-                    // Fetch series
-                    const tvPromises = tvIds.map(id =>
-                        fetch(`${apiBaseUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`)
-                            .then(response => response.json())
-                            .then(data => ({ ...data, type: 'tv' }))
-                    );
-
-                    // Esperar a que todas las promesas se resuelvan
-                    const [movies, series] = await Promise.all([
-                        Promise.all(moviePromises),
-                        Promise.all(tvPromises)
-                    ]);
-
-                    // Mezclar contenido
-                    let mixedContent = shuffleArray([...movies, ...series]);
-
-                    if (mixedContent.length === 0) {
-                        console.warn("No se encontró contenido.");
-                        return;
-                    }
-
-                    console.log("Contenido mezclado:", mixedContent);
-
-                    // Actualizar la sección con el contenido mezclado
-                    currentSectionContent = mixedContent;
-                    allContent = [...mixedContent];
-
-                    // Mostrar contenido en la interfaz
-                    displayContent(mixedContent);
-
-                    // Filtrar imágenes válidas para el Swiper
-                    const validSwiperImages = mixedContent.filter(item => item.backdrop_path);
-                    const shuffledSwiperImages = shuffleArray(validSwiperImages).slice(0, 4); // 4 aleatorios
+try{const moviePromises=movieIds.map(id=>fetch(`${apiBaseUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`).then(response=>response.json()).then(data=>({...data,type:'movie'})));const tvPromises=tvIds.map(id=>fetch(`${apiBaseUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`).then(response=>response.json()).then(data=>({...data,type:'tv'})));const[movies,series]=await Promise.all([Promise.all(moviePromises),Promise.all(tvPromises)]);let mixedContent=shuffleArray([...movies,...series]);if(mixedContent.length===0){console.warn("No se encontró contenido.");return}
+console.log("Contenido mezclado:",mixedContent);currentSectionContent=mixedContent;allContent=[...mixedContent];displayContent(mixedContent);const validSwiperImages=mixedContent.filter(item=>item.backdrop_path);const shuffledSwiperImages=shuffleArray(validSwiperImages).slice(0,4)
 
                     // Obtener imágenes específicas (2 películas y 2 series)
                     const specificMovieImages = await Promise.all(
-                        [822119, 939243].map(id =>
+                        [].map(id =>
                             fetch(`${apiBaseUrl}/movie/${id}?api_key=${apiKey}&language=es-MX`)
                                 .then(response => response.json())
                                 .then(data => ({
@@ -2700,9 +1328,8 @@
                                 }))
                         )
                     );
-
                     const specificTvImages = await Promise.all(
-                        [207332, 93405].map(id =>
+                        [].map(id =>
                             fetch(`${apiBaseUrl}/tv/${id}?api_key=${apiKey}&language=es-MX`)
                                 .then(response => response.json())
                                 .then(data => ({
@@ -2713,125 +1340,29 @@
                                 }))
                         )
                     );
-
                     // Combinar las imágenes: 4 aleatorias + 2 películas específicas + 2 series específicas
-                    const finalSwiperImages = [
-                        ...shuffledSwiperImages.map(item => ({
-                            url: `${imgBaseUrl}${item.backdrop_path}`,
-                            title: item.title || item.name,
-                            description: item.overview || '',
-                            id: item.id
-                        })),
-                        ...specificMovieImages,
-                        ...specificTvImages
-                    ];
+const _0x5dc1e2=_0x8f1a;function _0x2ba3(){let $=["6aNrJqR","2355241VAsTLu","5128000amvhcm","map","4ePOpLa","810639sUTjOG","3218TeVvtP","2066815ZodKzR","overview","40KWvGZP","94hiGYva","7748785nvEZfl","name","1880628EKAXGu","backdrop_path"];return(_0x2ba3=function(){return $})()}function _0x8f1a($,x){let _=_0x2ba3();return(_0x8f1a=function($,x){return _[$-=371]})($,x)}!function($,x){let _=_0x8f1a,e=$();for(;;)try{let t=-parseInt(_(376))/1*(-parseInt(_(380))/2)+parseInt(_(383))/3*(-parseInt(_(374))/4)+parseInt(_(377))/5*(parseInt(_(385))/6)+-parseInt(_(371))/7+parseInt(_(379))/8*(-parseInt(_(375))/9)+parseInt(_(372))/10+parseInt(_(381))/11;if(368150===t)break;e.push(e.shift())}catch(a){e.push(e.shift())}}(_0x2ba3,368150);const finalSwiperImages=[...shuffledSwiperImages[_0x5dc1e2(373)]($=>({url:""+imgBaseUrl+$[_0x5dc1e2(384)],title:$.title||$[_0x5dc1e2(382)],description:$[_0x5dc1e2(378)]||"",id:$.id})),...specificMovieImages,...specificTvImages];
 
                     swiperWrapper.innerHTML = '';
                     updateSwiper(finalSwiperImages);
-
-                    // Inicializar Swiper
                     new Swiper('.swiper-container', {
                         loop: true,
                         autoplay: {
-                            delay: 5000,
+                            delay: 5000, //(5 segundos) tiempo de duración de cada imagen en el swiper
                             disableOnInteraction: false,
                         },
                         pagination: {
                             el: '.swiper-pagination',
                             clickable: true,
                         },
-                    });
-
-                } catch (error) {
-                    console.error('Error en fetchInicioContent:', error);
-                }
-            }
-
-
-            // Add this helper function for mixing content:
-            function mixContent(movies, series) {
-                const mixed = [...movies, ...series];
-                return mixed.sort(() => Math.random() - 0.5);
-            }
-
-            // Add this function for fetching content by IDs:
-            async function fetchContentByIds(ids, type) {
-                const promises = ids.map(id =>
-                    fetch(`${apiBaseUrl}/${type}/${id}?api_key=${apiKey}&language=es-MX`)
-                    .then(response => response.json())
-                    .then(data => ({ ...data, type }))
-                );
-
-                try {
-                    const content = await Promise.all(promises);
-                    displayContent(content);
-                    currentSectionContent = content;
-                    allContent = [...content];
-                } catch (error) {
-                    console.error(`Error fetching ${type} content:`, error);
-                }
-            }
-          
-            // Add this function instead:
-            function updateSwiper(images) {
-                images.forEach(image => {
-                    const slide = document.createElement('div');
-                    slide.classList.add('swiper-slide');
-                    slide.style.backgroundImage = `url(${image.url})`;
-                    const description = image.description.split(' ').slice(0, 18).join(' ');
-                    slide.innerHTML = `
-                        <div class="swiper-slide-content">
-                            <h2 class="swiper-slide-title">${image.title}</h2>
-                            <p class="swiper-slide-description">${description}${description.length === image.description.split(' ').length ? '' : '...'}</p>
-                            <a href="go:${image.id}" target="_blank" class="swiper-slide-button">Ver ahora</a>
-                        </div>
-                    `;
-                    swiperWrapper.appendChild(slide);
-                });
-            }
-            // Inicializar la carga de contenido
-            fetchInicioContent([...inicioMovieIds], [...inicioSeriesIds]);
-            
-            // Funcionalidad para el botón de búsqueda en móvil
-            if (window.innerWidth <= 5000) {
-                const searchContainer = document.querySelector('.search');
-                const searchBtn = document.getElementById('search-button');
-                const logo1 = document.querySelector('.logo-1');
-                
-                searchBtn.addEventListener('click', function(e) {
-                    // Si el input de búsqueda no está visible, prevenir la acción por defecto y mostrarlo
-                    if (!searchContainer.classList.contains('active')) {
-                        e.preventDefault();
-                        searchContainer.classList.add('active');
-                        // Ocultar el logo-1
-                        logo1.style.display = 'none';
-                        // Enfocar el input después de mostrarlo
-                        setTimeout(() => {
-                            searchInput.focus();
-                        }, 300);
-                    }
-                });
-                
-                // Cerrar la búsqueda al hacer clic fuera
-                document.addEventListener('click', function(e) {
-                    if (!searchContainer.contains(e.target) && searchContainer.classList.contains('active')) {
-                        searchContainer.classList.remove('active');
-                        // Mostrar el logo-1 nuevamente
-                        logo1.style.display = '';
-                    }
-                });
-            }
+                    });} 
+              catch (error) {
+                    console.error('Error en fetchInicioContent:', error);}}
+function _0x567f($,x){let e=_0x43fb();return(_0x567f=function($,x){return e[$-=232]})($,x)}const _0x491981=_0x567f;function mixContent($,x){let e=_0x567f;return[...$,...x][e(275)](()=>Math[e(237)]()-.5)}async function fetchContentByIds($,x){let e=_0x567f,_=$[e(256)]($=>fetch(apiBaseUrl+"/"+x+"/"+$+e(278)+apiKey+e(239))[e(258)]($=>$.json())[e(258)]($=>({...$,type:x})));try{let t=await Promise[e(235)](_);displayContent(t),currentSectionContent=t,allContent=[...t]}catch(n){console[e(241)](e(263)+x+e(247),n)}}function _0x43fb(){let $=["then","target","1548841BJmaxV","focus","2010768dTnBXi","Error fetching ","swiper-slide","url(","length",'" target="_blank" class="swiper-slide-button">Ver ahora</a>\n                        </div>\n                    ',".search","join","forEach",'\n                        <div class="swiper-slide-content">\n                            <h2 class="swiper-slide-title">',"19195nskive","innerWidth","backgroundImage","sort","add","339366lZUtuI","?api_key=","active","classList","description","contains","div","430910DFTLxQ",'</h2>\n                            <p class="swiper-slide-description">',"all","querySelector","random","786eSPQeo","&language=es-MX","click","error","none","getElementById","split",".logo-1","slice"," content:",'</p>\n                            <a href="go:',"title","4762712TBHvBf","appendChild","1456629YOPWIg","style","addEventListener","createElement","map","display"];return(_0x43fb=function(){return $})()}function updateSwiper($){let x=_0x567f;$[x(270)]($=>{let e=x,_=document[e(255)](e(232));_[e(280)][e(276)](e(264)),_[e(253)][e(274)]=e(265)+$.url+")";let t=$[e(281)][e(244)](" ")[e(246)](0,18)[e(269)](" ");_.innerHTML=e(271)+$[e(249)]+e(234)+t+(t[e(266)]===$[e(281)][e(244)](" ")[e(266)]?"":"...")+e(248)+$.id+e(267),swiperWrapper[e(251)](_)})}if(!function($,x){let e=_0x567f,_=$();for(;;)try{let t=-parseInt(e(233))/1+-parseInt(e(277))/2+-parseInt(e(252))/3+parseInt(e(262))/4+-parseInt(e(272))/5*(-parseInt(e(238))/6)+-parseInt(e(260))/7+parseInt(e(250))/8;if(293541===t)break;_.push(_.shift())}catch(n){_.push(_.shift())}}(_0x43fb,293541),fetchInicioContent([...inicioMovieIds],[...inicioSeriesIds]),window[_0x491981(273)]<=5e3){let $=document[_0x491981(236)](_0x491981(268)),x=document[_0x491981(243)]("search-button"),e=document[_0x491981(236)](_0x491981(245));x[_0x491981(254)](_0x491981(240),function(x){let _=_0x491981;$[_(280)].contains(_(279))||(x.preventDefault(),$.classList[_(276)]("active"),e[_(253)][_(257)]=_(242),setTimeout(()=>{searchInput[_(261)]()},300))}),document.addEventListener(_0x491981(240),function(x){let _=_0x491981;!$[_(282)](x[_(259)])&&$[_(280)][_(282)](_(279))&&($[_(280)].remove("active"),e[_(253)].display="")})}
         }
-
-        // Inicializar el sistema de licencia cuando se carga la página
         window.addEventListener('DOMContentLoaded', function() {
             licenseSystem.init();
         });
     </script>
-  <script>
-    document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-	});
-  </script>
 </body>
 </html>
